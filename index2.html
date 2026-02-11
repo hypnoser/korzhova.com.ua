@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карина Коржова - Косметолог-естетист у Києві</title>
+    <meta name="description" content="Професійний косметолог-естетист у Києві. Апаратна косметологія, догляд за шкірою, безін'єкційний ліфтинг. Метро Харківська.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4a574;
+            --primary-dark: #b88a5f;
+            --secondary: #f5f5f5;
+            --text: #2c2c2c;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.95), rgba(184, 138, 95, 0.95));
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.98), rgba(184, 138, 95, 0.98));
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5ebe0 0%, #e8d5c4 100%);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 165, 116, 0.6);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .about-text {
+            animation: fadeInRight 1s ease;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Equipment Section */
+        .equipment-section {
+            background: var(--secondary);
+        }
+
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .equipment-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px var(--shadow);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .equipment-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .equipment-item h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .equipment-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Promo Section */
+        .promo-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+            padding: 60px 2rem;
+            border-radius: 20px;
+            margin: 80px auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .promo-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .promo-section .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .promo-section .old-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.5rem;
+        }
+
+        .promo-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .promo-section .cta-button {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .promo-section .cta-button:hover {
+            background: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.6);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .promo-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .promo-section .price {
+                font-size: 2rem;
+            }
+
+            .about-image img {
+                max-width: 100%;
+            }
+        }
+
+        /* Animations on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">Карина Коржова</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Про мене</a></li>
+                <li><a href="#services">Послуги</a></li>
+                <li><a href="#equipment">Обладнання</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Карина Коржова</h1>
+            <div class="subtitle">Косметолог-естетист</div>
+            <p>Догляд за вашою шкірою з любов'ю та професіоналізмом. Сучасні методики та апаратна косметологія у серці Києва.</p>
+            <a href="#contact" class="cta-button">Записатися на консультацію</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title fade-in">Про мене</h2>
+        <div class="about-container">
+            <div class="about-image fade-in">
+                <img src="https://korzhova.com.ua/images/550px.jpg" alt="Карина Коржова">
+            </div>
+            <div class="about-text fade-in">
+                <h3>Привіт! 👋</h3>
+                <p>Я Карина Коржова – косметолог-естетист із пристрастю до краси та здоров'я вашої шкіри.</p>
+                <p>Моя мета – допомогти вам відчути себе впевнено та сяяти щодня! Працюю з сучасними апаратами та методиками, щоб забезпечити найкращий результат.</p>
+                <p>Запрошую вас до мого затишного кабінету в салоні GoBeauty біля метро Харківська, де кожна процедура – це турбота про вашу красу та здоров'я.</p>
+                <a href="#contact" class="cta-button">Зв'язатися зі мною</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background: var(--secondary);">
+        <h2 class="section-title fade-in">Послуги</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">✨</div>
+                <h3>Доглядові процедури</h3>
+                <p>Комплексний догляд для всіх типів шкіри обличчя та зони декольте з використанням преміальної косметики.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">👁️</div>
+                <h3>Догляд за зоною навколо очей</h3>
+                <p>Делікатне освітлення, зволоження та зменшення набряків і темних кіл під очима.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🎯</div>
+                <h3>Атравматична чистка</h3>
+                <p>Безболісне очищення шкіри за допомогою ультразвуку та безголкової мезотерапії.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🔥</div>
+                <h3>RF-ліфтинг обличчя</h3>
+                <p>Підтягнення овалу обличчя та зменшення другого підборіддя радіочастотним методом.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💎</div>
+                <h3>Пружність і тонус шкіри</h3>
+                <p>Апаратні процедури для відновлення молодості, пружності та здорового сяйва шкіри.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💆</div>
+                <h3>Масаж обличчя</h3>
+                <p>Розслабляючий масаж обличчя та декольте для тонусу, ліфтингу та релаксації.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⚡</div>
+                <h3>Мікротоки</h3>
+                <p>Тонізація м'язів обличчя, зміцнення тканин та покращення кровообігу.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🌊</div>
+                <h3>Фракційна мезотерапія</h3>
+                <p>Глибоке живлення та омолодження шкіри за допомогою апарату Dermapen.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">❄️</div>
+                <h3>Зменшення набряків</h3>
+                <p>Покращення кольору та стану шкіри, зменшення набряклості та запалень.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment" class="equipment-section">
+        <h2 class="section-title fade-in">Сучасне обладнання</h2>
+        <p style="text-align: center; color: var(--text-light); max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            Використовую передові апаратні технології для досягнення максимального ефекту
+        </p>
+        <div class="equipment-list">
+            <div class="equipment-item fade-in">
+                <h4>Zemits Friolift</h4>
+                <p>RF + Cryo - радіочастотний ліфтинг з охолодженням для підтягнення шкіри</p>
+            </div>
+            <div class="equipment-item fade-in">
+                <h4>Alvipraga Dermapen</h4>
+                <p>Фракційна мезотерапія для глибокого відновлення та омолодження</p>
+            </div>
+            <div class="equipment-item fade-in">
+                <h4>AlviPraga F3</h4>
+                <p>УЗ чистка, безголкова мезотерапія та мікротоки в одному апараті</p>
+            </div>
+            <div class="equipment-item fade-in">
+                <h4>Zemits Фонофорез</h4>
+                <p>Ультразвукова терапія для глибокого проникнення активних речовин</p>
+            </div>
+            <div class="equipment-item fade-in">
+                <h4>Апарат міостимуляції</h4>
+                <p>Тренування м'язів обличчя для природного ліфтинг-ефекту</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <div class="promo-section fade-in">
+        <h2>Спеціальна пропозиція! 🎉</h2>
+        <p>Процедура <strong>Friolift</strong></p>
+        <div class="price">
+            <span class="old-price">1300 грн</span> → 1000 грн
+        </div>
+        <p>Акція діє до кінця червня 2025 року!</p>
+        <a href="#contact" class="cta-button">Записатися зараз</a>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title fade-in">Контакти</h2>
+        <div class="contact-grid">
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>Адреса</h4>
+                        <p>м. Київ, вул. Братства тарасівців, 7<br>
+                        салон GoBeauty, кабінет 14<br>
+                        (біля метро Харківська)</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div class="contact-details">
+                        <h4>Графік роботи</h4>
+                        <p>Понеділок - П'ятниця: 10:00 – 19:00<br>
+                        Субота: за домовленістю<br>
+                        Неділя: вихідний</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>Телефон</h4>
+                        <p><a href="tel:+380688677992">+38 068 867 7992</a></p>
+                        <div class="social-links">
+                            <a href="https://t.me/karinakorzhova" title="Telegram">📱</a>
+                            <a href="viber://chat?number=%2B380688677992" title="Viber">💜</a>
+                            <a href="https://wa.me/+380688677992" title="WhatsApp">💚</a>
+                            <a href="https://www.instagram.com/cosmetolog.korzhova/" title="Instagram">📷</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container fade-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.4729849673867!2d30.63379831573353!3d50.42092997947137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c5e7c0000001%3A0x0!2zNTDCsDI1JzE1LjMiTiAzMMKwMzgnMDguMiJF!5e0!3m2!1suk!2sua!4v1234567890123!5m2!1suk!2sua" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2022-2025 Карина Коржова. Всі права захищено.</p>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
