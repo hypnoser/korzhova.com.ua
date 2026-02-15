@@ -639,7 +639,7 @@
         <h2 class="section-title fade-in">Про мене</h2>
         <div class="about-container">
             <div class="about-image fade-in">
-                <img src="https://korzhova.com.ua/images/550px.jpg" alt="Карина Коржова">
+                <img src="/images/550px.jpg" alt="Карина Коржова">
             </div>
             <div class="about-text fade-in">
                 <h3>Привіт! 👋</h3>
@@ -782,7 +782,17 @@
                 </div>
             </div>
             <div class="map-container fade-in">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.4729849673867!2d30.63379831573353!3d50.42092997947137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c5e7c0000001%3A0x0!2zNTDCsDI1JzE1LjMiTiAzMMKwMzgnMDguMiJF!5e0!3m2!1suk!2sua!4v1234567890123!5m2!1suk!2sua" loading="lazy"></iframe>
+                 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script>
+    var map = L.map('mapid').setView([50.40478234039382, 30.655261166158937], 17);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.marker([50.40478234039382, 30.655261166158937]).addTo(map)
+      .bindPopup('Карина Коржова - Косметолог-естетист<br>вул. Братства тарасівців, 7, Київ')
+      .openPopup();
+  </script>
             </div>
         </div>
     </section>
