@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Догляд 2 — Genio SkinLab × Korzhova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ee;
+    --bg2: #edeae4;
+    --text: #2a2520;
+    --text-muted: #7a7068;
+    --accent: #c9a882;
+    --accent2: #8fa8a0;
+    --white: #fdfcfa;
+    --line: rgba(42,37,32,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 0 clamp(1.5rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 30%, rgba(201,168,130,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(143,168,160,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .nav-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(201,168,130,0.12);
+    border: 1px solid rgba(201,168,130,0.3);
+    padding: 0.35em 0.9em;
+    border-radius: 2em;
+  }
+
+  .hero-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 5rem 0 3rem;
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 9vw, 7rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 420px;
+    font-weight: 300;
+  }
+
+  .hero-price-badge {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(42,37,32,0.06);
+  }
+
+  .hero-price-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-price-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-price-cur {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--text-muted);
+    opacity: 0.4;
+  }
+
+  /* ─── FLOATING IMAGE ─── */
+  .hero-visual {
+    position: absolute;
+    right: clamp(2rem, 8vw, 8rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1;
+    opacity: 0.88;
+  }
+
+  .product-img-wrap {
+    position: relative;
+  }
+
+  .product-img-wrap img {
+    width: clamp(140px, 18vw, 220px);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 40px rgba(42,37,32,0.18));
+    transition: transform 0.6s ease;
+  }
+
+  .product-img-wrap:hover img {
+    transform: translateY(-6px) scale(1.02);
+  }
+
+  .img-label {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -1rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 0.3em 0.7em;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    box-shadow: 0 2px 12px rgba(42,37,32,0.08);
+  }
+
+  /* ─── PRODUCTS SECTION ─── */
+  .products {
+    background: var(--white);
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    min-width: 40px;
+    align-self: center;
+    margin: 0 1.5rem;
+  }
+
+  .section-count {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .product-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: relative;
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+
+  .product-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.5s ease;
+  }
+
+  .product-card:hover {
+    background: #faf8f5;
+  }
+
+  .product-card:hover::after {
+    width: 100%;
+  }
+
+  .card-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .card-note {
+    font-size: 0.75rem;
+    color: var(--accent2);
+    background: rgba(143,168,160,0.1);
+    border: 1px solid rgba(143,168,160,0.25);
+    border-radius: 2em;
+    padding: 0.3em 0.8em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    width: fit-content;
+    letter-spacing: 0.05em;
+  }
+
+  .card-note::before {
+    content: '✦';
+    font-size: 0.6em;
+  }
+
+  .card-volume {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .card-price {
+    margin-top: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    display: flex;
+    align-items: baseline;
+    gap: 0.3em;
+  }
+
+  .card-price span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── TOTAL SECTION ─── */
+  .total-section {
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+    background: var(--bg2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .total-section::before {
+    content: '2';
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(12rem, 30vw, 22rem);
+    font-weight: 300;
+    color: rgba(201,168,130,0.1);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .total-inner {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .total-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .total-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 2rem;
+  }
+
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    gap: 1rem;
+  }
+
+  .breakdown-row .b-name {
+    flex: 1;
+  }
+
+  .breakdown-row .b-vol {
+    font-size: 0.72rem;
+    color: rgba(122,112,104,0.6);
+    letter-spacing: 0.08em;
+  }
+
+  .breakdown-row .b-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .total-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .total-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .total-amount sub {
+    font-size: 1rem;
+    font-family: 'Jost', sans-serif;
+    color: var(--text-muted);
+    font-weight: 300;
+    vertical-align: baseline;
+    margin-left: 0.3em;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem);
+    background: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-text {
+    color: rgba(253,252,250,0.55);
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 360px;
+    letter-spacing: 0.02em;
+  }
+
+  .cta-text strong {
+    color: var(--white);
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-end;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8em;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1em 2em;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .btn-primary:hover::before {
+    transform: translateX(0);
+  }
+
+  .btn-primary:hover {
+    background: #bf9a72;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(201,168,130,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    color: rgba(253,252,250,0.45);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-weight: 300;
+  }
+
+  .btn-secondary:hover {
+    color: var(--white);
+  }
+
+  .btn-secondary::before {
+    content: '←';
+    font-size: 0.9em;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--text);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem clamp(1.5rem, 6vw, 5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: rgba(253,252,250,0.25);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-site {
+    font-size: 0.68rem;
+    color: rgba(253,252,250,0.2);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-site:hover {
+    color: rgba(253,252,250,0.5);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  h1            { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-desc    { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-price-badge { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-visual  { animation: fadeUp 0.9s 0.15s ease both; }
+
+  .product-card { animation: fadeUp 0.6s ease both; }
+  .product-card:nth-child(2) { animation-delay: 0.08s; }
+  .product-card:nth-child(3) { animation-delay: 0.16s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero-visual { display: none; }
+    .hero-center { padding: 3rem 0 2rem; max-width: 100%; }
+    .cta-actions { align-items: flex-start; }
+    .total-section::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <nav>
+    <span class="nav-brand">Genio SkinLab × Korzhova</span>
+    <span class="nav-tag">Догляд 2</span>
+  </nav>
+
+  <div class="hero-center">
+    <p class="hero-eyebrow">Персональний догляд за шкірою</p>
+    <h1>Зволоження<br><em>&amp; захист</em></h1>
+    <p class="hero-desc">
+      Ретельно підібраний комплекс із трьох продуктів для інтенсивного зволоження, відновлення та щоденного захисту вашої шкіри.
+    </p>
+    <div class="hero-price-badge">
+      <span class="hero-price-label">Комплекс від</span>
+      <span class="hero-price-value">2 210</span>
+      <span class="hero-price-cur">грн</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="product-img-wrap">
+      <img src="photo_2026-03-28_20-24-39.jpg" alt="Зволожуючий крем Аква-Буст">
+      <span class="img-label">Зволожуючий крем</span>
+    </div>
+    <div class="product-img-wrap" style="align-self:flex-end; margin-right: 2rem;">
+      <img src="photo_2026-03-28_20-24-43.jpg" alt="Екзосомальна сироватка">
+      <span class="img-label">Екзосомальна сироватка</span>
+    </div>
+  </div>
+
+  <p class="hero-scroll">Склад комплексу</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="section-header">
+    <h2 class="section-title">Продукти комплексу</h2>
+    <div class="section-line"></div>
+    <span class="section-count">3 засоби</span>
+  </div>
+
+  <div class="products-grid">
+
+    <div class="product-card">
+      <span class="card-num">01</span>
+      <h3 class="card-name">Денний крем з&nbsp;SPF</h3>
+      <span class="card-note">Можна залишити з «Догляд 1»</span>
+      <p class="card-volume">20&nbsp;мл</p>
+      <div class="card-price">400 <span>грн</span></div>
+    </div>
+
+    <div class="product-card">
+      <span class="card-num">02</span>
+      <h3 class="card-name">Екзосомальна сироватка</h3>
+      <p style="font-size:0.8rem; color:var(--text-muted); font-weight:300; line-height:1.6;">
+        Інноваційна формула з екзосомами для відновлення та омолодження шкіри.
+      </p>
+      <p class="card-volume">30&nbsp;мл</p>
+      <div class="card-price">920 <span>грн</span></div>
+    </div>
+
+    <div class="product-card">
+      <span class="card-num">03</span>
+      <h3 class="card-name">Нічний крем — зволоження</h3>
+      <p style="font-size:0.8rem; color:var(--text-muted); font-weight:300; line-height:1.6;">
+        Глибоке зволоження та відновлення шкіри під час нічного відпочинку.
+      </p>
+      <div class="card-price">890 <span>грн</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOTAL -->
+<section class="total-section">
+  <div class="total-inner">
+    <p class="total-eyebrow">Підсумок комплексу</p>
+
+    <div class="total-breakdown">
+      <div class="breakdown-row">
+        <span class="b-name">Денний крем з SPF</span>
+        <span class="b-vol">20 мл</span>
+        <span class="b-price">400 грн</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="b-name">Екзосомальна сироватка</span>
+        <span class="b-vol">30 мл</span>
+        <span class="b-price">920 грн</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="b-name">Нічний крем (зволоження)</span>
+        <span class="b-vol"></span>
+        <span class="b-price">890 грн</span>
+      </div>
+    </div>
+
+    <div class="total-row">
+      <span class="total-label">Разом</span>
+      <div class="total-amount">2 210 <sub>грн</sub></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-text">
+    <strong>Замовити консультацію</strong>
+    Підберіть індивідуальний план догляду разом із фахівцем Korzhova
+  </div>
+  <div class="cta-actions">
+    <a href="https://korzhova.pp.ua" class="btn-primary">
+      Перейти до сайту →
+    </a>
+    <a href="https://korzhova.pp.ua" class="btn-secondary">
+      Переглянути Догляд 1
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Genio SkinLab × Korzhova · Догляд 2</span>
+  <a href="https://korzhova.pp.ua" class="footer-site">korzhova.pp.ua</a>
+</footer>
+
+</body>
+</html>
