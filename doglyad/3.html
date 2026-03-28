@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Догляд 3 — Korzhova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ee;
+    --white: #fdfcfa;
+    --text: #2a2520;
+    --muted: #7a7068;
+    --accent: #c9a882;
+    --sage: #8fa8a0;
+    --line: rgba(42,37,32,0.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem clamp(1.2rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--line); background: var(--white);
+  }
+  .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; letter-spacing: 0.08em; color: var(--muted); }
+  .nav-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(201,168,130,0.35); padding: 0.3em 0.85em; border-radius: 2em; }
+
+  .hero { padding: clamp(2.5rem, 6vw, 5rem) clamp(1.2rem, 5vw, 4rem); background: var(--white); }
+  .hero-eye { font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 300; line-height: 1; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,130,0.1); border: 1px solid rgba(201,168,130,0.3);
+    padding: 0.4em 0.9em; border-radius: 2em; margin-bottom: 1.2rem;
+    font-size: 0.7rem; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase;
+  }
+
+  .hero-price { display: inline-flex; align-items: baseline; gap: 0.4rem; background: var(--bg); border: 1px solid var(--line); padding: 0.8rem 1.4rem; border-radius: 3px; }
+  .hero-price-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+  .hero-price-val { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; }
+  .hero-price-cur { font-size: 0.85rem; color: var(--muted); font-weight: 300; }
+
+  .products { padding: clamp(2rem, 5vw, 4rem) clamp(1.2rem, 5vw, 4rem); }
+  .section-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.3s, transform 0.3s; }
+  .card:hover { box-shadow: 0 8px 32px rgba(42,37,32,0.1); transform: translateY(-3px); }
+
+  .card-img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: var(--bg); padding: 2rem; display: block; }
+
+  .card-body { padding: 1.4rem 1.4rem 1.6rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+  .card-num { font-size: 0.62rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+  .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; line-height: 1.2; }
+  .card-vol { font-size: 0.72rem; color: var(--muted); font-weight: 300; }
+  .card-badge { display: inline-flex; align-items: center; gap: 0.35em; font-size: 0.68rem; color: var(--sage); border: 1px solid rgba(143,168,160,0.3); border-radius: 2em; padding: 0.25em 0.7em; width: fit-content; letter-spacing: 0.04em; }
+
+  .card-price { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--line); font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 300; display: flex; align-items: baseline; gap: 0.3em; }
+  .card-price span { font-family: 'Jost', sans-serif; font-size: 0.75rem; color: var(--muted); font-weight: 300; }
+
+  .total { padding: clamp(2rem, 5vw, 4rem) clamp(1.2rem, 5vw, 4rem); background: var(--white); border-top: 1px solid var(--line); }
+  .total-rows { max-width: 520px; margin-bottom: 1.5rem; }
+  .t-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.75rem 0; border-bottom: 1px solid var(--line); font-size: 0.84rem; font-weight: 300; color: var(--muted); gap: 1rem; }
+  .t-row .t-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text); white-space: nowrap; }
+  .t-sum { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1.2rem; max-width: 520px; gap: 1rem; }
+  .t-sum-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .t-sum-val { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1; }
+  .t-sum-val sub { font-size: 0.9rem; font-family: 'Jost', sans-serif; color: var(--muted); font-weight: 300; vertical-align: baseline; margin-left: 0.3em; }
+
+  .cta { background: var(--text); padding: clamp(2rem, 5vw, 3.5rem) clamp(1.2rem, 5vw, 4rem); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .cta-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 300; color: var(--white); letter-spacing: -0.01em; }
+  .cta-sub { font-size: 0.78rem; color: rgba(253,252,250,0.45); font-weight: 300; margin-top: 0.3rem; }
+  .btn { display: inline-block; background: var(--accent); color: var(--white); text-decoration: none; padding: 0.9em 2em; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.25s, transform 0.25s; white-space: nowrap; }
+  .btn:hover { background: #bf9a72; transform: translateY(-2px); }
+
+  footer { background: var(--text); border-top: 1px solid rgba(255,255,255,0.06); padding: 1.2rem clamp(1.2rem, 5vw, 4rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .footer-brand { font-size: 0.72rem; color: rgba(253,252,250,0.22); letter-spacing: 0.08em; font-family: 'Cormorant Garamond', serif; }
+  .footer-link { font-size: 0.65rem; color: rgba(253,252,250,0.2); text-decoration: none; letter-spacing: 0.1em; transition: color 0.25s; }
+  .footer-link:hover { color: rgba(253,252,250,0.5); }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Korzhova</span>
+  <span class="nav-tag">Догляд 3</span>
+</nav>
+
+<section class="hero">
+  <p class="hero-eye">Персональний догляд за шкірою</p>
+  <h1>Преміум<br><em>догляд</em></h1>
+  <div class="hero-badge">✦ Все в оригінальній упаковці від виробника</div>
+  <br>
+  <div class="hero-price">
+    <span class="hero-price-label">Комплекс</span>
+    <span class="hero-price-val">6 600</span>
+    <span class="hero-price-cur">грн</span>
+  </div>
+</section>
+
+<section class="products">
+  <p class="section-label">Склад комплексу</p>
+  <div class="cards">
+
+    <div class="card">
+      <img class="card-img" src="4.jpg" alt="Ella Baché Le Daily UV SPF50">
+      <div class="card-body">
+        <span class="card-num">01 · День</span>
+        <h3 class="card-name">Денний флюїд SPF 50+</h3>
+        <p class="card-vol">Ella Baché Le Daily UV · 30 мл</p>
+        <div class="card-price">1 450 <span>грн</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="5.jpg" alt="Purlés 143 VitC Serum Perfector">
+      <div class="card-body">
+        <span class="card-num">02 · День</span>
+        <h3 class="card-name">Сироватка з вітаміном C</h3>
+        <p class="card-vol">Purlés 143 VitC Serum Perfector · 30 мл</p>
+        <span class="card-badge">✦ Антиоксидантна, ДНК-захист</span>
+        <div class="card-price">1 800 <span>грн</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="6.jpg" alt="Purlés 182 ExoFusion Face Cream">
+      <div class="card-body">
+        <span class="card-num">03 · Ніч</span>
+        <h3 class="card-name">Крем з екзосомами ExoFusion</h3>
+        <p class="card-vol">Purlés 182 · 50 мл</p>
+        <span class="card-badge">✦ Відновлення і біостимуляція</span>
+        <div class="card-price">3 350 <span>грн</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="total">
+  <div class="total-rows">
+    <div class="t-row">
+      <span>Ella Baché Le Daily UV SPF50+ · 30 мл</span>
+      <span class="t-price">1 450 грн</span>
+    </div>
+    <div class="t-row">
+      <span>Purlés 143 VitC Serum · 30 мл</span>
+      <span class="t-price">1 800 грн</span>
+    </div>
+    <div class="t-row">
+      <span>Purlés 182 ExoFusion Cream · 50 мл</span>
+      <span class="t-price">3 350 грн</span>
+    </div>
+  </div>
+  <div class="t-sum">
+    <span class="t-sum-label">Разом</span>
+    <span class="t-sum-val">6 600 <sub>грн</sub></span>
+  </div>
+</section>
+
+<div class="cta">
+  <div>
+    <p class="cta-heading">Замовити консультацію</p>
+    <p class="cta-sub">Підберіть індивідуальний план догляду разом із фахівцем</p>
+  </div>
+  <a href="https://korzhova.pp.ua" class="btn">Перейти до сайту →</a>
+</div>
+
+<footer>
+  <span class="footer-brand">Korzhova · Догляд 3</span>
+  <a href="https://korzhova.pp.ua" class="footer-link">korzhova.pp.ua</a>
+</footer>
+
+</body>
+</html>
