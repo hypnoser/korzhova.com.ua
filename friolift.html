@@ -3,1757 +3,1113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Friolift — Карина Коржова · Косметолог-естетист</title>
+<title>Zemits FrioLift — Контрастне омолодження | Кариня Коржова</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===== DESIGN TOKENS ===== */
-:root {
-  --cream:     #FAF6F0;
-  --blush:     #E8D5CB;
-  --rose:      #C9A090;
-  --rose-dark: #A3745F;
-  --sage:      #B8C4B1;
-  --sage-light:#DDE6D9;
-  --warm-mid:  #D4B8A8;
-  --text-dark: #2E2218;
-  --text-mid:  #6B5347;
-  --text-soft: #9E8578;
-  --white:     #FFFFFF;
-  --gold:      #C5A76B;
+  :root {
+    --cream: #FAF6F2;
+    --blush: #F0E4DC;
+    --rose: #E2C8BC;
+    --dusty: #C9AFA4;
+    --mauve: #9C7B74;
+    --deep: #6B4E48;
+    --text: #3A2E2B;
+    --text-light: #7A6560;
+    --sage: #C8D5C0;
+    --sage-light: #E4EDE0;
+    --white: #FFFCFA;
+    --shadow: 0 4px 32px rgba(107,78,72,0.08);
+    --radius: 20px;
+  }
 
-  --ff-display: 'Cormorant Garamond', Georgia, serif;
-  --ff-body:    'Jost', sans-serif;
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  --max-w: 1320px;
-  --gap:   clamp(1.5rem, 4vw, 3rem);
-  --section-pad: clamp(3rem, 8vw, 6rem);
+  html { scroll-behavior: smooth; }
 
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 28px;
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-  --shadow-soft: 0 8px 32px rgba(46,34,24,.08);
-  --shadow-card: 0 4px 20px rgba(46,34,24,.1);
-}
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,246,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rose);
+    padding: 0 20px;
+  }
 
-/* ===== RESET & BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: var(--ff-body);
-  background: var(--cream);
-  color: var(--text-dark);
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; border: none; background: none; font-family: inherit; }
+  .nav-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    gap: 8px;
+  }
 
-/* ===== UTILITY ===== */
-.container { width: 100%; max-width: var(--max-w); margin-inline: auto; padding-inline: clamp(1rem, 5vw, 2.5rem); }
-.section-pad { padding-block: var(--section-pad); }
-.section-tag {
-  display: inline-block;
-  font-family: var(--ff-body);
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--rose-dark);
-  margin-bottom: .75rem;
-}
-.section-title {
-  font-family: var(--ff-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--text-dark);
-}
-.section-title em { font-style: italic; color: var(--rose-dark); }
-.section-sub {
-  font-size: clamp(.9rem, 2vw, 1.05rem);
-  color: var(--text-mid);
-  max-width: 56ch;
-  margin-top: .9rem;
-}
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: var(--rose-dark);
-  color: var(--white);
-  font-family: var(--ff-body);
-  font-size: .85rem;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: .85rem 2rem;
-  border-radius: 50px;
-  transition: background .25s, transform .2s, box-shadow .25s;
-  box-shadow: 0 4px 16px rgba(163,116,95,.3);
-}
-.btn-primary:hover { background: var(--rose); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(163,116,95,.35); }
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  border: 1.5px solid var(--rose-dark);
-  color: var(--rose-dark);
-  font-family: var(--ff-body);
-  font-size: .85rem;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: .82rem 1.8rem;
-  border-radius: 50px;
-  transition: all .25s;
-}
-.btn-outline:hover { background: var(--rose-dark); color: var(--white); }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--deep);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
 
-/* ===== MEDIA PLACEHOLDER ===== */
-.media-placeholder {
-  position: relative;
-  background: var(--blush);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.media-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--blush) 0%, var(--warm-mid) 100%);
-  opacity: .4;
-}
-.media-placeholder .ph-label {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: var(--text-mid);
-  font-size: .8rem;
-  letter-spacing: .06em;
-  padding: 1rem;
-}
-.media-placeholder .ph-icon {
-  font-size: 2.4rem;
-  display: block;
-  margin-bottom: .4rem;
-  opacity: .6;
-}
-.play-btn {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-.play-btn span {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,.2);
-  transition: transform .25s;
-}
-.play-btn:hover span { transform: scale(1.1); }
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 
-/* ===== DECORATIVE LINE ===== */
-.deco-line {
-  width: 48px;
-  height: 1.5px;
-  background: var(--gold);
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: .75rem;
-  border-radius: 2px;
-}
+  .nav-links a {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
 
-/* ===== HEADER / NAV ===== */
-#header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(250,246,240,.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(200,172,157,.2);
-  transition: box-shadow .3s;
-}
-#header.scrolled { box-shadow: 0 4px 24px rgba(46,34,24,.1); }
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  height: 68px;
-}
-.logo {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  flex-shrink: 0;
-}
-.logo-name {
-  font-family: var(--ff-display);
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  letter-spacing: .02em;
-}
-.logo-sub {
-  font-size: .62rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  font-weight: 400;
-}
-nav { display: flex; align-items: center; gap: clamp(.6rem, 2vw, 1.8rem); }
-nav a {
-  font-size: .8rem;
-  font-weight: 500;
-  letter-spacing: .06em;
-  color: var(--text-mid);
-  transition: color .2s;
-  white-space: nowrap;
-}
-nav a:hover { color: var(--rose-dark); }
-.header-phone {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  font-size: .82rem;
-  font-weight: 600;
-  color: var(--rose-dark);
-  letter-spacing: .04em;
-  white-space: nowrap;
-  transition: color .2s;
-}
-.header-phone:hover { color: var(--rose); }
-.header-phone svg { width: 14px; height: 14px; }
-.burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.burger span {
-  display: block;
-  width: 22px;
-  height: 1.5px;
-  background: var(--text-dark);
-  border-radius: 2px;
-  transition: all .3s;
-}
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  gap: .2rem;
-  background: var(--cream);
-  border-top: 1px solid rgba(200,172,157,.2);
-  padding: .75rem clamp(1rem, 5vw, 2.5rem) 1rem;
-}
-.mobile-menu a {
-  font-size: .85rem;
-  font-weight: 500;
-  color: var(--text-mid);
-  padding: .5rem 0;
-  border-bottom: 1px solid rgba(200,172,157,.12);
-  letter-spacing: .05em;
-  transition: color .2s;
-}
-.mobile-menu a:hover { color: var(--rose-dark); }
-.mobile-menu .mob-phone {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  margin-top: .4rem;
-  font-size: .9rem;
-  font-weight: 600;
-  color: var(--rose-dark);
-}
-.mobile-menu.open { display: flex; }
+  .nav-links a:hover {
+    background: var(--blush);
+    color: var(--deep);
+  }
 
-/* ===== HERO ===== */
-#hero {
-  min-height: calc(100svh - 68px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-  align-items: center;
-  padding-block: clamp(2rem, 6vw, 5rem);
-}
-.hero-content { display: flex; flex-direction: column; gap: 1.5rem; }
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: .72rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--rose-dark);
-  font-weight: 600;
-}
-.hero-title {
-  font-family: var(--ff-display);
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--text-dark);
-}
-.hero-title strong {
-  font-weight: 600;
-  display: block;
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--rose-dark);
-}
-.hero-desc { font-size: clamp(.9rem, 1.8vw, 1.05rem); color: var(--text-mid); max-width: 52ch; line-height: 1.7; text-align:center; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  margin-top: .5rem;
-}
-.badge {
-  font-size: .7rem;
-  letter-spacing: .07em;
-  background: var(--blush);
-  color: var(--text-mid);
-  border-radius: 50px;
-  padding: .35rem .85rem;
-  font-weight: 500;
-}
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.hero-img-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
-.hero-main-img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-.hero-float-card {
-  position: absolute;
-  bottom: 2rem;
-  left: -1.5rem;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  box-shadow: var(--shadow-soft);
-  min-width: 180px;
-  animation: floatCard 4s ease-in-out infinite;
-}
-@keyframes floatCard {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-.float-card-label { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: .25rem; }
-.float-card-value { font-family: var(--ff-display); font-size: 1.5rem; font-weight: 500; color: var(--rose-dark); }
-.float-card-note { font-size: .72rem; color: var(--text-soft); }
-.hero-dot-deco {
-  position: absolute;
-  top: -1.5rem;
-  right: -1rem;
-  width: 90px;
-  height: 90px;
-  background: radial-gradient(circle at 30% 30%, var(--sage-light), var(--sage));
-  border-radius: 50%;
-  opacity: .5;
-}
+  /* ── HERO ── */
+  .hero {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 64px 20px 48px;
+    text-align: center;
+  }
 
-/* ===== SECTION: WHAT IS FRIOLIFT ===== */
-#about-device {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  margin-inline: clamp(0px, 2vw, 2rem);
-  overflow: hidden;
-}
-.about-device-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-.about-device-content {
-  padding: clamp(2rem, 6vw, 4rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  justify-content: center;
-}
-.about-device-media {
-  position: relative;
-}
-.about-device-media .media-placeholder {
-  height: 100%;
-  min-height: 380px;
-  border-radius: 0;
-}
-.tech-list {
-  display: flex;
-  flex-direction: column;
-  gap: .65rem;
-  margin-top: .4rem;
-}
-.tech-item {
-  display: flex;
-  align-items: flex-start;
-  gap: .75rem;
-  font-size: .88rem;
-  color: var(--text-mid);
-}
-.tech-item::before {
-  content: '◇';
-  color: var(--gold);
-  flex-shrink: 0;
-  margin-top: .15rem;
-  font-size: .7rem;
-}
-.zemits-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: var(--cream);
-  border: 1px solid var(--blush);
-  border-radius: 50px;
-  padding: .4rem 1rem;
-  font-size: .72rem;
-  letter-spacing: .08em;
-  color: var(--text-mid);
-  font-weight: 500;
-  margin-top: .2rem;
-  width: fit-content;
-}
-.zemits-badge::before { content: '✓'; color: var(--sage); font-size: .8rem; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--sage-light);
+    color: #5A7050;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
 
-/* ===== SECTION: WHAT IT SOLVES ===== */
-#solves { background: var(--cream); }
-.solves-intro { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
-.solves-intro .section-sub { margin-inline: auto; }
-.solves-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-.solve-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  transition: transform .25s, box-shadow .25s;
-  border: 1px solid rgba(200,172,157,.15);
-}
-.solve-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
-.solve-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--blush), var(--warm-mid));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-.solve-title { font-weight: 600; font-size: .92rem; margin-bottom: .35rem; color: var(--text-dark); }
-.solve-desc { font-size: .82rem; color: var(--text-mid); line-height: 1.55; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 58px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--deep);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
 
-/* ===== SECTION: PROTOCOL ===== */
-#protocol {
-  background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 60%);
-}
-.protocol-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
-}
-.steps-list { display: flex; flex-direction: column; gap: 0; }
-.step-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 1rem;
-  padding-bottom: 2rem;
-  position: relative;
-}
-.step-item:not(:last-child) .step-num::after {
-  content: '';
-  position: absolute;
-  top: 48px;
-  left: 24px;
-  width: 1px;
-  height: calc(100% - 24px);
-  background: linear-gradient(to bottom, var(--rose), transparent);
-}
-.step-num {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1.5px solid var(--rose);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--ff-display);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--rose-dark);
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(163,116,95,.15);
-}
-.step-body { padding-top: .6rem; }
-.step-title { font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
-.step-desc { font-size: .84rem; color: var(--text-mid); line-height: 1.55; }
-.step-time {
-  display: inline-block;
-  font-size: .68rem;
-  letter-spacing: .08em;
-  background: var(--blush);
-  color: var(--rose-dark);
-  border-radius: 50px;
-  padding: .2rem .65rem;
-  margin-top: .4rem;
-  font-weight: 500;
-}
-.protocol-media { display: flex; flex-direction: column; gap: 1rem; }
-.video-card {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-.video-card .media-placeholder { aspect-ratio: 16/9; }
-.video-label {
-  position: absolute;
-  bottom: .75rem;
-  left: .75rem;
-  background: rgba(255,255,255,.9);
-  backdrop-filter: blur(6px);
-  border-radius: 50px;
-  padding: .3rem .8rem;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  color: var(--text-mid);
-}
-.protocol-info-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: .75rem;
-}
-.info-chip {
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  padding: .85rem .75rem;
-  text-align: center;
-  box-shadow: var(--shadow-soft);
-}
-.chip-val { font-family: var(--ff-display); font-size: 1.4rem; color: var(--rose-dark); line-height: 1; }
-.chip-lbl { font-size: .68rem; letter-spacing: .07em; color: var(--text-soft); text-transform: uppercase; margin-top: .2rem; }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--mauve);
+  }
 
-/* ===== SECTION: RESULTS (BEFORE/AFTER) ===== */
-#results { background: var(--white); }
-.results-intro { margin-bottom: clamp(2rem, 5vw, 3rem); }
-.ba-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-.ba-card {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--cream);
-  border: 1px solid rgba(200,172,157,.2);
-  transition: transform .25s, box-shadow .25s;
-}
-.ba-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
-.ba-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.ba-half {
-  position: relative;
-}
-.ba-half .media-placeholder {
-  aspect-ratio: 3/4;
-  border-radius: 0;
-}
-.ba-tag {
-  position: absolute;
-  top: .5rem;
-  left: .5rem;
-  font-size: .63rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(4px);
-  color: var(--text-mid);
-  border-radius: 50px;
-  padding: .22rem .6rem;
-}
-.ba-info {
-  padding: .9rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .2rem;
-}
-.ba-problem { font-size: .78rem; font-weight: 600; color: var(--text-dark); }
-.ba-sessions { font-size: .73rem; color: var(--text-soft); }
-.disclaimer {
-  text-align: center;
-  font-size: .73rem;
-  color: var(--text-soft);
-  margin-top: 1.5rem;
-  font-style: italic;
-}
+  .hero-lead {
+    font-size: 17px;
+    color: var(--text-light);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
 
-/* ===== SECTION: ADVANTAGES ===== */
-#advantages {
-  background: var(--cream);
-}
-.adv-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  margin-top: clamp(1.5rem, 4vw, 2.5rem);
-}
-.adv-card {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  border: 1px solid rgba(200,172,157,.15);
-  transition: box-shadow .25s;
-}
-.adv-card:hover { box-shadow: var(--shadow-card); }
-.adv-icon {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--sage-light), var(--sage));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-.adv-text { flex: 1; min-width: 0; display: block; }
-.adv-text h4 { font-size: .92rem; font-weight: 600; margin-bottom: .3rem; color: #2E2218; display: block; }
-.adv-text p { font-size: .82rem; color: #6B5347; line-height: 1.55; display: block; }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
 
-/* ===== SECTION: FOR WHOM ===== */
-#for-whom {
-  background: linear-gradient(160deg, var(--cream) 0%, var(--sage-light) 100%);
-}
-.whom-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-.whom-visual .media-placeholder {
-  aspect-ratio: 4/5;
-  border-radius: var(--radius-lg);
-}
-.whom-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-.whom-item {
-  display: flex;
-  gap: .9rem;
-  align-items: flex-start;
-  padding: 1rem;
-  background: rgba(255,255,255,.7);
-  border-radius: var(--radius-sm);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,.6);
-}
-.whom-num {
-  font-family: var(--ff-display);
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--rose-dark);
-  line-height: 1;
-  flex-shrink: 0;
-  opacity: .7;
-}
-.whom-body h4 { font-size: .9rem; font-weight: 600; margin-bottom: .15rem; }
-.whom-body p { font-size: .82rem; color: var(--text-mid); }
+  .stat-pill {
+    background: var(--white);
+    border: 1px solid var(--rose);
+    border-radius: 40px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
 
-/* ===== SECTION: TESTIMONIALS ===== */
-#testimonials { background: var(--white); }
-.test-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  margin-top: clamp(1.5rem, 4vw, 2.5rem);
-}
-.test-card {
-  background: var(--cream);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border: 1px solid rgba(200,172,157,.15);
-}
-.test-stars { color: var(--gold); font-size: .9rem; letter-spacing: .1em; }
-.test-text { font-size: .88rem; color: var(--text-mid); line-height: 1.65; font-style: italic; }
-.test-author { display: flex; align-items: center; gap: .75rem; margin-top: auto; }
-.author-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--blush);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .75rem;
-  color: var(--rose-dark);
-  font-weight: 600;
-}
-.author-name { font-weight: 600; font-size: .85rem; }
-.author-date { font-size: .72rem; color: var(--text-soft); }
+  .stat-pill .icon {
+    font-size: 18px;
+  }
 
-/* ===== SECTION: ABOUT KARINA ===== */
-#about-karina {
-  background: var(--cream);
-}
-.karina-layout {
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-.karina-photo-wrap { position: relative; }
-.karina-photo .media-placeholder {
-  aspect-ratio: 3/4;
-  border-radius: var(--radius-lg);
-}
-.karina-cert {
-  position: absolute;
-  bottom: -1rem;
-  right: -1rem;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  box-shadow: var(--shadow-soft);
-  min-width: 160px;
-  text-align: center;
-}
-.cert-icon { font-size: 1.6rem; margin-bottom: .3rem; }
-.cert-text { font-size: .72rem; color: var(--text-mid); line-height: 1.4; font-weight: 500; }
-.karina-content { display: flex; flex-direction: column; gap: 1.2rem; }
-.karina-quote {
-  font-family: var(--ff-display);
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--text-mid);
-  line-height: 1.5;
-  position: relative;
-  padding-left: 1.5rem;
-  border-left: 3px solid var(--rose);
-}
-.karina-text { font-size: .9rem; color: var(--text-mid); line-height: 1.7; }
-.karina-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: .5rem;
-}
-.k-stat-val { font-family: var(--ff-display); font-size: 2rem; font-weight: 500; color: var(--rose-dark); line-height: 1; }
-.k-stat-lbl { font-size: .72rem; color: var(--text-soft); letter-spacing: .06em; margin-top: .2rem; }
+  /* ── SECTIONS ── */
+  section {
+    padding: 64px 20px;
+  }
 
-/* ===== SECTION: BOOKING ===== */
-#booking {
-  background: linear-gradient(135deg, var(--rose-dark) 0%, #8B5E50 100%);
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-#booking::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.booking-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-.booking-text .section-tag { color: rgba(255,255,255,.6); }
-.booking-text .section-title { color: var(--white); }
-.booking-text .section-sub { color: rgba(255,255,255,.75); }
-.booking-contacts {
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-  margin-top: 1.5rem;
-}
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  font-size: .88rem;
-  color: rgba(255,255,255,.85);
-}
-.contact-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.booking-form-wrap {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  box-shadow: 0 20px 60px rgba(0,0,0,.15);
-}
-.form-title { font-weight: 600; font-size: 1.05rem; color: var(--text-dark); margin-bottom: 1.25rem; }
-.form-group { display: flex; flex-direction: column; gap: .3rem; margin-bottom: .9rem; }
-.form-label { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-soft); font-weight: 500; }
-.form-input {
-  width: 100%;
-  padding: .75rem 1rem;
-  border: 1.5px solid var(--blush);
-  border-radius: var(--radius-sm);
-  font-family: var(--ff-body);
-  font-size: .9rem;
-  color: var(--text-dark);
-  background: var(--cream);
-  transition: border-color .2s, box-shadow .2s;
-  outline: none;
-}
-.form-input:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(163,116,95,.1); }
-.form-input::placeholder { color: var(--text-soft); }
-select.form-input { cursor: pointer; }
-.form-submit { width: 100%; margin-top: .5rem; justify-content: center; font-size: .85rem; }
-.form-note { font-size: .7rem; color: var(--text-soft); text-align: center; margin-top: .6rem; line-height: 1.4; }
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
 
-/* ===== SECTION: FAQ ===== */
-#faq { background: var(--cream); }
-.faq-intro { text-align: center; margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
-.faq-list { max-width: 740px; margin-inline: auto; display: flex; flex-direction: column; gap: .6rem; }
-.faq-item {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(200,172,157,.2);
-  overflow: hidden;
-}
-.faq-q {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 1.25rem;
-  text-align: left;
-  font-size: .9rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  background: none;
-  cursor: pointer;
-  transition: color .2s;
-}
-.faq-q:hover { color: var(--rose-dark); }
-.faq-arrow {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--blush);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .7rem;
-  color: var(--rose-dark);
-  flex-shrink: 0;
-  transition: transform .3s, background .2s;
-}
-.faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--rose); color: var(--white); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .35s ease, padding .35s ease;
-  font-size: .86rem;
-  color: var(--text-mid);
-  line-height: 1.65;
-  padding-inline: 1.25rem;
-}
-.faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.1rem; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dusty);
+    margin-bottom: 10px;
+  }
 
-/* ===== FOOTER ===== */
-footer {
-  background: var(--text-dark);
-  color: rgba(255,255,255,.55);
-  padding-block: 2rem;
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.footer-logo .logo-name { color: var(--white); }
-.footer-logo .logo-sub { color: rgba(255,255,255,.4); }
-.footer-copy { font-size: .75rem; }
-.footer-links { display: flex; gap: 1.25rem; }
-.footer-links a { font-size: .75rem; transition: color .2s; }
-.footer-links a:hover { color: var(--rose); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 400;
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
 
-/* ===== ANIMATIONS ===== */
-.fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.fade-up.visible { opacity: 1; transform: none; }
+  .section-title em { font-style: italic; color: var(--mauve); }
 
-/* ===== RESPONSIVE ===== */
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: var(--rose);
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
 
-/* Large desktop (1400px+) */
-@media (min-width: 1400px) {
-  :root { --max-w: 1400px; }
-}
+  /* ── WHAT IS ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
 
-/* Tablet landscape / small desktop */
-@media (max-width: 1100px) {
-  .karina-layout { grid-template-columns: 300px 1fr; }
-}
+  .what-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border: 1px solid var(--blush);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s;
+  }
 
-/* Tablet portrait */
-@media (max-width: 900px) {
-  #hero { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; }
-  .hero-main-img { aspect-ratio: 16/9; max-width: 100%; }
-  .hero-float-card { bottom: 1rem; left: .5rem; }
-  .hero-dot-deco { display: none; }
+  .what-card:hover { transform: translateY(-3px); }
 
-  .about-device-grid { grid-template-columns: 1fr; }
-  .about-device-media .media-placeholder { min-height: 260px; }
+  .what-card .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
 
-  .protocol-layout { grid-template-columns: 1fr; }
-  .whom-layout { grid-template-columns: 1fr; }
-  .karina-layout { grid-template-columns: 1fr; }
-  .karina-cert { right: 0; }
-  .booking-inner { grid-template-columns: 1fr; }
+  .what-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 8px;
+  }
 
-  nav { display: none; }
-  .header-phone { display: none; }
-  .burger { display: flex; }
-}
+  .what-card p {
+    font-size: 14.5px;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
 
-/* Mobile */
-@media (max-width: 600px) {
-  :root { --section-pad: 2.5rem; }
+  .what-card.accent {
+    background: linear-gradient(135deg, #EDD5CC 0%, #E2C8BC 100%);
+    border-color: var(--dusty);
+    grid-column: span 2;
+  }
 
-  .hero-title { font-size: clamp(2rem, 9vw, 2.8rem); }
-  .hero-cta { flex-direction: column; }
-  .hero-cta .btn-primary,
-  .hero-cta .btn-outline { justify-content: center; text-align: center; }
+  .what-card.accent p { color: var(--deep); }
 
-  .solves-grid { grid-template-columns: 1fr 1fr; }
-  .ba-grid { grid-template-columns: 1fr 1fr; }
-  .adv-grid { grid-template-columns: 1fr; }
-  .test-grid { grid-template-columns: 1fr; }
-  .karina-stats { grid-template-columns: repeat(3, 1fr); }
-  .protocol-info-strip { grid-template-columns: repeat(3, 1fr); }
+  /* ── VIDEO SECTION ── */
+  .video-section { background: var(--blush); }
 
-  .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { justify-content: center; }
-}
+  .video-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
 
-/* Very small phones */
-@media (max-width: 380px) {
-  .solves-grid { grid-template-columns: 1fr; }
-  .ba-grid { grid-template-columns: 1fr; }
-  .protocol-info-strip { grid-template-columns: repeat(3, 1fr); gap: .4rem; }
-  .karina-stats { grid-template-columns: 1fr 1fr; }
-}
+  .tab-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1.5px solid var(--dusty);
+    background: transparent;
+    color: var(--text-light);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--deep);
+    border-color: var(--deep);
+    color: #fff;
+  }
+
+  .video-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+
+  .video-wrap.visible { display: block; }
+
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-caption {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── PHYSIOLOGY ── */
+  .phys-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+    position: relative;
+  }
+
+  .phys-steps::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 40px;
+    bottom: 40px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--rose), var(--sage));
+  }
+
+  .phys-step {
+    display: flex;
+    gap: 24px;
+    padding: 0 0 36px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    border: 2px solid;
+  }
+
+  .step-num.warm {
+    background: #FAEAE4;
+    border-color: var(--dusty);
+    color: var(--deep);
+  }
+
+  .step-num.cold {
+    background: #DDE8F0;
+    border-color: #9BB5C8;
+    color: #3A5A72;
+  }
+
+  .step-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+
+  .step-body p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .temp-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  .temp-warm { background: #FAEAE4; color: #9C4A35; }
+  .temp-cold { background: #DDE8F0; color: #2A5A72; }
+
+  /* ── PROTOCOL ── */
+  .protocol-section { background: var(--sage-light); }
+
+  .protocol-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 32px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .proto-block {
+    flex: 1;
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .proto-block:nth-child(1) { background: #F5DDD5; }
+  .proto-block:nth-child(2) { background: #D4E5F0; }
+  .proto-block:nth-child(3) { background: #F5DDD5; }
+
+  .proto-block .proto-icon { font-size: 32px; margin-bottom: 10px; }
+
+  .proto-block h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+
+  .proto-block p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+
+  .proto-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    color: var(--dusty);
+    font-size: 20px;
+    position: relative;
+  }
+
+  .proto-block .step-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .handpieces-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .hp-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px 18px;
+    border: 1px solid var(--blush);
+  }
+
+  .hp-card .hp-icon { font-size: 22px; margin-bottom: 8px; }
+
+  .hp-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 4px;
+  }
+
+  .hp-card p {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .hp-card .temp-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+
+  /* ── RESULTS ── */
+  .results-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .result-item {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px 18px;
+    border: 1px solid var(--blush);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+
+  .result-item:hover { transform: translateY(-2px); }
+
+  .result-item .r-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .result-item h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 4px;
+  }
+
+  .result-item p {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  /* ── BEFORE/AFTER ── */
+  .ba-section { background: var(--blush); }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .ba-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .ba-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 200px;
+    position: relative;
+  }
+
+  .ba-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .ba-img.before {
+    background: linear-gradient(135deg, #E8D8D0, #D4C0B8);
+    color: var(--mauve);
+  }
+
+  .ba-img.after {
+    background: linear-gradient(135deg, #C8E0CC, #A8C8AE);
+    color: #4A7A54;
+  }
+
+  .ba-divider {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--white);
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .ba-info {
+    padding: 16px 18px;
+  }
+
+  .ba-info h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--deep);
+    margin-bottom: 4px;
+  }
+
+  .ba-info p { font-size: 13px; color: var(--text-light); }
+
+  .ba-disclaimer {
+    margin-top: 20px;
+    font-size: 12.5px;
+    color: var(--dusty);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── ZONES ── */
+  .zones-section {}
+
+  .zones-body {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    align-items: flex-start;
+  }
+
+  .face-diagram {
+    flex-shrink: 0;
+    width: 220px;
+  }
+
+  .face-diagram svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .zones-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .zone-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--blush);
+    font-size: 14.5px;
+    color: var(--text);
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .zone-row:hover { background: var(--blush); }
+
+  .zone-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  footer .foot-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  footer .foot-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--cream);
+    font-weight: 300;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  footer .foot-sub {
+    font-size: 13px;
+    color: var(--dusty);
+    margin-bottom: 20px;
+  }
+
+  footer .foot-device {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 8px 20px;
+    color: var(--cream);
+    font-size: 13px;
+  }
+
+  footer .foot-note {
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--mauve);
+    line-height: 1.6;
+  }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .what-grid { grid-template-columns: 1fr; }
+    .what-card.accent { grid-column: span 1; }
+    .results-list { grid-template-columns: 1fr; }
+    .handpieces-grid { grid-template-columns: 1fr; }
+    .zones-body { flex-direction: column; }
+    .face-diagram { width: 100%; max-width: 260px; margin: 0 auto; }
+    .protocol-flow { flex-direction: column; }
+    .nav-links { display: none; }
+    .ba-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 440px) {
+    .hero { padding: 40px 16px 32px; }
+    section { padding: 48px 16px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
-<header id="header">
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Кариня Коржова · FrioLift</span>
+    <ul class="nav-links">
+      <li><a href="#what">Про апарат</a></li>
+      <li><a href="#physiology">Як діє</a></li>
+      <li><a href="#protocol">Протокол</a></li>
+      <li><a href="#results">Результати</a></li>
+      <li><a href="#video">Відео</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero reveal">
+  <span class="hero-badge">Zemits · Контрастне омолодження</span>
+  <h1>Zemits <em>FrioLift</em><br>CRYO-RF</h1>
+  <p class="hero-lead">Перша у своєму класі крiо-термальна система контрастного омолодження. Неінвазивно. Без реабілітації. Результат — вже після першої процедури.</p>
+  <div class="hero-stats">
+    <div class="stat-pill"><span class="icon">🌡️</span> Кріо до −7°C</div>
+    <div class="stat-pill"><span class="icon">🔥</span> RF 42–45°C</div>
+    <div class="stat-pill"><span class="icon">✨</span> 3 зони: обличчя · шия · декольте</div>
+    <div class="stat-pill"><span class="icon">💉</span> Без ін'єкцій</div>
+  </div>
+</div>
+
+<!-- WHAT IS -->
+<section id="what">
   <div class="container">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <span class="logo-name">Карина Коржова</span>
-        <span class="logo-sub">Косметолог · Естетист</span>
-      </a>
-      <nav>
-        <a href="#about-device">Про процедуру</a>
-        <a href="#protocol">Як проходить</a>
-        <a href="#results">Результати</a>
-        <a href="#advantages">Переваги</a>
-        <a href="#about-karina">Про мене</a>
-        <a href="#booking">Запис</a>
-      </nav>
-      <a href="tel:+380XXXXXXXXX" class="header-phone">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 3a1 1 0 011-1h1.5a1 1 0 01.97.757l.5 2a1 1 0 01-.428 1.05L4.5 6.5c.9 1.8 2.2 3.1 4 4l.693-1.042a1 1 0 011.05-.428l2 .5A1 1 0 0113 10.5V12a1 1 0 01-1 1C5.373 13 2 7.627 2 3z"/>
-        </svg>
-        +38 (0XX) XXX-XX-XX
-      </a>
-      <button class="burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="reveal">
+      <p class="section-label">Що це таке</p>
+      <h2 class="section-title">Перший естетичний<br><em>кріо-термальний</em> комплекс</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light); font-size:16px; max-width:620px; line-height:1.8;">
+        Zemits FrioLift — це апарат, що поєднує дві потужні неінвазивні технології: <strong>радіочастотний (RF) ліфтинг</strong> та <strong>кріотерапію</strong>. Їх послідовне застосування за унікальним авторським протоколом Zemits створює «тепловий шок» для шкіри, який запускає глибокі процеси відновлення та неоколагенезу.
+      </p>
+    </div>
+    <div class="what-grid">
+      <div class="what-card reveal">
+        <span class="card-icon">🔬</span>
+        <h3>RF-ліфтинг</h3>
+        <p>Радіочастотна енергія прогріває дерму до 42–45°C. Тепловий вплив активує фібробласти та стимулює вироблення власного колагену та еластину.</p>
+      </div>
+      <div class="what-card reveal">
+        <span class="card-icon">❄️</span>
+        <h3>Кріотерапія</h3>
+        <p>Охолодження шкіри до −7°C посилює мікроциркуляцію, тонізує, знімає набряклість та — за потреби — впливає на жирову тканину.</p>
+      </div>
+      <div class="what-card accent reveal">
+        <span class="card-icon">⚡</span>
+        <h3>Контрастний ефект = подвійний результат</h3>
+        <p>Саме <strong>поєднання</strong> тепла і холоду в одному протоколі дає ефект, якого неможливо досягти кожною технологією окремо. Тепловий шок посилює неоколагенез у глибоких шарах дерми, а кріотерапія після RF знімає гіперемію та скорочує реабілітацію до нуля.</p>
+      </div>
     </div>
   </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#about-device">Про процедуру</a>
-    <a href="#protocol">Як проходить</a>
-    <a href="#results">Результати</a>
-    <a href="#advantages">Переваги</a>
-    <a href="#about-karina">Про мене</a>
-    <a href="#booking">Запис</a>
-    <a href="tel:+380XXXXXXXXX" class="mob-phone">📞 +38 (0XX) XXX-XX-XX</a>
-  </div>
-</header>
+</section>
 
-<!-- ===== HERO ===== -->
-<section id="hero" class="section-pad">
+<!-- VIDEO -->
+<section id="video" class="video-section">
   <div class="container">
-    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--gap);" class="hero-inner-grid">
-      <div class="hero-content fade-up" style="align-items:center;display:flex;flex-direction:column;">
-        <div class="hero-eyebrow">
-          <span class="deco-line"></span>
-          Апаратна косметологія · Zemits Friolift
-        </div>
-        <h1 class="hero-title">
-          Підтяжка <em>без</em><br>
-          <strong>операції</strong><br>
-          та реабілітації
-        </h1>
-        <p class="hero-desc">
-          Процедура на апараті Friolift від Zemits — кріоліфтинг нового покоління,
-          який повертає чіткий овал, підтягує шкіру та відновлює сяяння вже після
-          першого сеансу.
-        </p>
-        <div class="hero-cta">
-          <a href="#booking" class="btn-primary">Записатися на процедуру</a>
-          <a href="#about-device" class="btn-outline">Дізнатися більше</a>
-        </div>
-        <div class="hero-badges">
-          <span class="badge">Без болю</span>
-          <span class="badge">Без ін'єкцій</span>
-          <span class="badge">Ефект після 1-го сеансу</span>
-          <span class="badge">Будь-який вік</span>
+    <div class="reveal">
+      <p class="section-label">Медіа</p>
+      <h2 class="section-title"><em>Подивіться</em> на апарат<br>та процедуру</h2>
+      <div class="divider"></div>
+      <div class="video-tabs">
+        <button class="tab-btn active" onclick="showVideo('overview', this)">Огляд апарату</button>
+        <button class="tab-btn" onclick="showVideo('procedure', this)">Процедура</button>
+        <button class="tab-btn" onclick="showVideo('results', this)">Результати</button>
+      </div>
+    </div>
+
+    <div id="vid-overview" class="video-wrap visible reveal">
+      <iframe src="https://www.youtube.com/embed/3c3DLDH3lNs" allowfullscreen loading="lazy" title="Zemits FrioLift огляд апарату"></iframe>
+    </div>
+    <div id="vid-procedure" class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/x3_HW3yEW5g" allowfullscreen loading="lazy" title="Zemits FrioLift процедура"></iframe>
+    </div>
+    <div id="vid-results" class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/QJLUb78gqrE" allowfullscreen loading="lazy" title="Zemits FrioLift результати"></iframe>
+    </div>
+    <p class="video-caption">Відео надані виробником Zemits. Натисніть для перегляду.</p>
+  </div>
+</section>
+
+<!-- PHYSIOLOGY -->
+<section id="physiology">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Фізіологія</p>
+      <h2 class="section-title">Що відбувається<br>зі шкірою <em>зсередини</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="phys-steps">
+      <div class="phys-step reveal">
+        <div class="step-num warm">1</div>
+        <div class="step-body">
+          <div class="temp-tag temp-warm">🔥 RF-прогрів · 42–45°C</div>
+          <h3>Активація фібробластів</h3>
+          <p>Радіочастотна енергія проникає у дермальний шар шкіри, не торкаючись жирової тканини. Тепловий вплив «будить» фібробласти — клітини, що виробляють колаген та еластин. Шкіра отримує сигнал до відновлення та ущільнення.</p>
         </div>
       </div>
+      <div class="phys-step reveal">
+        <div class="step-num cold">2</div>
+        <div class="step-body">
+          <div class="temp-tag temp-cold">❄️ Кріо-охолодження · до −7°C</div>
+          <h3>Тепловий шок і неоколагенез</h3>
+          <p>Різкий перепад температур створює контрольований «тепловий шок» для тканин. Це запускає неоколагенез — природний процес синтезу нових волокон колагену та еластину. Одночасно покращується мікроциркуляція, лімфодренаж, зменшується набряклість і пігментація. За нижчих температур кріо впливає на гіподерму — жирові клітини починають природно відмирати (апоптоз), що дозволяє коригувати другий підборіддя без ін'єкцій.</p>
+        </div>
+      </div>
+      <div class="phys-step reveal">
+        <div class="step-num warm">3</div>
+        <div class="step-body">
+          <div class="temp-tag temp-warm">🔥 Завершальний RF</div>
+          <h3>Закріплення результату</h3>
+          <p>Фінальний RF-вплив посилює ефект від кріотерапії, відновлює комфортну температуру шкіри, знімає залишки гіперемії та закріплює ліфтинг-ефект. Шкіра виходить пружною, зволоженою та сяючою.</p>
+        </div>
+      </div>
+    </div>
 
-      <div class="hero-visual fade-up" style="transition-delay:.15s; width:100%; max-width:480px;">
-        <div class="hero-img-wrap">
-          <div class="hero-main-img media-placeholder">
-            <div class="ph-label">
-              <span class="ph-icon">🖼</span>
-              Головне фото<br>(результат до/після або кабінет)
-            </div>
-          </div>
-          <div class="hero-dot-deco"></div>
-          <div class="hero-float-card">
-            <div class="float-card-label">Тривалість</div>
-            <div class="float-card-value">40–60</div>
-            <div class="float-card-note">хвилин · 1 сеанс</div>
-          </div>
+    <!-- Зони -->
+    <div id="zones" class="reveal" style="margin-top:16px;">
+      <p class="section-label">Зони обробки</p>
+      <div class="zones-body">
+        <div class="face-diagram">
+          <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+            <!-- Тіло -->
+            <ellipse cx="100" cy="260" rx="65" ry="22" fill="#E8D0C8" opacity="0.5"/>
+            <!-- Шия -->
+            <rect x="80" y="195" width="40" height="40" rx="8" fill="#E8D0C8"/>
+            <!-- Обличчя -->
+            <ellipse cx="100" cy="140" rx="62" ry="78" fill="#F5E0D8"/>
+            <!-- Очі -->
+            <ellipse cx="76" cy="120" rx="12" ry="7" fill="#C9AFA4" opacity="0.6"/>
+            <ellipse cx="124" cy="120" rx="12" ry="7" fill="#C9AFA4" opacity="0.6"/>
+            <!-- Ніс -->
+            <ellipse cx="100" cy="142" rx="7" ry="9" fill="#C9AFA4" opacity="0.4"/>
+            <!-- Губи -->
+            <path d="M85 163 Q100 172 115 163" stroke="#C9AFA4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Лінії позначок -->
+            <circle cx="100" cy="140" r="60" fill="none" stroke="#E2C8BC" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
+            <circle cx="100" cy="195" r="24" fill="none" stroke="#C8D5C0" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
+            <ellipse cx="100" cy="255" rx="58" ry="18" fill="none" stroke="#C8D5C0" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.6"/>
+            <!-- Мітки -->
+            <text x="168" y="145" font-size="10" fill="#9C7B74" font-family="Nunito, sans-serif" font-weight="600">обличчя</text>
+            <text x="153" y="202" font-size="10" fill="#9C7B74" font-family="Nunito, sans-serif" font-weight="600">шия</text>
+            <text x="152" y="258" font-size="10" fill="#5A7050" font-family="Nunito, sans-serif" font-weight="600">декольте</text>
+            <line x1="165" y1="143" x2="155" y2="143" stroke="#C9AFA4" stroke-width="1"/>
+            <line x1="150" y1="200" x2="140" y2="200" stroke="#C9AFA4" stroke-width="1"/>
+            <line x1="150" y1="256" x2="140" y2="256" stroke="#A8C0A0" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="zones-list">
+          <div class="zone-row"><span class="zone-dot" style="background:#C9AFA4"></span>Овал обличчя та щоки</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#C9AFA4"></span>Лоб і скроні</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#C9AFA4"></span>Носогубні складки</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#C9AFA4"></span>Зона навколо очей (делікатно)</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#C9AFA4"></span>Другий підборіддя</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#A8C0A0"></span>Шия та підборіддя</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#A8C0A0"></span>Зона декольте</div>
+          <div class="zone-row"><span class="zone-dot" style="background:#B8A8C0"></span>Руки та невеликі зони тіла</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT DEVICE ===== -->
-<section id="about-device" class="section-pad">
+<!-- PROTOCOL -->
+<section id="protocol" class="protocol-section">
   <div class="container">
-    <div class="about-device-grid" style="background:var(--white); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-soft);">
-      <div class="about-device-content fade-up">
+    <div class="reveal">
+      <p class="section-label">Авторський протокол Zemits</p>
+      <h2 class="section-title"><em>Contrast Skin</em><br>Rejuvenation Protocol</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light);font-size:15.5px;max-width:600px;line-height:1.8;margin-bottom:32px;">
+        Команда провідних медичних практиків Zemits розробила унікальний протокол, заснований на синергії RF та кріотехнологій. Це єдиний у своєму роді комплексний anti-age протокол без ін'єкцій і хірургії.
+      </p>
+    </div>
+
+    <div class="protocol-flow reveal">
+      <div class="proto-block">
+        <div class="proto-icon">🔥</div>
+        <div class="step-label">Крок 1</div>
+        <h4>RF-прогрів</h4>
+        <p>Глибокий прогрів дерми. Стимуляція колагену, підтяжка шкіри, розгладження зморшок.</p>
+      </div>
+      <div class="proto-block">
+        <div class="proto-icon">❄️</div>
+        <div class="step-label">Крок 2</div>
+        <h4>Кріо-охолодження</h4>
+        <p>Термальний шок. Посилення неоколагенезу. Тонізація, лімфодренаж, корекція жирових відкладень.</p>
+      </div>
+      <div class="proto-block">
+        <div class="proto-icon">✨</div>
+        <div class="step-label">Крок 3</div>
+        <h4>Фінальний RF</h4>
+        <p>Закріплення ефекту. Шкіра відчувається свіжою, підтягнутою та пружною.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <p class="section-label" style="margin-bottom:14px;">4 маніпули у комплекті</p>
+      <div class="handpieces-grid">
+        <div class="hp-card">
+          <div class="hp-icon">🌡️</div>
+          <span class="temp-badge temp-cold">Кріо · до −7°C</span>
+          <h4>Кріо-маніпула</h4>
+          <p>Шия, декольте та невеликі зони тіла. Охолодження до −7°C.</p>
+        </div>
+        <div class="hp-card">
+          <div class="hp-icon">🔥</div>
+          <span class="temp-badge temp-warm">RF · 42–45°C</span>
+          <h4>Триполярна RF</h4>
+          <p>Шия та обличчя. Основна маніпула для ліфтингу та омолодження.</p>
+        </div>
+        <div class="hp-card">
+          <div class="hp-icon">🔥</div>
+          <span class="temp-badge temp-warm">RF · 42–45°C</span>
+          <h4>Біполярна RF</h4>
+          <p>Делікатна біполярна для чутливих зон: навколо очей, дрібні ділянки обличчя.</p>
+        </div>
+        <div class="hp-card">
+          <div class="hp-icon">🔥</div>
+          <span class="temp-badge temp-warm">RF · 42–45°C</span>
+          <h4>Мультиполярна RF</h4>
+          <p>Декольте, руки, невеликі зони тіла. Широка площа обробки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Що можна поліпшити</p>
+      <h2 class="section-title">Що дає <em>FrioLift</em><br>для вашої шкіри</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="results-list">
+      <div class="result-item reveal">
+        <span class="r-icon">🪞</span>
         <div>
-          <span class="section-tag">Технологія</span>
-          <h2 class="section-title">Що таке <em>Friolift</em></h2>
-        </div>
-        <p style="font-size:.92rem; color:var(--text-mid); line-height:1.7;">
-          Friolift від Zemits — це апарат, що поєднує кріотерапію (дію холодом)
-          з ліфтинговими технологіями. Контрольоване охолодження активує природні
-          процеси відновлення, стимулює вироблення колагену та зміцнює тканини
-          без жодного пошкодження.
-        </p>
-        <ul class="tech-list">
-          <li class="tech-item">Кріотерапія — вплив холодом для активації мікроциркуляції та скорочення м'язових волокон</li>
-          <li class="tech-item">Ліфтинговий ефект за рахунок термоконтрастного протоколу</li>
-          <li class="tech-item">Стимуляція фібробластів і синтезу власного колагену</li>
-          <li class="tech-item">Детокс лімфатичної системи та зняття набряків</li>
-        </ul>
-        <div class="zemits-badge">Сертифікований апарат Zemits</div>
-      </div>
-      <div class="about-device-media">
-        <div class="media-placeholder" style="height:100%; min-height:380px; border-radius:0;">
-          <div class="ph-label">
-            <span class="ph-icon">▶️</span>
-            Відео-огляд апарату Friolift
-          </div>
-          <a href="#" class="play-btn"><span>▶</span></a>
+          <h4>Підтяжка та ліфтинг</h4>
+          <p>Ущільнення шкіри, підтяжка овалу обличчя та шиї без втрати об'єму.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHAT IT SOLVES ===== -->
-<section id="solves" class="section-pad">
-  <div class="container">
-    <div class="solves-intro fade-up">
-      <span class="section-tag">Показання</span>
-      <h2 class="section-title">Що можна <em>виправити</em><br>та покращити</h2>
-      <p class="section-sub">Friolift ефективно працює з широким спектром естетичних запитів — від перших ознак старіння до видимого птозу.</p>
-    </div>
-    <div class="solves-grid">
-      <div class="solve-card">
-        <div class="solve-icon">⬆️</div>
-        <div class="solve-title">Птоз та опущення тканин</div>
-        <div class="solve-desc">Відновлює чіткі контури обличчя й шиї, піднімає кути рота та повіки.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.05s">
-        <div class="solve-icon">💧</div>
-        <div class="solve-title">Набряки та пастозність</div>
-        <div class="solve-desc">Стимулює лімфодренаж, зменшує ранкові набряки та "мішки" під очима.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.1s">
-        <div class="solve-icon">✨</div>
-        <div class="solve-title">Тьмяність і сірість шкіри</div>
-        <div class="solve-desc">Активує мікроциркуляцію, повертає здоровий рум'янець і природне сяяння.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.15s">
-        <div class="solve-icon">📏</div>
-        <div class="solve-title">Нерівний рельєф і пори</div>
-        <div class="solve-desc">Зглажує текстуру шкіри, мінімізує видимість пор і дрібних зморшок.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.2s">
-        <div class="solve-icon">🔲</div>
-        <div class="solve-title">Друге підборіддя</div>
-        <div class="solve-desc">Підтягує шкіру в підщелепній зоні, моделює чіткий овал.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.25s">
-        <div class="solve-icon">🌿</div>
-        <div class="solve-title">Втрата пружності</div>
-        <div class="solve-desc">Запускає синтез колагену та еластину — шкіра стає щільнішою.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.3s">
-        <div class="solve-icon">🪷</div>
-        <div class="solve-title">Зморшки та складки</div>
-        <div class="solve-desc">Розгладжує носогубні складки, зморшки на чолі та в зоні очей.</div>
-      </div>
-      <div class="solve-card" style="transition-delay:.35s">
-        <div class="solve-icon">🔥</div>
-        <div class="solve-title">Локальний жир на обличчі</div>
-        <div class="solve-desc">Кріотерапія допомагає коригувати жирові відкладення в зоні щік і підборіддя.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROTOCOL ===== -->
-<section id="protocol" class="section-pad">
-  <div class="container">
-    <div class="protocol-layout">
-      <div class="fade-up">
-        <span class="section-tag">Протокол</span>
-        <h2 class="section-title">Як проходить <em>процедура</em></h2>
-        <p class="section-sub" style="margin-bottom:2rem;">Кожен сеанс — це чотири чітких етапи за авторським протоколом Карини.</p>
-        <div class="steps-list">
-          <div class="step-item">
-            <div class="step-num">1</div>
-            <div class="step-body">
-              <div class="step-title">Очищення та підготовка шкіри</div>
-              <div class="step-desc">М'яке очищення, тонізування та оцінка стану шкіри. Підбір індивідуального протоколу і інтенсивності впливу.</div>
-              <span class="step-time">⏱ 5–7 хв</span>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-num">2</div>
-            <div class="step-body">
-              <div class="step-title">Нанесення провідного гелю</div>
-              <div class="step-desc">Спеціальний охолоджувальний гель для кращого ковзання насадки та посилення кріоефекту. Зволожує та заспокоює шкіру.</div>
-              <span class="step-time">⏱ 3–5 хв</span>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-num">3</div>
-            <div class="step-body">
-              <div class="step-title">Основна процедура Friolift</div>
-              <div class="step-desc">Робота апаратом по масажних лініях. Почергове охолодження зон обличчя, шиї, декольте. Відчуття — приємна прохолода без болю.</div>
-              <span class="step-time">⏱ 30–40 хв</span>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-num">4</div>
-            <div class="step-body">
-              <div class="step-title">Завершальний догляд</div>
-              <div class="step-desc">Нанесення сироватки або маски для закріплення результату. Рекомендації щодо домашнього догляду та наступних сеансів.</div>
-              <span class="step-time">⏱ 5–10 хв</span>
-            </div>
-          </div>
+      <div class="result-item reveal">
+        <span class="r-icon">💧</span>
+        <div>
+          <h4>Зволоження та пружність</h4>
+          <p>Активний синтез колагену та еластину повертає шкірі молодість та пружність.</p>
         </div>
       </div>
-      <div class="protocol-media fade-up" style="transition-delay:.15s">
-        <div class="video-card">
-          <div class="media-placeholder" style="aspect-ratio:16/9;">
-            <div class="ph-label">
-              <span class="ph-icon">🎬</span>
-              Відео процедури Friolift<br>у кабінеті Карини
-            </div>
-            <a href="#" class="play-btn"><span>▶</span></a>
-          </div>
-          <span class="video-label">🎬 Відео процедури</span>
+      <div class="result-item reveal">
+        <span class="r-icon">🪡</span>
+        <div>
+          <h4>Зменшення зморшок</h4>
+          <p>Розгладження дрібних і глибоких зморшок: лоб, носогубки, зона навколо очей.</p>
         </div>
-        <div class="protocol-info-strip">
-          <div class="info-chip">
-            <div class="chip-val">40–60</div>
-            <div class="chip-lbl">хв / сеанс</div>
-          </div>
-          <div class="info-chip">
-            <div class="chip-val">5–8</div>
-            <div class="chip-lbl">сеансів курс</div>
-          </div>
-          <div class="info-chip">
-            <div class="chip-val">0</div>
-            <div class="chip-lbl">реабілітації</div>
-          </div>
+      </div>
+      <div class="result-item reveal">
+        <span class="r-icon">✏️</span>
+        <div>
+          <h4>Контуринг обличчя</h4>
+          <p>Чіткіший овал, підкреслена лінія щелепи та скул без ін'єкцій.</p>
         </div>
-        <div class="video-card">
-          <div class="media-placeholder" style="aspect-ratio:16/9;">
-            <div class="ph-label">
-              <span class="ph-icon">📸</span>
-              Фото до і після першого сеансу
-            </div>
-          </div>
-          <span class="video-label">📸 Результат першого сеансу</span>
+      </div>
+      <div class="result-item reveal">
+        <span class="r-icon">🫧</span>
+        <div>
+          <h4>Корекція другого підборіддя</h4>
+          <p>Кріотерапія природним шляхом зменшує жирові відкладення у зоні підборіддя.</p>
+        </div>
+      </div>
+      <div class="result-item reveal">
+        <span class="r-icon">🌸</span>
+        <div>
+          <h4>Сяяння та текстура</h4>
+          <p>Поліпшення текстури шкіри, зменшення пігментації, набряків та тьмяності.</p>
+        </div>
+      </div>
+      <div class="result-item reveal">
+        <span class="r-icon">🩺</span>
+        <div>
+          <h4>Підходить всім типам шкіри</h4>
+          <p>Безпечна та ефективна для будь-якого типу шкіри. Без реабілітаційного періоду.</p>
+        </div>
+      </div>
+      <div class="result-item reveal">
+        <span class="r-icon">⚡</span>
+        <div>
+          <h4>Результат після першої процедури</h4>
+          <p>Видимий ліфтинг та сяяння вже після першого сеансу. Курс закріплює та поглиблює ефект.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== RESULTS ===== -->
-<section id="results" class="section-pad">
+<!-- BEFORE/AFTER -->
+<section class="ba-section">
   <div class="container">
-    <div class="results-intro fade-up">
-      <span class="section-tag">Галерея результатів</span>
+    <div class="reveal">
+      <p class="section-label">Результати процедур</p>
       <h2 class="section-title">До та <em>після</em></h2>
-      <p class="section-sub">Реальні результати клієнток Карини після курсу процедур Friolift.</p>
+      <div class="divider"></div>
     </div>
+
     <div class="ba-grid">
-      <div class="ba-card">
+      <div class="ba-card reveal">
         <div class="ba-images">
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;">
-              <div class="ph-label"><span class="ph-icon">📷</span>Фото до</div>
-            </div>
-            <span class="ba-tag">До</span>
-          </div>
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0; background:var(--sage-light);">
-              <div class="ph-label"><span class="ph-icon">📷</span>Фото після</div>
-            </div>
-            <span class="ba-tag">Після</span>
-          </div>
+          <div class="ba-img before">ДО</div>
+          <div class="ba-img after">ПІСЛЯ</div>
+          <div class="ba-divider"></div>
         </div>
         <div class="ba-info">
-          <div class="ba-problem">Птоз щік, нечіткий овал</div>
-          <div class="ba-sessions">Курс: 6 сеансів · 1 раз на тиждень</div>
+          <h4>Підтяжка овалу</h4>
+          <p>1 курс (6 процедур) · обличчя та шия</p>
         </div>
       </div>
-      <div class="ba-card" style="transition-delay:.08s">
+      <div class="ba-card reveal">
         <div class="ba-images">
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;"><div class="ph-label"><span class="ph-icon">📷</span>Фото до</div></div>
-            <span class="ba-tag">До</span>
-          </div>
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0; background:var(--sage-light);"><div class="ph-label"><span class="ph-icon">📷</span>Фото після</div></div>
-            <span class="ba-tag">Після</span>
-          </div>
+          <div class="ba-img before">ДО</div>
+          <div class="ba-img after">ПІСЛЯ</div>
+          <div class="ba-divider"></div>
         </div>
         <div class="ba-info">
-          <div class="ba-problem">Набряки, друге підборіддя</div>
-          <div class="ba-sessions">Курс: 5 сеансів · 2 рази на тиждень</div>
+          <h4>Корекція другого підборіддя</h4>
+          <p>1 курс · кріопротокол</p>
         </div>
       </div>
-      <div class="ba-card" style="transition-delay:.16s">
+      <div class="ba-card reveal">
         <div class="ba-images">
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;"><div class="ph-label"><span class="ph-icon">📷</span>Фото до</div></div>
-            <span class="ba-tag">До</span>
-          </div>
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0; background:var(--sage-light);"><div class="ph-label"><span class="ph-icon">📷</span>Фото після</div></div>
-            <span class="ba-tag">Після</span>
-          </div>
+          <div class="ba-img before">ДО</div>
+          <div class="ba-img after">ПІСЛЯ</div>
+          <div class="ba-divider"></div>
         </div>
         <div class="ba-info">
-          <div class="ba-problem">Тьмяна шкіра, дрібні зморшки</div>
-          <div class="ba-sessions">Курс: 4 сеанси · 1 раз на тиждень</div>
-        </div>
-      </div>
-      <div class="ba-card" style="transition-delay:.24s">
-        <div class="ba-images">
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;"><div class="ph-label"><span class="ph-icon">📷</span>Фото до</div></div>
-            <span class="ba-tag">До</span>
-          </div>
-          <div class="ba-half">
-            <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0; background:var(--sage-light);"><div class="ph-label"><span class="ph-icon">📷</span>Фото після</div></div>
-            <span class="ba-tag">Після</span>
-          </div>
-        </div>
-        <div class="ba-info">
-          <div class="ba-problem">Носогубні складки, птоз щік</div>
-          <div class="ba-sessions">Курс: 7 сеансів · 1 раз на тиждень</div>
+          <h4>Зменшення зморшок та сяяння</h4>
+          <p>Разова процедура · одразу після сеансу</p>
         </div>
       </div>
     </div>
-    <p class="disclaimer">* Результати індивідуальні та залежать від стану шкіри, віку та курсу процедур.</p>
+
+    <p class="ba-disclaimer">
+      * Реальні фото клієнтів будуть додані зі згоди. Результати індивідуальні та залежать від кількості процедур і особливостей шкіри.
+    </p>
   </div>
 </section>
 
-<!-- ===== ADVANTAGES ===== -->
-<section id="advantages" class="section-pad">
-  <div class="container">
-    <div class="fade-up">
-      <span class="section-tag">Переваги</span>
-      <h2 class="section-title">Чому клієнтки <em>обирають</em> Friolift</h2>
-    </div>
-    <div class="adv-grid">
-      <div class="adv-card">
-        <div class="adv-icon">🌡️</div>
-        <div style="flex:1;min-width:0;">
-          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Безболісно та комфортно</h4>
-          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Відчуття — лише приємна прохолода. Жодного болю, почервоніння чи дискомфорту під час і після процедури.</p>
-        </div>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">⚡</div>
-        <div style="flex:1;min-width:0;">
-          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Видимий ефект з першого сеансу</h4>
-          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Вже після одного відвідування шкіра виглядає свіжішою, обличчя — чіткішим. Ефект накопичується з кожним сеансом.</p>
-        </div>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">🗓️</div>
-        <div style="flex:1;min-width:0;">
-          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Нульова реабілітація</h4>
-          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Одразу після процедури можна повернутися до роботи, зустрічей і будь-якої активності. Жодних слідів на шкірі.</p>
-        </div>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">🌸</div>
-        <div style="flex:1;min-width:0;">
-          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Підходить для чутливої шкіри</h4>
-          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">М'який неінвазивний вплив — без голок, хімічних пілінгів і агресивних засобів. Ідеально навіть для чутливої шкіри.</p>
-        </div>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">🔬</div>
-        <div style="flex:1;min-width:0;">
-          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Стимулює власний колаген</h4>
-          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Кріотерапія активує фібробласти — клітини, відповідальні за вироблення колагену й еластину. Результат — природній та тривалий.</p>
-        </div>
-      </div>
-      <div class="adv-card">
-        <div class="adv-icon">🎯</div>
-        <div style="flex:1;min-width:0;">
-          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Індивідуальний протокол</h4>
-          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Карина підбирає параметри апарату та зони опрацювання під конкретний запит і стан шкіри кожної клієнтки.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOR WHOM ===== -->
-<section id="for-whom" class="section-pad">
-  <div class="container">
-    <div class="whom-layout">
-      <div class="whom-visual fade-up">
-        <div class="media-placeholder" style="aspect-ratio:4/5; border-radius:var(--radius-lg);">
-          <div class="ph-label"><span class="ph-icon">🖼</span>Фото клієнтки або Карини під час процедури</div>
-        </div>
-      </div>
-      <div class="fade-up" style="transition-delay:.15s">
-        <span class="section-tag">Для кого</span>
-        <h2 class="section-title">Ця процедура <em>для вас</em>, якщо…</h2>
-        <div class="whom-list">
-          <div class="whom-item">
-            <div class="whom-num">01</div>
-            <div class="whom-body">
-              <h4>Ви помічаєте перші ознаки старіння</h4>
-              <p>Після 25 років — профілактика і підтримка тонусу. Після 35+ — виражений ліфтинговий ефект.</p>
-            </div>
-          </div>
-          <div class="whom-item">
-            <div class="whom-num">02</div>
-            <div class="whom-body">
-              <h4>Вам потрібен швидкий результат</h4>
-              <p>Перед важливою подією — весіллям, фотосесією, зустріччю — вже після 1–2 сеансів шкіра виглядає підтягнутою.</p>
-            </div>
-          </div>
-          <div class="whom-item">
-            <div class="whom-num">03</div>
-            <div class="whom-body">
-              <h4>Ви хочете безпечної альтернативи ін'єкціям</h4>
-              <p>Friolift дає ліфтинговий ефект без уколів, без хірургії та без тривалого відновлення.</p>
-            </div>
-          </div>
-          <div class="whom-item">
-            <div class="whom-num">04</div>
-            <div class="whom-body">
-              <h4>У вас чутлива або схильна до набряків шкіра</h4>
-              <p>Кріотерапія заспокоює, знімає набряки та запалення, зміцнює судини.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section id="testimonials" class="section-pad">
-  <div class="container">
-    <div class="fade-up" style="text-align:center; margin-bottom:clamp(1.5rem,4vw,2.5rem);">
-      <span class="section-tag">Відгуки</span>
-      <h2 class="section-title">Що кажуть <em>клієнтки</em></h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">«Записалась на Friolift перед весіллям подруги. Вже після першого сеансу обличчя виглядало зовсім по-іншому — підтягнуте, свіже. Гості питали, що я зробила. Однозначно продовжу курс!»</p>
-        <div class="test-author">
-          <div class="author-avatar">АМ</div>
-          <div>
-            <div class="author-name">Анна М.</div>
-            <div class="author-date">Google · березень 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card" style="transition-delay:.07s">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">«Довго шукала щось замість ботоксу. Карина порадила Friolift — і я не пошкодувала. Після 5 сеансів друге підборіддя пішло, овал чіткіший. Все робиться комфортно, без болю.»</p>
-        <div class="test-author">
-          <div class="author-avatar">ОК</div>
-          <div>
-            <div class="author-name">Ольга К.</div>
-            <div class="author-date">Instagram · лютий 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card" style="transition-delay:.14s">
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">«Вперше спробувала апаратну косметологію і залишилась в захваті. Процедура дуже приємна — відчуваєш як прохолода буквально тонізує шкіру. Ранкові набряки зникли вже після 3-го сеансу.»</p>
-        <div class="test-author">
-          <div class="author-avatar">ТВ</div>
-          <div>
-            <div class="author-name">Тетяна В.</div>
-            <div class="author-date">Google · квітень 2024</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ABOUT KARINA ===== -->
-<section id="about-karina" class="section-pad">
-  <div class="container">
-    <div class="karina-layout">
-      <div class="karina-photo-wrap fade-up">
-        <div class="karina-photo">
-          <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:var(--radius-lg);">
-            <div class="ph-label"><span class="ph-icon">🖼</span>Фото Карини</div>
-          </div>
-        </div>
-        <div class="karina-cert">
-          <div class="cert-icon">🏅</div>
-          <div class="cert-text">Сертифікований фахівець<br>Zemits Friolift</div>
-        </div>
-      </div>
-      <div class="karina-content fade-up" style="transition-delay:.15s">
-        <div>
-          <span class="section-tag">Про майстра</span>
-          <h2 class="section-title">Карина <em>Коржова</em></h2>
-        </div>
-        <blockquote class="karina-quote">
-          «Моя мета — щоб кожна клієнтка виходила з кабінету впевненою в собі та закоханою у власну шкіру.»
-        </blockquote>
-        <p class="karina-text">
-          Косметолог-естетист з багаторічним досвідом у сфері апаратної та доглядової косметології.
-          Карина постійно навчається та впроваджує найсучасніші технології, щоб запропонувати
-          клієнткам справді ефективні рішення. Friolift від Zemits — один з ключових інструментів
-          в її практиці для безопераційного ліфтингу та омолодження.
-        </p>
-        <div class="karina-stats">
-          <div>
-            <div class="k-stat-val">5+</div>
-            <div class="k-stat-lbl">Років досвіду</div>
-          </div>
-          <div>
-            <div class="k-stat-val">300+</div>
-            <div class="k-stat-lbl">Задоволених клієнтів</div>
-          </div>
-          <div>
-            <div class="k-stat-val">15+</div>
-            <div class="k-stat-lbl">Курсів та сертифікатів</div>
-          </div>
-        </div>
-        <div style="display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem;">
-          <a href="#booking" class="btn-primary">Записатися до Карини</a>
-          <a href="https://instagram.com/" class="btn-outline" target="_blank">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== BOOKING ===== -->
-<section id="booking" class="section-pad">
-  <div class="container">
-    <div class="booking-inner">
-      <div class="booking-text fade-up">
-        <span class="section-tag">Запис на процедуру</span>
-        <h2 class="section-title">Готові побачити <em>різницю?</em></h2>
-        <p class="section-sub" style="color:rgba(255,255,255,.75);">
-          Залиште заявку — Карина зв'яжеться з вами протягом години та підбере
-          зручний час для першого сеансу.
-        </p>
-        <div class="booking-contacts">
-          <div class="contact-item">
-            <div class="contact-icon">📞</div>
-            <a href="tel:+380XXXXXXXXX" style="color:rgba(255,255,255,.85);">+38 (0XX) XXX-XX-XX</a>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">💬</div>
-            <span>Telegram / Viber / Instagram DM</span>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
-            <span>м. Чернівці, вул. ________________</span>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">🕐</div>
-            <span>Пн–Сб: 9:00 – 19:00</span>
-          </div>
-        </div>
-      </div>
-      <div class="booking-form-wrap fade-up" style="transition-delay:.15s">
-        <div class="form-title">Залишити заявку</div>
-        <form id="booking-form" action="#" method="post">
-          <div class="form-group">
-            <label class="form-label" for="name">Ваше ім'я</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Ім'я" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="phone">Телефон</label>
-            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+38 (0__) ___-__-__" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="service">Що цікавить</label>
-            <select class="form-input" id="service" name="service">
-              <option value="">Оберіть варіант</option>
-              <option>Перший ознайомчий сеанс</option>
-              <option>Курс 5 сеансів</option>
-              <option>Курс 8 сеансів</option>
-              <option>Консультація</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="time">Зручний час</label>
-            <input class="form-input" type="text" id="time" name="time" placeholder="Наприклад: вівторок після 15:00">
-          </div>
-          <button type="submit" class="btn-primary form-submit">Надіслати заявку →</button>
-          <p class="form-note">Надсилаючи заявку, ви погоджуєтесь на обробку персональних даних.<br>Ми не надсилаємо спам.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section id="faq" class="section-pad">
-  <div class="container">
-    <div class="faq-intro fade-up">
-      <span class="section-tag">Часті запитання</span>
-      <h2 class="section-title">Маєте <em>запитання?</em></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q">
-          Чи боляче робити Friolift?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Ні, процедура абсолютно безболісна. Ви відчуваєте лише приємну прохолоду від насадки апарату. Більшість клієнток порівнюють відчуття з легким охолоджувальним масажем.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          Скільки сеансів потрібно для видимого результату?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Перший ефект помітний вже після одного сеансу — шкіра виглядає свіжішою та підтягнутою. Для стійкого і вираженого результату рекомендується курс із 5–8 сеансів з інтервалом 1–2 рази на тиждень. Підтримувальний сеанс — раз на місяць.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          Чи є реабілітаційний період?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Реабілітаційного періоду немає зовсім. Після процедури шкіра виглядає відпочилою і свіжою. Ви можете відразу повернутися до звичного ритму — роботи, зустрічей, активності.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          Кому підходить ця процедура?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Процедура підходить більшості дорослих жінок і чоловіків. Вона безпечна для чутливої шкіри та може проводитись у будь-яку пору року. Перед процедурою Карина обов'язково проводить консультацію та оцінює стан вашої шкіри.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          Чи можна поєднувати Friolift з іншими процедурами?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Так, Friolift добре поєднується з ін'єкційними процедурами, мікроструму терапією та доглядовими процедурами. Схему поєднання Карина підбирає індивідуально під ваші цілі та стан шкіри.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          Чи є протипоказання?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Основні протипоказання: вагітність та лактація, онкологічні захворювання, відкриті рани та запалення в зоні обробки, непереносимість холоду (кріоглобулінемія). Повний перелік Карина обговорить на консультації.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">
-          Як довго зберігається ефект?
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-a">Ефект від курсу зберігається 6–12 місяців залежно від індивідуальних особливостей шкіри, способу життя та домашнього догляду. Для підтримки результату рекомендується по 1 сеансу раз на місяць.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo logo">
-        <span class="logo-name">Карина Коржова</span>
-        <span class="logo-sub" style="color:rgba(255,255,255,.35);">Косметолог · Естетист</span>
-      </div>
-      <span class="footer-copy">© 2024 Карина Коржова. Усі права захищено.</span>
-      <div class="footer-links">
-        <a href="#">Instagram</a>
-        <a href="#">Telegram</a>
-        <a href="tel:+380XXXXXXXXX">Зателефонувати</a>
-      </div>
+  <div class="foot-inner">
+    <p class="foot-name">Косметолог-естетист Кариня Коржова</p>
+    <p class="foot-sub">Інформаційна сторінка про апарат та процедуру</p>
+    <div class="foot-device">
+      <span>🏷️</span> Zemits FrioLift · Офіційне обладнання Zemits
     </div>
+    <p class="foot-note">
+      Інформація на цій сторінці носить виключно ознайомлювальний характер.<br>
+      Результати індивідуальні та можуть відрізнятись залежно від стану шкіри.<br>
+      Джерело: zemits.com.ua · zemits.eu · zemits.co.uk
+    </p>
   </div>
 </footer>
 
 <script>
-// Header scroll effect
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+// Video tabs
+function showVideo(id, btn) {
+  document.querySelectorAll('.video-wrap').forEach(v => v.classList.remove('visible'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('vid-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
 
-// Burger menu
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobile-menu');
-burger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-  const spans = burger.querySelectorAll('span');
-  const isOpen = mobileMenu.classList.contains('open');
-  spans[0].style.transform = isOpen ? 'rotate(45deg) translate(4.5px,4.5px)' : '';
-  spans[1].style.opacity = isOpen ? '0' : '1';
-  spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(4.5px,-4.5px)' : '';
-});
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    const spans = burger.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '1';
-    spans[2].style.transform = '';
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 80);
+      io.unobserve(e.target);
+    }
   });
-});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  });
-});
-
-// Scroll fade-up animation
-const allFadeEls = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
-allFadeEls.forEach(el => observer.observe(el));
-// Fallback: якщо елемент вже у viewport при завантаженні або observer не спрацював
-setTimeout(() => { allFadeEls.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight + 200) el.classList.add('visible'); }); }, 100);
-window.addEventListener('scroll', () => { allFadeEls.forEach(el => { if (!el.classList.contains('visible')) { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight + 60) el.classList.add('visible'); } }); }, { passive: true });
-
-// Booking form
-document.getElementById('booking-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('.form-submit');
-  btn.textContent = '✓ Заявку отримано! Зв\'яжемось скоро.';
-  btn.style.background = 'var(--sage)';
-  btn.style.cursor = 'default';
-  btn.disabled = true;
-});
-
-// hero layout: flex column centered (static)
+revealEls.forEach(el => io.observe(el));
 </script>
 </body>
 </html>
