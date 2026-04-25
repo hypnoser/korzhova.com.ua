@@ -162,14 +162,6 @@
 
   .pill .icon { font-size: 17px; }
 
-  /* ── WAVE DIVIDER ── */
-  .wave-top {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-  }
-  .wave-top svg { display: block; width: 100%; height: 48px; }
-
   /* ── SECTION BASICS ── */
   section { padding: 64px 20px; }
   .container { max-width: 820px; margin: 0 auto; }
@@ -397,34 +389,6 @@
 
   .proto-block p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
 
-  /* Насадки */
-  .att-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 28px;
-  }
-
-  .att-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 20px 16px;
-    border: 1px solid var(--aqua-light);
-    text-align: center;
-  }
-
-  .att-card .a-icon { font-size: 26px; margin-bottom: 8px; }
-
-  .att-card h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--teal-dark);
-    margin-bottom: 4px;
-  }
-
-  .att-card p { font-size: 12.5px; color: var(--text-light); line-height: 1.5; }
-
-  /* Сироватки */
   .serums-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -531,6 +495,13 @@
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .ba-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 52px rgba(44,110,102,0.18);
   }
 
   .ba-images {
@@ -540,6 +511,29 @@
     position: relative;
   }
 
+  /* Hover hint */
+  .ba-images::after {
+    content: '🔍 Переглянути';
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 110, 102, 0);
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.25s, color 0.25s;
+    z-index: 3;
+  }
+
+  .ba-card:hover .ba-images::after {
+    background: rgba(44, 110, 102, 0.2);
+    color: #fff;
+  }
+
   .ba-img {
     display: flex;
     align-items: center;
@@ -547,10 +541,39 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
+    overflow: hidden;
+    position: relative;
   }
 
-  .ba-img.before { background: linear-gradient(135deg, #D8CEC4, #C8BCAF); color: #7A6A5C; }
-  .ba-img.after  { background: linear-gradient(135deg, #B8E4DC, #8FCEBC); color: #2C6E66; }
+  /* Label overlay */
+  .ba-img::before {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(4px);
+    color: var(--teal-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  .ba-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ba-img.no-photo.before { background: linear-gradient(135deg, #D8CEC4, #C8BCAF); color: #7A6A5C; }
+  .ba-img.no-photo.after  { background: linear-gradient(135deg, #B8E4DC, #8FCEBC); color: #2C6E66; }
 
   .ba-divider {
     position: absolute;
@@ -580,6 +603,189 @@
     text-align: center;
     font-style: italic;
   }
+
+  /* ── LIGHTBOX ── */
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, background 0.3s ease;
+    background: rgba(18, 44, 40, 0);
+  }
+
+  .lightbox-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(18, 44, 40, 0.75);
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-box {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    max-width: 860px;
+    width: 100%;
+    box-shadow: 0 24px 80px rgba(18,44,40,0.4);
+    transform: scale(0.93) translateY(16px);
+    transition: transform 0.32s cubic-bezier(0.34, 1.4, 0.64, 1);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lightbox-overlay.open .lightbox-box {
+    transform: scale(1) translateY(0);
+  }
+
+  .lightbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px 16px;
+    border-bottom: 1px solid var(--aqua-light);
+    flex-shrink: 0;
+  }
+
+  .lightbox-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--teal-dark);
+  }
+
+  .lightbox-sub {
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  .lightbox-close {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--aqua);
+    background: var(--aqua-pale);
+    color: var(--aqua-deep);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.18s;
+    line-height: 1;
+  }
+
+  .lightbox-close:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+    color: #fff;
+  }
+
+  .lightbox-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+    position: relative;
+  }
+
+  .lb-panel {
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    max-height: 60vh;
+  }
+
+  .lb-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .lb-panel.no-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lb-panel.before.no-photo { background: linear-gradient(160deg, #D8CEC4, #C8BCAF); }
+  .lb-panel.after.no-photo  { background: linear-gradient(160deg, #B8E4DC, #8FCEBC); }
+
+  .lb-label {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(6px);
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 14px;
+    white-space: nowrap;
+    box-shadow: 0 2px 12px rgba(44,110,102,0.1);
+  }
+
+  .lb-separator {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--white);
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .lightbox-footer {
+    padding: 14px 24px;
+    background: var(--aqua-pale);
+    border-top: 1px solid var(--aqua-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: 12px;
+  }
+
+  .lb-nav { display: flex; gap: 8px; }
+
+  .lb-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--aqua);
+    background: var(--white);
+    color: var(--aqua-deep);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s;
+  }
+
+  .lb-nav-btn:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+    color: #fff;
+  }
+
+  .lb-counter { font-size: 13px; color: var(--text-mid); font-weight: 500; }
+  .lb-hint { font-size: 12px; color: var(--text-light); font-style: italic; }
 
   /* ── FOOTER ── */
   footer {
@@ -632,12 +838,25 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .about-duo, .results-grid, .who-grid, .att-grid, .serums-grid { grid-template-columns: 1fr; }
+    .about-duo, .results-grid, .who-grid, .serums-grid { grid-template-columns: 1fr; }
     .combo-card { grid-column: span 1; }
     .r-card.wide { grid-column: span 1; }
     .proto-flow { flex-direction: column; }
     .nav-links { display: none; }
     .ba-grid { grid-template-columns: 1fr; }
+
+    .lightbox-body { grid-template-columns: 1fr; }
+    .lb-panel { min-height: 190px; max-height: 34vh; }
+    .lb-panel + .lb-panel { border-top: 3px solid var(--white); }
+    .lb-separator { display: none; }
+    .lightbox-footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  @media (max-width: 440px) {
+    section { padding: 48px 16px; }
+    .lightbox-box { border-radius: 16px; }
+    .lightbox-header { padding: 14px 16px; }
+    .lightbox-footer { padding: 12px 16px; }
   }
 </style>
 </head>
@@ -809,7 +1028,6 @@
       </div>
     </div>
 
-    <!-- Сироватки -->
     <div class="reveal" style="margin-top:40px;">
       <p class="sec-label" style="margin-bottom:14px;">Авторські сироватки Zemits</p>
       <div class="serums-grid">
@@ -929,11 +1147,33 @@
       <h2 class="sec-title">До та <em>після</em></h2>
       <div class="divider"></div>
     </div>
+
+    <!--
+      ╔══════════════════════════════════════════════════════════════╗
+      ║  ЯК ДОДАТИ ФОТО:                                             ║
+      ║  Замініть клас "no-photo" → залиш лише "before"/"after"      ║
+      ║  та вставте всередину: <img src="..." alt="...">             ║
+      ║  Рекомендований розмір: 600×900px або 800×1200px (2:3)       ║
+      ╚══════════════════════════════════════════════════════════════╝
+    -->
+
     <div class="ba-grid">
-      <div class="ba-card reveal">
+
+      <!-- КАРТКА 1 -->
+      <div class="ba-card reveal"
+           data-title="Очищення та сяяння"
+           data-sub="Перша процедура · обличчя"
+           onclick="openLightbox(0)">
         <div class="ba-images">
-          <div class="ba-img before">ДО</div>
-          <div class="ba-img after">ПІСЛЯ</div>
+
+          <!-- Коли фото готові:          -->
+          <div class="ba-img before" data-label="До">
+            <img src="/images/dp/11-1.jpg" alt="До — очищення та сяяння">
+          </div>
+          <div class="ba-img after" data-label="Після">
+            <img src="/images/dp/11-2.jpg" alt="Після — очищення та сяяння">
+          </div>
+
           <div class="ba-divider"></div>
         </div>
         <div class="ba-info">
@@ -941,10 +1181,22 @@
           <p>Перша процедура · обличчя</p>
         </div>
       </div>
-      <div class="ba-card reveal">
+
+      <!-- КАРТКА 2 -->
+      <div class="ba-card reveal"
+           data-title="Звуження пор та рівний тон"
+           data-sub="Курс 4 процедури · жирний тип"
+           onclick="openLightbox(1)">
         <div class="ba-images">
-          <div class="ba-img before">ДО</div>
-          <div class="ba-img after">ПІСЛЯ</div>
+
+          <!-- Коли фото готові:          -->
+          <div class="ba-img before" data-label="До">
+            <img src="/images/dp/33-1.jpg" alt="До — пори">
+          </div>
+          <div class="ba-img after" data-label="Після">
+            <img src="/images/dp/33-2.jpg" alt="Після — пори">
+          </div>
+
           <div class="ba-divider"></div>
         </div>
         <div class="ba-info">
@@ -952,10 +1204,22 @@
           <p>Курс 4 процедури · жирний тип</p>
         </div>
       </div>
-      <div class="ba-card reveal">
+
+      <!-- КАРТКА 3 -->
+      <div class="ba-card reveal"
+           data-title="Зволоження та омолодження"
+           data-sub="Курс 3 процедури · суха шкіра"
+           onclick="openLightbox(2)">
         <div class="ba-images">
-          <div class="ba-img before">ДО</div>
-          <div class="ba-img after">ПІСЛЯ</div>
+
+          <!-- Коли фото готові:          -->
+          <div class="ba-img before" data-label="До">
+            <img src="/images/dp/22-1.jpg" alt="До — зволоження">
+          </div>
+          <div class="ba-img after" data-label="Після">
+            <img src="/images/dp/22-2.jpg" alt="Після — зволоження">
+          </div>
+
           <div class="ba-divider"></div>
         </div>
         <div class="ba-info">
@@ -963,7 +1227,9 @@
           <p>Курс 3 процедури · суха шкіра</p>
         </div>
       </div>
+
     </div>
+
     <p class="ba-disclaimer">
       * Реальні фото клієнтів будуть додані зі згоди. Результати індивідуальні та залежать від стану шкіри та кількості процедур.
     </p>
@@ -986,7 +1252,38 @@
   </div>
 </footer>
 
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Перегляд фото до/після">
+  <div class="lightbox-box">
+    <div class="lightbox-header">
+      <div>
+        <div class="lightbox-title" id="lb-title"></div>
+        <div class="lightbox-sub" id="lb-sub"></div>
+      </div>
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Закрити">✕</button>
+    </div>
+    <div class="lightbox-body">
+      <div class="lb-panel before" id="lb-before">
+        <span class="lb-label">До</span>
+      </div>
+      <div class="lb-panel after" id="lb-after">
+        <span class="lb-label">Після</span>
+      </div>
+      <div class="lb-separator"></div>
+    </div>
+    <div class="lightbox-footer">
+      <div class="lb-nav">
+        <button class="lb-nav-btn" onclick="navigateLightbox(-1)" aria-label="Попередня">‹</button>
+        <button class="lb-nav-btn" onclick="navigateLightbox(1)" aria-label="Наступна">›</button>
+      </div>
+      <span class="lb-counter" id="lb-counter">1 / 3</span>
+      <span class="lb-hint">Esc або клік поза фото — закрити</span>
+    </div>
+  </div>
+</div>
+
 <script>
+// ── VIDEO TABS ──
 function showVid(id, btn) {
   document.querySelectorAll('.video-wrap').forEach(v => v.classList.remove('visible'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -994,6 +1291,7 @@ function showVid(id, btn) {
   btn.classList.add('active');
 }
 
+// ── SCROLL REVEAL ──
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1002,8 +1300,74 @@ const io = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
-
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ── LIGHTBOX ──
+let currentIndex = 0;
+const cards = Array.from(document.querySelectorAll('.ba-card'));
+
+function openLightbox(index) {
+  currentIndex = index;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navigateLightbox(dir) {
+  currentIndex = (currentIndex + dir + cards.length) % cards.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const card = cards[currentIndex];
+  document.getElementById('lb-title').textContent = card.getAttribute('data-title') || '';
+  document.getElementById('lb-sub').textContent   = card.getAttribute('data-sub') || '';
+  document.getElementById('lb-counter').textContent = (currentIndex + 1) + ' / ' + cards.length;
+
+  const beforeEl = card.querySelector('.ba-img.before');
+  const afterEl  = card.querySelector('.ba-img.after');
+
+  function setPanel(panel, sourceEl, labelText) {
+    const labelSpan = panel.querySelector('.lb-label');
+    panel.innerHTML = '';
+    panel.appendChild(labelSpan);
+    labelSpan.textContent = labelText;
+
+    const img = sourceEl ? sourceEl.querySelector('img') : null;
+    if (img) {
+      panel.classList.remove('no-photo');
+      const newImg = document.createElement('img');
+      newImg.src = img.src;
+      newImg.alt = img.alt || labelText;
+      panel.insertBefore(newImg, labelSpan);
+    } else {
+      panel.classList.add('no-photo');
+      const ph = document.createElement('span');
+      ph.style.cssText = 'font-family:Playfair Display,serif;font-size:26px;font-weight:300;color:inherit;opacity:0.45;margin-bottom:24px;';
+      ph.textContent = 'Фото незабаром';
+      panel.insertBefore(ph, labelSpan);
+    }
+  }
+
+  setPanel(document.getElementById('lb-before'), beforeEl, 'До');
+  setPanel(document.getElementById('lb-after'),  afterEl,  'Після');
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  navigateLightbox(-1);
+  if (e.key === 'ArrowRight') navigateLightbox(1);
+});
 </script>
 </body>
 </html>
