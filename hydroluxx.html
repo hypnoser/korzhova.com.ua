@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zemits HydroLuxx — Гідродермабразія та Киснева Мезотерапія | Кариня Коржова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --aqua-pale:  #EFF7F6;
+    --aqua-light: #D6EEE9;
+    --aqua:       #A8D5CB;
+    --aqua-mid:   #7BBFB3;
+    --aqua-deep:  #4A9E92;
+    --teal-dark:  #2C6E66;
+    --sage:       #C5DACC;
+    --sage-pale:  #E8F2EC;
+    --cream:      #FAFAF7;
+    --sand:       #F3EDE4;
+    --text:       #1E3A35;
+    --text-mid:   #4A7068;
+    --text-light: #7AADA4;
+    --white:      #FFFFFF;
+    --shadow:     0 6px 36px rgba(44,110,102,0.09);
+    --radius:     20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--aqua-pale);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(239,247,246,0.93);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--aqua-light);
+    padding: 0 20px;
+  }
+
+  .nav-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    gap: 8px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--teal-dark);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav-links a {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 5px 11px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    background: var(--aqua-light);
+    color: var(--teal-dark);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 64px 20px 52px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--aqua-light);
+    color: var(--teal-dark);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 7.5vw, 62px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--teal-dark);
+    margin-bottom: 22px;
+    letter-spacing: -0.015em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--aqua-deep);
+  }
+
+  .hero-lead {
+    font-size: 17px;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.85;
+  }
+
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    background: var(--white);
+    border: 1px solid var(--aqua);
+    border-radius: 40px;
+    padding: 9px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text);
+    font-weight: 500;
+    box-shadow: 0 2px 12px rgba(120,200,190,0.12);
+  }
+
+  .pill .icon { font-size: 17px; }
+
+  /* ── WAVE DIVIDER ── */
+  .wave-top {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave-top svg { display: block; width: 100%; height: 48px; }
+
+  /* ── SECTION BASICS ── */
+  section { padding: 64px 20px; }
+  .container { max-width: 820px; margin: 0 auto; }
+
+  .sec-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--aqua-mid);
+    margin-bottom: 10px;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 400;
+    color: var(--teal-dark);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+
+  .sec-title em { font-style: italic; color: var(--aqua-deep); }
+
+  .divider {
+    width: 44px;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--aqua-deep), var(--aqua));
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  /* ── ABOUT ── */
+  .about-section { background: var(--white); }
+
+  .about-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .duo-card {
+    background: var(--aqua-pale);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border: 1px solid var(--aqua-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .duo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+
+  .duo-card .d-icon { font-size: 30px; margin-bottom: 14px; display: block; }
+
+  .duo-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+  }
+
+  .duo-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.7; }
+
+  .combo-card {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--aqua-light) 0%, var(--sage) 100%);
+    border-color: var(--aqua-mid);
+  }
+
+  .combo-card p { color: var(--teal-dark); }
+
+  /* ── VIDEO ── */
+  .video-section { background: var(--sand); }
+
+  .video-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1.5px solid var(--aqua-mid);
+    background: transparent;
+    color: var(--text-mid);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+    color: #fff;
+  }
+
+  .video-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: none;
+  }
+
+  .video-wrap.visible { display: block; }
+  .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+  .video-caption {
+    margin-top: 13px;
+    font-size: 13.5px;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── PHYSIOLOGY ── */
+  .physio-section { background: var(--aqua-pale); }
+
+  .physio-steps {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .physio-steps::before {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 44px;
+    bottom: 44px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--aqua), var(--sage));
+  }
+
+  .physio-step {
+    display: flex;
+    gap: 22px;
+    padding-bottom: 36px;
+    align-items: flex-start;
+  }
+
+  .ps-num {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    border: 2px solid var(--aqua-mid);
+    background: var(--white);
+    color: var(--teal-dark);
+  }
+
+  .ps-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+
+  .ps-body p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
+
+  .ps-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    background: var(--aqua-light);
+    color: var(--teal-dark);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── PROTOCOL ── */
+  .protocol-section { background: var(--sage-pale); }
+
+  .proto-flow {
+    display: flex;
+    gap: 0;
+    margin-top: 32px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .proto-block {
+    flex: 1;
+    padding: 32px 18px;
+    text-align: center;
+  }
+
+  .proto-block:nth-child(1) { background: #E0F3EF; }
+  .proto-block:nth-child(2) { background: #D5EBF4; }
+  .proto-block:nth-child(3) { background: #DCF0E8; }
+
+  .proto-block .p-icon { font-size: 30px; margin-bottom: 10px; }
+  .p-step-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aqua-deep); font-weight: 700; margin-bottom: 4px; }
+
+  .proto-block h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .proto-block p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+
+  /* Насадки */
+  .att-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .att-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px 16px;
+    border: 1px solid var(--aqua-light);
+    text-align: center;
+  }
+
+  .att-card .a-icon { font-size: 26px; margin-bottom: 8px; }
+
+  .att-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+
+  .att-card p { font-size: 12.5px; color: var(--text-light); line-height: 1.5; }
+
+  /* Сироватки */
+  .serums-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .serum-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px 16px;
+    border-top: 4px solid;
+    border-left: 1px solid var(--aqua-light);
+    border-right: 1px solid var(--aqua-light);
+    border-bottom: 1px solid var(--aqua-light);
+  }
+
+  .serum-card:nth-child(1) { border-top-color: var(--aqua-deep); }
+  .serum-card:nth-child(2) { border-top-color: #6BBF8A; }
+  .serum-card:nth-child(3) { border-top-color: #7BB5D4; }
+
+  .serum-card h4 { font-size: 14.5px; font-weight: 600; color: var(--teal-dark); margin-bottom: 6px; }
+  .serum-card .s-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; display: block; }
+  .serum-card p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+
+  /* ── RESULTS ── */
+  .results-section { background: var(--white); }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .r-card {
+    background: var(--aqua-pale);
+    border-radius: 16px;
+    padding: 20px 18px;
+    border: 1px solid var(--aqua-light);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .r-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  .r-card .ri { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .r-card h4 { font-size: 15px; font-weight: 600; color: var(--teal-dark); margin-bottom: 4px; }
+  .r-card p { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; }
+
+  .r-card.wide { grid-column: span 2; background: linear-gradient(135deg, #DFF2EE, #D5EBF4); }
+
+  /* ── WHO FOR ── */
+  .who-section { background: var(--sand); }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .who-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 13px 16px;
+    border: 1px solid var(--aqua-light);
+    font-size: 14.5px;
+    color: var(--text);
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .who-item:hover { background: var(--aqua-light); }
+
+  .w-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--aqua-deep);
+    flex-shrink: 0;
+  }
+
+  /* ── BEFORE/AFTER ── */
+  .ba-section { background: var(--aqua-pale); }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .ba-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .ba-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 190px;
+    position: relative;
+  }
+
+  .ba-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .ba-img.before { background: linear-gradient(135deg, #D8CEC4, #C8BCAF); color: #7A6A5C; }
+  .ba-img.after  { background: linear-gradient(135deg, #B8E4DC, #8FCEBC); color: #2C6E66; }
+
+  .ba-divider {
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: var(--white);
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .ba-info { padding: 16px 18px; }
+
+  .ba-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--teal-dark);
+    margin-bottom: 3px;
+  }
+
+  .ba-info p { font-size: 12.5px; color: var(--text-light); }
+
+  .ba-disclaimer {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--teal-dark);
+    padding: 44px 20px;
+    text-align: center;
+  }
+
+  .foot-inner { max-width: 820px; margin: 0 auto; }
+
+  .foot-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--aqua-pale);
+    font-weight: 300;
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .foot-sub { font-size: 13px; color: var(--aqua-mid); margin-bottom: 22px; }
+
+  .foot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 20px;
+    padding: 8px 20px;
+    color: var(--aqua-pale);
+    font-size: 13px;
+  }
+
+  .foot-note {
+    margin-top: 28px;
+    font-size: 12px;
+    color: var(--aqua-mid);
+    line-height: 1.7;
+    opacity: 0.8;
+  }
+
+  /* ── ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .about-duo, .results-grid, .who-grid, .att-grid, .serums-grid { grid-template-columns: 1fr; }
+    .combo-card { grid-column: span 1; }
+    .r-card.wide { grid-column: span 1; }
+    .proto-flow { flex-direction: column; }
+    .nav-links { display: none; }
+    .ba-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Кариня Коржова · HydroLuxx</span>
+    <ul class="nav-links">
+      <li><a href="#about">Про апарат</a></li>
+      <li><a href="#physio">Як діє</a></li>
+      <li><a href="#protocol">Протокол</a></li>
+      <li><a href="#results">Результати</a></li>
+      <li><a href="#who">Кому підходить</a></li>
+      <li><a href="#video">Відео</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero reveal">
+  <span class="hero-badge">💧 Zemits · Гідродермабразія + Киснева мезотерапія</span>
+  <h1>Zemits<br><em>HydroLuxx</em></h1>
+  <p class="hero-lead">Два процедурних тренди в одному апараті: глибоке водяне очищення та безін'єкційна кисенева мезотерапія. Шкіра дихає. Без болю. Без реабілітації.</p>
+  <div class="hero-pills">
+    <div class="pill"><span class="icon">💦</span> Гідродермабразія</div>
+    <div class="pill"><span class="icon">🌬️</span> Киснева мезотерапія</div>
+    <div class="pill"><span class="icon">⏱️</span> 30–60 хвилин</div>
+    <div class="pill"><span class="icon">✅</span> Всі типи шкіри</div>
+    <div class="pill"><span class="icon">🤰</span> Безпечно при вагітності</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Що це таке</p>
+      <h2 class="sec-title">Два тренди в<br><em>одному</em> апараті</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-mid);font-size:16px;max-width:630px;line-height:1.85;">
+        Zemits HydroLuxx — косметологічний комбайн нового покоління, що поєднує <strong>гідродермабразію (аквапілінг)</strong> та <strong>кисневу мезотерапію</strong> в одному сеансі. Результат — глибоко очищена, зволожена та насичена шкіра зразу після першої процедури.
+      </p>
+    </div>
+    <div class="about-duo">
+      <div class="duo-card reveal">
+        <span class="d-icon">💧</span>
+        <h3>Гідродермабразія</h3>
+        <p>Безконтактний аквапілінг за допомогою спіральних насадок та потоку води. Делікатно видаляє ороговілі клітини, очищає пори та одночасно насичує шкіру сироваткою. Це м'яка альтернатива мікродермабразії — без травм та подразнення.</p>
+      </div>
+      <div class="duo-card reveal">
+        <span class="d-icon">🌬️</span>
+        <h3>Киснева мезотерапія</h3>
+        <p>Безін'єкційне введення активних сироваток у глибокі шари шкіри за допомогою кисневого пістолету під тиском. Кисень проникає в клітини, покращує обмін речовин, прискорює відновлення та надає шкірі сяяння без жодних голок.</p>
+      </div>
+      <div class="duo-card combo-card reveal">
+        <span class="d-icon">⚡</span>
+        <h3>Комплексний ефект за один сеанс</h3>
+        <p>За 30–60 хвилин процедури шкіра отримує <strong>очищення</strong> (вакуум + вода), <strong>відлущення</strong> відмерлих клітин, <strong>глибоке зволоження</strong> та <strong>насичення</strong> активними компонентами. Це комплексний догляд, якого зазвичай потребує кілька різних процедур.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHYSIOLOGY -->
+<section id="physio" class="physio-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Фізіологія</p>
+      <h2 class="sec-title">Що відбувається зі<br>шкірою <em>зсередини</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="physio-steps">
+      <div class="physio-step reveal">
+        <div class="ps-num">1</div>
+        <div class="ps-body">
+          <div class="ps-tag">💧 Гідродермабразія · Аквапілінг</div>
+          <h3>Очищення та ексфоліація</h3>
+          <p>Спіральна насадка одночасно подає розчин сироватки та витягує вакуумом забруднення, надлишок шкірного сала та відмерлі клітини. Рух по масажних лініях розслаблює мімічні м'язи. Шкіра очищується без подразнення і мікроушкоджень — що принципово відрізняє гідродермабразію від кристалічного пілінгу.</p>
+        </div>
+      </div>
+      <div class="physio-step reveal">
+        <div class="ps-num">2</div>
+        <div class="ps-body">
+          <div class="ps-tag">🌊 Гідратація · Живлення</div>
+          <h3>Глибоке зволоження шкіри</h3>
+          <p>Активна сироватка вводиться безпосередньо в процесі очищення. Щойно очищені пори відкриті — і корисні речовини (гіалуронова кислота, пептиди, антиоксиданти) проникають значно глибше, ніж при нанесенні вручну. Шкіра насичується зсередини.</p>
+        </div>
+      </div>
+      <div class="physio-step reveal">
+        <div class="ps-num">3</div>
+        <div class="ps-body">
+          <div class="ps-tag">🌬️ Киснева мезотерапія · Оксигенація</div>
+          <h3>Безін'єкційна доставка активних речовин</h3>
+          <p>Кисневий пістолет під тиском транспортує активні компоненти у дермальний шар без голок. Кисень прискорює внутрішньоклітинний обмін, активує фібробласти та стимулює мікроциркуляцію. Шкіра насичується киснем на клітинному рівні — зникає тьмяність, покращується колір, зменшується набряклість. Результат — ефект «сяяння» одразу після процедури.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="video-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Медіа</p>
+      <h2 class="sec-title"><em>Перегляньте</em><br>апарат та процедуру</h2>
+      <div class="divider"></div>
+      <div class="video-tabs">
+        <button class="tab-btn active" onclick="showVid('overview', this)">Огляд апарату</button>
+        <button class="tab-btn" onclick="showVid('procedure', this)">Процедура</button>
+        <button class="tab-btn" onclick="showVid('results', this)">Результати</button>
+      </div>
+    </div>
+
+    <div id="vid-overview" class="video-wrap visible reveal">
+      <iframe src="https://www.youtube.com/embed/4M6G3fwA5Lc" allowfullscreen loading="lazy" title="Zemits HydroLuxx огляд апарату"></iframe>
+    </div>
+    <div id="vid-procedure" class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/TLgn4eaM5SM" allowfullscreen loading="lazy" title="Zemits HydroLuxx процедура"></iframe>
+    </div>
+    <div id="vid-results" class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/kozmxL7Cqg4" allowfullscreen loading="lazy" title="Zemits HydroLuxx результати"></iframe>
+    </div>
+    <p class="video-caption">Відео надані виробником Zemits. Натисніть на відео для перегляду.</p>
+  </div>
+</section>
+
+<!-- PROTOCOL -->
+<section id="protocol" class="protocol-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Протокол Zemits</p>
+      <h2 class="sec-title">Як проходить<br><em>процедура</em></h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-mid);font-size:15.5px;max-width:600px;line-height:1.85;margin-bottom:32px;">
+        Процедура проходить у 3 послідовних етапи за авторським протоколом Zemits. Тривалість — <strong>30–60 хвилин</strong>. Клієнт відчуває лише приємний дотик та розслаблення.
+      </p>
+    </div>
+
+    <div class="proto-flow reveal">
+      <div class="proto-block">
+        <div class="p-icon">🌀</div>
+        <div class="p-step-label">Етап 1</div>
+        <h4>Очищення</h4>
+        <p>Спіральна насадка видаляє забруднення, сало та ороговілі клітини. Вакуум + вода + сироватка одночасно.</p>
+      </div>
+      <div class="proto-block">
+        <div class="p-icon">💧</div>
+        <div class="p-step-label">Етап 2</div>
+        <h4>Зволоження</h4>
+        <p>Введення лікувальної сироватки у відкриті після очищення пори. Глибоке насичення.</p>
+      </div>
+      <div class="proto-block">
+        <div class="p-icon">✨</div>
+        <div class="p-step-label">Етап 3</div>
+        <h4>Кисень + активи</h4>
+        <p>Кисневий пістолет вводить концентрований комплекс активних речовин у глибокі шари шкіри.</p>
+      </div>
+    </div>
+
+    <!-- Насадки -->
+    <div class="reveal" style="margin-top:44px;">
+      <p class="sec-label" style="margin-bottom:14px;">Насадки Spiral Deep</p>
+      <div class="att-grid">
+        <div class="att-card">
+          <div class="a-icon">🔵</div>
+          <h4>Велика спіральна</h4>
+          <p>Для великих зон обличчя та шиї, декольте</p>
+        </div>
+        <div class="att-card">
+          <div class="a-icon">🟢</div>
+          <h4>Мала спіральна</h4>
+          <p>Точкова робота: ніс, підборіддя, делікатні зони</p>
+        </div>
+        <div class="att-card">
+          <div class="a-icon">⚪</div>
+          <h4>Для чутливої шкіри</h4>
+          <p>М'який вплив для реактивної та подразненої шкіри</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Сироватки -->
+    <div class="reveal" style="margin-top:40px;">
+      <p class="sec-label" style="margin-bottom:14px;">Авторські сироватки Zemits</p>
+      <div class="serums-grid">
+        <div class="serum-card">
+          <span class="s-label">HydroClear</span>
+          <h4>Омолодження та сяяння</h4>
+          <p>Універсальна сироватка для всіх типів шкіри. Відлущування, зволоження, ефект сяяння.</p>
+        </div>
+        <div class="serum-card">
+          <span class="s-label">SalicPure</span>
+          <h4>Очищення та анти-акне</h4>
+          <p>На основі саліцилової кислоти. Для жирної та схильної до акне шкіри. Звужує пори.</p>
+        </div>
+        <div class="serum-card">
+          <span class="s-label">HydraAster</span>
+          <h4>Інтенсивне зволоження</h4>
+          <p>Для сухої та зневодненої шкіри. Гіалуронова кислота + відновлювальний комплекс.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="results-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Що дає процедура</p>
+      <h2 class="sec-title">Результати для<br>вашої <em>шкіри</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="results-grid">
+      <div class="r-card reveal">
+        <span class="ri">🔬</span>
+        <div>
+          <h4>Глибоке очищення пор</h4>
+          <p>Видалення забруднень, комедонів та надлишку шкірного сала, недоступне ручному очищенню.</p>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <span class="ri">💎</span>
+        <div>
+          <h4>Сяяння та рівний тон</h4>
+          <p>Шкіра виглядає свіжою та сяючою вже одразу після сеансу. Вирівнюється колір.</p>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <span class="ri">💧</span>
+        <div>
+          <h4>Інтенсивне зволоження</h4>
+          <p>Активні зволожуючі компоненти проникають на глибину, недоступну кремам.</p>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <span class="ri">🌸</span>
+        <div>
+          <h4>Рівна та гладка текстура</h4>
+          <p>Видалення ороговілого шару відновлює гладкість і ніжність шкіри.</p>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <span class="ri">🪡</span>
+        <div>
+          <h4>Зменшення дрібних зморшок</h4>
+          <p>Насичення шкіри активними речовинами розгладжує мімічні та дрібні вікові зморшки.</p>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <span class="ri">🫧</span>
+        <div>
+          <h4>Зменшення набряків та пігментації</h4>
+          <p>Покращення мікроциркуляції зменшує набряклість та освітлює пігментні плями.</p>
+        </div>
+      </div>
+      <div class="r-card wide reveal">
+        <span class="ri">🏆</span>
+        <div>
+          <h4>Ідеальна підготовка до особливих подій та інших процедур</h4>
+          <p>Гідродермабразія — бездоганна підготовка шкіри перед важливими заходами, а також перед мезотерапією, RF-ліфтингом та іншими косметологічними процедурами. Поєднання з FrioLift дає максимальний комплексний ефект.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who" class="who-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Кому підходить</p>
+      <h2 class="sec-title">Які проблеми<br><em>вирішує</em> HydroLuxx</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-mid);font-size:15.5px;max-width:600px;line-height:1.85;margin-bottom:24px;">
+        Процедура підходить <strong>для всіх типів шкіри</strong>, включно з чутливою, сухою та схильною до акне. Безпечна під час вагітності та лактації.
+      </p>
+    </div>
+    <div class="who-grid reveal">
+      <div class="who-item"><span class="w-dot"></span>Тьмяний, втомлений колір шкіри</div>
+      <div class="who-item"><span class="w-dot"></span>Розширені та забиті пори</div>
+      <div class="who-item"><span class="w-dot"></span>Надмірне виділення шкірного сала</div>
+      <div class="who-item"><span class="w-dot"></span>Зневоднена та суха шкіра</div>
+      <div class="who-item"><span class="w-dot"></span>Дрібні мімічні зморшки</div>
+      <div class="who-item"><span class="w-dot"></span>Нерівна текстура та рельєф шкіри</div>
+      <div class="who-item"><span class="w-dot"></span>Постакне та поверхнева пігментація</div>
+      <div class="who-item"><span class="w-dot"></span>В'яла шкіра зі зниженим тонусом</div>
+      <div class="who-item"><span class="w-dot"></span>Набряклість та тьмяний колір обличчя</div>
+      <div class="who-item"><span class="w-dot"></span>Шкіра перед важливою подією</div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="ba-section">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Результати процедур</p>
+      <h2 class="sec-title">До та <em>після</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card reveal">
+        <div class="ba-images">
+          <div class="ba-img before">ДО</div>
+          <div class="ba-img after">ПІСЛЯ</div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-info">
+          <h4>Очищення та сяяння</h4>
+          <p>Перша процедура · обличчя</p>
+        </div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-images">
+          <div class="ba-img before">ДО</div>
+          <div class="ba-img after">ПІСЛЯ</div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-info">
+          <h4>Звуження пор та рівний тон</h4>
+          <p>Курс 4 процедури · жирний тип</p>
+        </div>
+      </div>
+      <div class="ba-card reveal">
+        <div class="ba-images">
+          <div class="ba-img before">ДО</div>
+          <div class="ba-img after">ПІСЛЯ</div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-info">
+          <h4>Зволоження та омолодження</h4>
+          <p>Курс 3 процедури · суха шкіра</p>
+        </div>
+      </div>
+    </div>
+    <p class="ba-disclaimer">
+      * Реальні фото клієнтів будуть додані зі згоди. Результати індивідуальні та залежать від стану шкіри та кількості процедур.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <p class="foot-name">Косметолог-естетист Кариня Коржова</p>
+    <p class="foot-sub">Інформаційна сторінка про апарат та процедуру</p>
+    <div class="foot-badge">
+      <span>🏷️</span> Zemits HydroLuxx · Офіційне обладнання Zemits
+    </div>
+    <p class="foot-note">
+      Інформація на цій сторінці носить виключно ознайомлювальний характер.<br>
+      Результати індивідуальні та можуть відрізнятись залежно від стану шкіри.<br>
+      Джерело: zemits.com.ua · zemits.eu · zemits.us
+    </p>
+  </div>
+</footer>
+
+<script>
+function showVid(id, btn) {
+  document.querySelectorAll('.video-wrap').forEach(v => v.classList.remove('visible'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('vid-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 60);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
