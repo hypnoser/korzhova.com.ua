@@ -323,7 +323,7 @@ nav a:hover { color: var(--rose-dark); }
   font-style: italic;
   color: var(--rose-dark);
 }
-.hero-desc { font-size: clamp(.9rem, 1.8vw, 1.05rem); color: var(--text-mid); max-width: 46ch; line-height: 1.7; }
+.hero-desc { font-size: clamp(.9rem, 1.8vw, 1.05rem); color: var(--text-mid); max-width: 52ch; line-height: 1.7; text-align:center; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
 .hero-badges {
   display: flex;
@@ -662,8 +662,9 @@ nav a:hover { color: var(--rose-dark); }
   justify-content: center;
   font-size: 1.2rem;
 }
-.adv-text h4 { font-size: .92rem; font-weight: 600; margin-bottom: .3rem; }
-.adv-text p { font-size: .82rem; color: var(--text-mid); line-height: 1.55; }
+.adv-text { flex: 1; min-width: 0; display: block; }
+.adv-text h4 { font-size: .92rem; font-weight: 600; margin-bottom: .3rem; color: #2E2218; display: block; }
+.adv-text p { font-size: .82rem; color: #6B5347; line-height: 1.55; display: block; }
 
 /* ===== SECTION: FOR WHOM ===== */
 #for-whom {
@@ -1053,8 +1054,8 @@ footer {
 <!-- ===== HERO ===== -->
 <section id="hero" class="section-pad">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); align-items:center;" class="hero-inner-grid">
-      <div class="hero-content fade-up">
+    <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--gap);" class="hero-inner-grid">
+      <div class="hero-content fade-up" style="align-items:center;display:flex;flex-direction:column;">
         <div class="hero-eyebrow">
           <span class="deco-line"></span>
           Апаратна косметологія · Zemits Friolift
@@ -1081,7 +1082,7 @@ footer {
         </div>
       </div>
 
-      <div class="hero-visual fade-up" style="transition-delay:.15s">
+      <div class="hero-visual fade-up" style="transition-delay:.15s; width:100%; max-width:480px;">
         <div class="hero-img-wrap">
           <div class="hero-main-img media-placeholder">
             <div class="ph-label">
@@ -1146,42 +1147,42 @@ footer {
       <p class="section-sub">Friolift ефективно працює з широким спектром естетичних запитів — від перших ознак старіння до видимого птозу.</p>
     </div>
     <div class="solves-grid">
-      <div class="solve-card fade-up">
+      <div class="solve-card">
         <div class="solve-icon">⬆️</div>
         <div class="solve-title">Птоз та опущення тканин</div>
         <div class="solve-desc">Відновлює чіткі контури обличчя й шиї, піднімає кути рота та повіки.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.05s">
+      <div class="solve-card" style="transition-delay:.05s">
         <div class="solve-icon">💧</div>
         <div class="solve-title">Набряки та пастозність</div>
         <div class="solve-desc">Стимулює лімфодренаж, зменшує ранкові набряки та "мішки" під очима.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.1s">
+      <div class="solve-card" style="transition-delay:.1s">
         <div class="solve-icon">✨</div>
         <div class="solve-title">Тьмяність і сірість шкіри</div>
         <div class="solve-desc">Активує мікроциркуляцію, повертає здоровий рум'янець і природне сяяння.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.15s">
+      <div class="solve-card" style="transition-delay:.15s">
         <div class="solve-icon">📏</div>
         <div class="solve-title">Нерівний рельєф і пори</div>
         <div class="solve-desc">Зглажує текстуру шкіри, мінімізує видимість пор і дрібних зморшок.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.2s">
+      <div class="solve-card" style="transition-delay:.2s">
         <div class="solve-icon">🔲</div>
         <div class="solve-title">Друге підборіддя</div>
         <div class="solve-desc">Підтягує шкіру в підщелепній зоні, моделює чіткий овал.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.25s">
+      <div class="solve-card" style="transition-delay:.25s">
         <div class="solve-icon">🌿</div>
         <div class="solve-title">Втрата пружності</div>
         <div class="solve-desc">Запускає синтез колагену та еластину — шкіра стає щільнішою.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.3s">
+      <div class="solve-card" style="transition-delay:.3s">
         <div class="solve-icon">🪷</div>
         <div class="solve-title">Зморшки та складки</div>
         <div class="solve-desc">Розгладжує носогубні складки, зморшки на чолі та в зоні очей.</div>
       </div>
-      <div class="solve-card fade-up" style="transition-delay:.35s">
+      <div class="solve-card" style="transition-delay:.35s">
         <div class="solve-icon">🔥</div>
         <div class="solve-title">Локальний жир на обличчі</div>
         <div class="solve-desc">Кріотерапія допомагає коригувати жирові відкладення в зоні щік і підборіддя.</div>
@@ -1281,7 +1282,7 @@ footer {
       <p class="section-sub">Реальні результати клієнток Карини після курсу процедур Friolift.</p>
     </div>
     <div class="ba-grid">
-      <div class="ba-card fade-up">
+      <div class="ba-card">
         <div class="ba-images">
           <div class="ba-half">
             <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;">
@@ -1301,7 +1302,7 @@ footer {
           <div class="ba-sessions">Курс: 6 сеансів · 1 раз на тиждень</div>
         </div>
       </div>
-      <div class="ba-card fade-up" style="transition-delay:.08s">
+      <div class="ba-card" style="transition-delay:.08s">
         <div class="ba-images">
           <div class="ba-half">
             <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;"><div class="ph-label"><span class="ph-icon">📷</span>Фото до</div></div>
@@ -1317,7 +1318,7 @@ footer {
           <div class="ba-sessions">Курс: 5 сеансів · 2 рази на тиждень</div>
         </div>
       </div>
-      <div class="ba-card fade-up" style="transition-delay:.16s">
+      <div class="ba-card" style="transition-delay:.16s">
         <div class="ba-images">
           <div class="ba-half">
             <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;"><div class="ph-label"><span class="ph-icon">📷</span>Фото до</div></div>
@@ -1333,7 +1334,7 @@ footer {
           <div class="ba-sessions">Курс: 4 сеанси · 1 раз на тиждень</div>
         </div>
       </div>
-      <div class="ba-card fade-up" style="transition-delay:.24s">
+      <div class="ba-card" style="transition-delay:.24s">
         <div class="ba-images">
           <div class="ba-half">
             <div class="media-placeholder" style="aspect-ratio:3/4; border-radius:0;"><div class="ph-label"><span class="ph-icon">📷</span>Фото до</div></div>
@@ -1362,46 +1363,46 @@ footer {
       <h2 class="section-title">Чому клієнтки <em>обирають</em> Friolift</h2>
     </div>
     <div class="adv-grid">
-      <div class="adv-card fade-up">
+      <div class="adv-card">
         <div class="adv-icon">🌡️</div>
-        <div class="adv-text">
-          <h4>Безболісно та комфортно</h4>
-          <p>Відчуття — лише приємна прохолода. Жодного болю, почервоніння чи дискомфорту під час і після процедури.</p>
+        <div style="flex:1;min-width:0;">
+          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Безболісно та комфортно</h4>
+          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Відчуття — лише приємна прохолода. Жодного болю, почервоніння чи дискомфорту під час і після процедури.</p>
         </div>
       </div>
-      <div class="adv-card fade-up" style="transition-delay:.05s">
+      <div class="adv-card">
         <div class="adv-icon">⚡</div>
-        <div class="adv-text">
-          <h4>Видимий ефект з першого сеансу</h4>
-          <p>Вже після одного відвідування шкіра виглядає свіжішою, обличчя — чіткішим. Ефект накопичується з кожним сеансом.</p>
+        <div style="flex:1;min-width:0;">
+          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Видимий ефект з першого сеансу</h4>
+          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Вже після одного відвідування шкіра виглядає свіжішою, обличчя — чіткішим. Ефект накопичується з кожним сеансом.</p>
         </div>
       </div>
-      <div class="adv-card fade-up" style="transition-delay:.1s">
+      <div class="adv-card">
         <div class="adv-icon">🗓️</div>
-        <div class="adv-text">
-          <h4>Нульова реабілітація</h4>
-          <p>Одразу після процедури можна повернутися до роботи, зустрічей і будь-якої активності. Жодних слідів на шкірі.</p>
+        <div style="flex:1;min-width:0;">
+          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Нульова реабілітація</h4>
+          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Одразу після процедури можна повернутися до роботи, зустрічей і будь-якої активності. Жодних слідів на шкірі.</p>
         </div>
       </div>
-      <div class="adv-card fade-up" style="transition-delay:.15s">
+      <div class="adv-card">
         <div class="adv-icon">🌸</div>
-        <div class="adv-text">
-          <h4>Підходить для чутливої шкіри</h4>
-          <p>М'який неінвазивний вплив — без голок, хімічних пілінгів і агресивних засобів. Ідеально навіть для чутливої шкіри.</p>
+        <div style="flex:1;min-width:0;">
+          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Підходить для чутливої шкіри</h4>
+          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">М'який неінвазивний вплив — без голок, хімічних пілінгів і агресивних засобів. Ідеально навіть для чутливої шкіри.</p>
         </div>
       </div>
-      <div class="adv-card fade-up" style="transition-delay:.2s">
+      <div class="adv-card">
         <div class="adv-icon">🔬</div>
-        <div class="adv-text">
-          <h4>Стимулює власний колаген</h4>
-          <p>Кріотерапія активує фібробласти — клітини, відповідальні за вироблення колагену й еластину. Результат — природній та тривалий.</p>
+        <div style="flex:1;min-width:0;">
+          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Стимулює власний колаген</h4>
+          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Кріотерапія активує фібробласти — клітини, відповідальні за вироблення колагену й еластину. Результат — природній та тривалий.</p>
         </div>
       </div>
-      <div class="adv-card fade-up" style="transition-delay:.25s">
+      <div class="adv-card">
         <div class="adv-icon">🎯</div>
-        <div class="adv-text">
-          <h4>Індивідуальний протокол</h4>
-          <p>Карина підбирає параметри апарату та зони опрацювання під конкретний запит і стан шкіри кожної клієнтки.</p>
+        <div style="flex:1;min-width:0;">
+          <h4 style="font-size:.92rem;font-weight:600;margin-bottom:.4rem;color:#2E2218;font-family:'Jost',sans-serif;">Індивідуальний протокол</h4>
+          <p style="font-size:.82rem;color:#6B5347;line-height:1.55;font-family:'Jost',sans-serif;">Карина підбирає параметри апарату та зони опрацювання під конкретний запит і стан шкіри кожної клієнтки.</p>
         </div>
       </div>
     </div>
@@ -1463,7 +1464,7 @@ footer {
       <h2 class="section-title">Що кажуть <em>клієнтки</em></h2>
     </div>
     <div class="test-grid">
-      <div class="test-card fade-up">
+      <div class="test-card">
         <div class="test-stars">★★★★★</div>
         <p class="test-text">«Записалась на Friolift перед весіллям подруги. Вже після першого сеансу обличчя виглядало зовсім по-іншому — підтягнуте, свіже. Гості питали, що я зробила. Однозначно продовжу курс!»</p>
         <div class="test-author">
@@ -1474,7 +1475,7 @@ footer {
           </div>
         </div>
       </div>
-      <div class="test-card fade-up" style="transition-delay:.07s">
+      <div class="test-card" style="transition-delay:.07s">
         <div class="test-stars">★★★★★</div>
         <p class="test-text">«Довго шукала щось замість ботоксу. Карина порадила Friolift — і я не пошкодувала. Після 5 сеансів друге підборіддя пішло, овал чіткіший. Все робиться комфортно, без болю.»</p>
         <div class="test-author">
@@ -1485,7 +1486,7 @@ footer {
           </div>
         </div>
       </div>
-      <div class="test-card fade-up" style="transition-delay:.14s">
+      <div class="test-card" style="transition-delay:.14s">
         <div class="test-stars">★★★★★</div>
         <p class="test-text">«Вперше спробувала апаратну косметологію і залишилась в захваті. Процедура дуже приємна — відчуваєш як прохолода буквально тонізує шкіру. Ранкові набряки зникли вже після 3-го сеансу.»</p>
         <div class="test-author">
@@ -1752,18 +1753,7 @@ document.getElementById('booking-form').addEventListener('submit', function(e) {
   btn.disabled = true;
 });
 
-// Hero grid fix for responsive
-function fixHeroGrid() {
-  const grid = document.querySelector('.hero-inner-grid');
-  if (!grid) return;
-  if (window.innerWidth <= 900) {
-    grid.style.gridTemplateColumns = '1fr';
-  } else {
-    grid.style.gridTemplateColumns = '1fr 1fr';
-  }
-}
-window.addEventListener('resize', fixHeroGrid);
-fixHeroGrid();
+// hero layout: flex column centered (static)
 </script>
 </body>
 </html>
