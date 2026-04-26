@@ -858,6 +858,86 @@
     .lightbox-header { padding: 14px 16px; }
     .lightbox-footer { padding: 12px 16px; }
   }
+
+  /* ── CONTRAINDICATIONS ── */
+.ci-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ci-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 22px 20px;
+  border: 1px solid var(--aqua-light);
+  border-left: 3px solid var(--aqua-mid);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: transform 0.2s;
+}
+
+.ci-card:hover { transform: translateY(-2px); }
+
+.ci-card--minor {
+  background: linear-gradient(135deg, #EAF5F3, #DFF0EC);
+  border-left-color: var(--aqua-deep);
+}
+
+.ci-card .ci-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ci-text h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--teal-dark);
+  margin-bottom: 10px;
+}
+
+.ci-minor-note {
+  font-size: 13px;
+  color: var(--aqua-deep);
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.ci-text ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ci-text ul li {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+
+.ci-text ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--aqua-mid);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .ci-grid { grid-template-columns: 1fr; }
+}
+  
 </style>
 </head>
 <body>
@@ -1206,6 +1286,82 @@
     <p class="ba-disclaimer">
       * Реальні фото клієнтів будуть додані зі згоди. Результати індивідуальні та залежать від стану шкіри та кількості процедур.
     </p>
+  </div>
+</section>
+
+  <!-- CONTRAINDICATIONS -->
+<section id="contraindications">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Важлива інформація</p>
+      <h2 class="sec-title">Проти<em>покази</em></h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-mid);font-size:15px;max-width:600px;line-height:1.8;margin-bottom:32px;">
+        Перед процедурою косметолог проводить консультацію та з'ясовує наявність протипоказань. Якщо у вас є сумніви — обов'язково повідомте спеціаліста.
+      </p>
+    </div>
+
+    <div class="ci-grid reveal">
+
+      <div class="ci-card">
+        <div class="ci-icon">🌡️</div>
+        <div class="ci-text">
+          <h4>Гострі стани</h4>
+          <ul>
+            <li>Гострий запальний процес з підвищенням температури тіла</li>
+            <li>Загострення хронічних захворювань</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card">
+        <div class="ci-icon">🩺</div>
+        <div class="ci-text">
+          <h4>Системні захворювання</h4>
+          <ul>
+            <li>Онкологія</li>
+            <li>Декомпенсований цукровий діабет</li>
+            <li>Ниркова та печінкова недостатність</li>
+            <li>Гіпертонічна хвороба III стадії</li>
+            <li>Епілепсія</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card">
+        <div class="ci-icon">🧬</div>
+        <div class="ci-text">
+          <h4>Стан шкіри</h4>
+          <ul>
+            <li>Відкриті ушкодження шкіри</li>
+            <li>Активні бактеріальні (сикоз, фолікуліт) або вірусні (герпес) висипи в зоні обробки</li>
+            <li>Важкий ступінь акне</li>
+            <li>Виражений купероз</li>
+            <li>Рожеві вугри</li>
+            <li>Алергічний дерматит</li>
+            <li>Множинні пігментні невуси</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card ci-card--minor">
+        <div class="ci-icon">⚠️</div>
+        <div class="ci-text">
+          <h4>Незначні протипоказання</h4>
+          <p class="ci-minor-note">У цих випадках процедуру можна проводити обережно або оминати уражені ділянки</p>
+          <ul>
+            <li>Очні інфекції (кон'юнктивіт, ячмінь, кіста)</li>
+            <li>Шкірні захворювання: акне, себорейний дерматит, герпес, екзема</li>
+            <li>Псоріаз</li>
+            <li>Келоїдні рубці</li>
+            <li>Телеангіектазії (судинні зірочки)</li>
+            <li>Опуклі родимки, бородавки, папіломи</li>
+            <li>Порізи, синці</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
