@@ -1083,6 +1083,78 @@
   .ci-grid { grid-template-columns: 1fr; }
   .ci-card--wide { grid-column: span 1; }
 }
+
+  /* ── AGE RECOMMENDATIONS ── */
+.age-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.age-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  border: 1px solid var(--rose);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  transition: transform 0.25s;
+}
+
+.age-card:hover { transform: translateY(-3px); }
+
+.age-card--mid {
+  background: linear-gradient(160deg, #F5EAE4, #EDD8CE);
+  border-color: var(--dusty);
+}
+
+.age-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--deep);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.age-icon {
+  font-size: 22px;
+}
+
+.age-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--deep);
+  line-height: 1.2;
+}
+
+.age-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.age-tag {
+  display: inline-block;
+  background: var(--sage-light);
+  color: #5A7050;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .age-grid { grid-template-columns: 1fr; }
+}
   
 </style>
 </head>
@@ -1458,6 +1530,45 @@
             <li>Свіжі філери, ботокс, нитки — процедуру можна проводити <strong>не раніше ніж через 1,5–2 місяці</strong></li>
           </ul>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- AGE RECOMMENDATIONS -->
+<section id="age-recommendations" style="background: var(--blush);">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Персоналізований підхід</p>
+      <h2 class="section-title">Рекомендації<br>щодо <em>віку</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="age-grid reveal">
+
+      <div class="age-card">
+        <div class="age-badge">30–35</div>
+        <div class="age-icon">🌱</div>
+        <h3>Профілактичний старт</h3>
+        <p>Оптимальний вік для початку курсу — шкіра ще пружна, відновлювальні процеси активні. Ефект настає швидше та тримається довше, а кількість необхідних сеансів — мінімальна.</p>
+        <div class="age-tag">Менше процедур · Стійкий результат</div>
+      </div>
+
+      <div class="age-card age-card--mid">
+        <div class="age-badge">35–55</div>
+        <div class="age-icon">✨</div>
+        <h3>Активне омолодження</h3>
+        <p>Найпоширеніший вік звернення. Процедура ефективно вирішує вже наявні вікові зміни — зниження тонусу, зморшки, зміна овалу — та зупиняє подальше старіння.</p>
+        <div class="age-tag">Видимий ліфтинг · Комплексний ефект</div>
+      </div>
+
+      <div class="age-card">
+        <div class="age-badge">55+</div>
+        <div class="age-icon">🤝</div>
+        <h3>Відновлювальний курс</h3>
+        <p>Після 55 років відновлювальні процеси в організмі сповільнюються. Метод залишається ефективним, проте вимагає більшої кількості процедур і регулярної підтримувальної терапії.</p>
+        <div class="age-tag">Індивідуальний курс · Регулярна підтримка</div>
       </div>
 
     </div>
