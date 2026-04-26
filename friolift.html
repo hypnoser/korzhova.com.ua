@@ -1162,6 +1162,213 @@
 @media (max-width: 600px) {
   .age-grid { grid-template-columns: 1fr; }
 }
+
+  /* ── CONTACT BLOCK ── */
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+/* Messenger buttons */
+.messengers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: transform 0.22s, box-shadow 0.22s, filter 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+
+.msg-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.msg-btn:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.1);
+}
+
+.msg-btn:hover::before { opacity: 1; }
+
+/* Telegram */
+.msg-btn--tg {
+  background: #EFF8FF;
+  border-color: #B8DEFF;
+  color: #0070C0;
+}
+.msg-btn--tg::before { background: linear-gradient(90deg, #DFF0FF, transparent); }
+
+/* Viber */
+.msg-btn--vb {
+  background: #F5EFFE;
+  border-color: #D8B8FC;
+  color: #6B2FA0;
+}
+.msg-btn--vb::before { background: linear-gradient(90deg, #EDE0FF, transparent); }
+
+/* WhatsApp */
+.msg-btn--wa {
+  background: #EDFBF2;
+  border-color: #A8E6BE;
+  color: #1A7A3C;
+}
+.msg-btn--wa::before { background: linear-gradient(90deg, #D8F5E4, transparent); }
+
+/* Instagram */
+.msg-btn--ig {
+  background: #FFF0F6;
+  border-color: #F8BAD6;
+  color: #C2185B;
+}
+.msg-btn--ig::before { background: linear-gradient(90deg, #FFE0EE, transparent); }
+
+/* Facebook Messenger */
+.msg-btn--fb {
+  background: #EEF3FF;
+  border-color: #B8CAFF;
+  color: #1A3C9C;
+}
+.msg-btn--fb::before { background: linear-gradient(90deg, #DDEAFF, transparent); }
+
+/* Icon */
+.msg-btn-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.7);
+}
+
+.msg-btn-icon svg { width: 24px; height: 24px; }
+
+/* Text */
+.msg-btn-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.msg-btn-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.msg-btn-hint {
+  font-size: 12.5px;
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+.msg-btn-arrow {
+  font-size: 18px;
+  opacity: 0.4;
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.msg-btn:hover .msg-btn-arrow {
+  opacity: 0.9;
+  transform: translateX(3px);
+}
+
+/* Info aside */
+.contact-info-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  border: 1px solid var(--blush);  /* FrioLift: --blush | HydroLuxx: var(--aqua-light) */
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.ci-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.ci-row-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ci-row-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dusty);   /* FrioLift: --dusty | HydroLuxx: var(--text-light) */
+  margin-bottom: 4px;
+}
+
+.ci-row-val {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+a.ci-row-phone {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--deep);  /* FrioLift: --deep | HydroLuxx: var(--teal-dark) */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a.ci-row-phone:hover { color: var(--mauve); }
+
+/* Note */
+.contact-note {
+  background: var(--sage-light);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 1px solid var(--sage);
+}
+
+.contact-note-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+.contact-note p {
+  font-size: 13.5px;
+  color: #5A7050;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+}
   
 </style>
 </head>
@@ -1577,6 +1784,127 @@
         <div class="age-tag">Індивідуальний курс · Регулярна підтримка</div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Запис та зв'язок</p>
+      <h2 class="section-title">Записатися<br>на <em>процедуру</em></h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light);font-size:15.5px;max-width:560px;line-height:1.85;">
+        Оберіть зручний месенджер — напишіть, і я відповім найближчим часом. Консультація безкоштовна.
+      </p>
+    </div>
+
+    <div class="contact-wrap reveal">
+
+      <!-- MESSENGER BUTTONS -->
+      <div class="messengers-grid">
+
+        <a href="https://t.me/karinakorzhova" target="_blank" rel="noopener" class="msg-btn msg-btn--tg">
+          <span class="msg-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.917 7.083l-1.695 7.986c-.127.566-.463.703-.939.437l-2.6-1.916-1.254 1.207c-.139.139-.256.256-.524.256l.187-2.655 4.833-4.366c.21-.187-.046-.29-.324-.103L8.3 14.42l-2.55-.796c-.554-.174-.566-.554.116-.82l9.96-3.84c.462-.167.866.103.716.82-.001 0-.001-.001 0 0l-.625-.701z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="msg-btn-body">
+            <span class="msg-btn-name">Telegram</span>
+            <span class="msg-btn-hint">Написати в Telegram</span>
+          </span>
+          <span class="msg-btn-arrow">→</span>
+        </a>
+
+        <a href="viber://chat?number=%2B380688677992" target="_blank" rel="noopener" class="msg-btn msg-btn--vb">
+          <span class="msg-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.25 2 11.5c0 2.9 1.38 5.5 3.56 7.24V22l3.26-1.79c.99.27 2.04.42 3.13.42 5.52 0 10-4.25 10-9.5S17.52 2 12 2zm1.04 12.77l-2.56-2.72-4.98 2.72 5.48-5.82 2.62 2.72 4.92-2.72-5.48 5.82z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="msg-btn-body">
+            <span class="msg-btn-name">Viber</span>
+            <span class="msg-btn-hint">Написати у Viber</span>
+          </span>
+          <span class="msg-btn-arrow">→</span>
+        </a>
+
+        <a href="https://wa.me/380688677992" target="_blank" rel="noopener" class="msg-btn msg-btn--wa">
+          <span class="msg-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.406A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.006 13.853c-.21.588-1.232 1.133-1.694 1.175-.433.04-.842.198-2.832-.59-2.394-.955-3.921-3.403-4.04-3.56-.118-.157-.963-1.282-.963-2.446 0-1.163.61-1.737.826-1.975.216-.238.472-.298.629-.298.157 0 .314.002.452.008.145.007.34-.055.531.406.198.476.672 1.643.731 1.762.059.118.098.256.02.413-.079.157-.118.255-.236.393-.118.138-.248.308-.354.414-.118.117-.24.245-.103.48.137.235.609.998 1.307 1.617.898.8 1.656 1.047 1.892 1.166.236.118.374.098.512-.059.138-.157.59-.689.748-.926.157-.236.315-.196.531-.118.217.079 1.378.65 1.614.768.237.118.394.177.453.275.059.099.059.57-.151 1.155z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="msg-btn-body">
+            <span class="msg-btn-name">WhatsApp</span>
+            <span class="msg-btn-hint">Написати у WhatsApp</span>
+          </span>
+          <span class="msg-btn-arrow">→</span>
+        </a>
+
+        <a href="https://www.instagram.com/cosmetolog.korzhova/" target="_blank" rel="noopener" class="msg-btn msg-btn--ig">
+          <span class="msg-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="msg-btn-body">
+            <span class="msg-btn-name">Instagram</span>
+            <span class="msg-btn-hint">Написати в Direct</span>
+          </span>
+          <span class="msg-btn-arrow">→</span>
+        </a>
+
+        <a href="https://m.me/398155166714674" target="_blank" rel="noopener" class="msg-btn msg-btn--fb">
+          <span class="msg-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.792 1.348 5.285 3.465 6.97V22l3.178-1.748A10.593 10.593 0 0012 20.486c5.523 0 10-4.145 10-9.243C22 6.145 17.523 2 12 2zm1.008 12.456l-2.548-2.72-4.972 2.72 5.473-5.804 2.612 2.72 4.916-2.72-5.481 5.804z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="msg-btn-body">
+            <span class="msg-btn-name">Facebook Messenger</span>
+            <span class="msg-btn-hint">Написати у Messenger</span>
+          </span>
+          <span class="msg-btn-arrow">→</span>
+        </a>
+
+      </div>
+
+      <!-- INFO ASIDE -->
+      <div class="contact-aside">
+
+        <div class="contact-info-card">
+          <div class="ci-row">
+            <span class="ci-row-icon">📍</span>
+            <div>
+              <div class="ci-row-label">Адреса</div>
+              <div class="ci-row-val">м. Київ, вул. Братства тарасівців, 7<br>Салон GoBeauty, кабінет 14<br>Метро Харківська</div>
+            </div>
+          </div>
+          <div class="ci-row">
+            <span class="ci-row-icon">🕐</span>
+            <div>
+              <div class="ci-row-label">Графік роботи</div>
+              <div class="ci-row-val">Пн–Пт: 10:00 – 19:00<br>Сб, Нд: за домовленістю</div>
+            </div>
+          </div>
+          <div class="ci-row">
+            <span class="ci-row-icon">📞</span>
+            <div>
+              <div class="ci-row-label">Телефон</div>
+              <a href="tel:+380688677992" class="ci-row-val ci-row-phone">+38 068 867 7992</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <span class="contact-note-icon">💬</span>
+          <p>Напишіть у будь-який зручний месенджер — я відповім та підберу зручний час для вашої процедури.</p>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
