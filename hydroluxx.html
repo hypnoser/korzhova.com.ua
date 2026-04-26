@@ -1076,6 +1076,107 @@
   .course-timeline { flex-direction: column; }
   .tl-arrow { padding: 8px; font-size: 18px; transform: rotate(90deg); }
 }
+
+  /* ── PROTOCOL STEPS ── */
+.proto-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.proto-steps::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    var(--aqua-light) 0%,
+    var(--aqua) 35%,
+    var(--aqua-mid) 65%,
+    var(--sage) 100%
+  );
+}
+
+.proto-step {
+  display: flex;
+  gap: 22px;
+  padding-bottom: 28px;
+  align-items: flex-start;
+}
+
+/* Numbered markers */
+.ps-marker {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  border: 2px solid;
+}
+
+.ps-marker--prep   { background: #EFF7F6; border-color: var(--aqua-light); color: var(--teal-dark); }
+.ps-marker--hydro  { background: #D6EEE9; border-color: var(--aqua-mid);   color: var(--teal-dark); }
+.ps-marker--oxygen { background: #D4E8F5; border-color: #7BB5D4;           color: #2A5A72; }
+.ps-marker--cryo   { background: #DCF0EE; border-color: var(--aqua-deep);  color: var(--teal-dark); }
+.ps-marker--mask   { background: var(--sage-pale); border-color: var(--sage); color: #4A6A54; }
+.ps-marker--finish { background: #FFF8F2; border-color: #C9AFA4;           color: #6B4E48; }
+
+/* Step content */
+.ps-content {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 20px 22px;
+  border: 1px solid var(--aqua-light);
+  flex: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ps-content:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow);
+}
+
+/* Phase tags */
+.ps-phase-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.ps-phase--prep   { background: var(--aqua-light); color: var(--teal-dark); }
+.ps-phase--hydro  { background: #C4E5DF; color: var(--teal-dark); }
+.ps-phase--oxygen { background: #C8DFF0; color: #2A5A72; }
+.ps-phase--cryo   { background: #C4EAEA; color: var(--teal-dark); }
+.ps-phase--mask   { background: var(--sage-pale); color: #3A6A4A; }
+.ps-phase--finish { background: #FAEAE4; color: #6B4E48; }
+
+.ps-content h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--teal-dark);
+  margin-bottom: 6px;
+}
+
+.ps-content p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
   
 </style>
 </head>
@@ -1184,43 +1285,91 @@
       <p class="sec-label">Протокол Zemits</p>
       <h2 class="sec-title">Як проходить<br><em>процедура</em></h2>
       <div class="divider"></div>
-      <p style="color:var(--text-mid);font-size:15.5px;max-width:600px;line-height:1.85;margin-bottom:32px;">
-        Протокол, який поєднує глибоке очищення з інтенсивним без'єкційним введенням активних речовин для зволоження та живлення.<br>
-
-1. Демакіяж та поверхневе очищення;<br>
-2. Тонізація: Підготовка епідермісу до апаратного впливу;<br>
-3. Холодне гідрування: Нанесення розпушувального засобу для полегшення очищення;<br>
-4. Апаратна гідродермабразія: Глибоке вакуумне очищення з використанням сироваток для пілінгу;<br>
-5. Киснева мезотерапія: Розпилення вітамінних або зволожувальних сироваток під тиском чистого кисню для їх проникнення у глибокі шари шкіри;<br>
-6. Кріотерапія: Зменшує виразність зморшок та підвищує еластичність шкіри, звужує пори, зменшує жирність шкіри та набряки;<br>
-7. Альгінатна маска для закріплення введених сироваток, заспокоєння шкіри та додаткового ліфтинг-ефекту;<br>
-8. Завершальний догляд: Нанесення фінішного крему за типом шкіри та SPF-захисту.
+      <p style="color:var(--text-mid);font-size:15.5px;max-width:600px;line-height:1.85;margin-bottom:36px;">
+        Авторський протокол поєднує глибоке очищення, інтенсивне зволоження та безін'єкційну доставку активних речовин — всього за 30–60 хвилин.
       </p>
     </div>
 
-    <div class="proto-flow reveal">
-      <div class="proto-block">
-        <div class="p-icon">🌀</div>
-        <div class="p-step-label">Етап 1</div>
-        <h4>Очищення</h4>
-        <p>Спіральна насадка видаляє забруднення, сало та ороговілі клітини. Вакуум + вода + сироватка одночасно.</p>
+    <!-- 8 STEPS TIMELINE -->
+    <div class="proto-steps">
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--prep">1</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--prep">🧴 Підготовка</div>
+          <h4>Демакіяж та очищення</h4>
+          <p>Поверхневе очищення шкіри — видалення макіяжу та забруднень для підготовки до апаратного впливу.</p>
+        </div>
       </div>
-      <div class="proto-block">
-        <div class="p-icon">💧</div>
-        <div class="p-step-label">Етап 2</div>
-        <h4>Зволоження</h4>
-        <p>Введення лікувальної сироватки у відкриті після очищення пори. Глибоке насичення.</p>
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--prep">2</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--prep">🌿 Підготовка</div>
+          <h4>Тонізація</h4>
+          <p>Підготовка епідермісу до апаратного впливу — відновлення pH та активація мікроциркуляції шкіри.</p>
+        </div>
       </div>
-      <div class="proto-block">
-        <div class="p-icon">✨</div>
-        <div class="p-step-label">Етап 3</div>
-        <h4>Кисень + активи</h4>
-        <p>Кисневий пістолет вводить концентрований комплекс активних речовин у глибокі шари шкіри.</p>
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--prep">3</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--prep">❄️ Підготовка</div>
+          <h4>Холодне гідрування</h4>
+          <p>Нанесення розпушувального засобу для полегшення очищення — шкіра стає більш сприйнятливою до подальшої гідродермабразії.</p>
+        </div>
       </div>
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--hydro">4</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--hydro">💧 Гідродермабразія</div>
+          <h4>Апаратна гідродермабразія</h4>
+          <p>Глибоке вакуумне очищення зі спіральною насадкою. Одночасна подача сироватки для пілінгу та вилучення забруднень, зайвого сала й ороговілих клітин.</p>
+        </div>
+      </div>
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--oxygen">5</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--oxygen">🌬️ Киснева мезотерапія</div>
+          <h4>Кисневе введення активних речовин</h4>
+          <p>Розпилення вітамінних або зволожувальних сироваток під тиском чистого кисню. Активні компоненти проникають у глибокі шари шкіри без голок та болю.</p>
+        </div>
+      </div>
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--cryo">6</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--cryo">🧊 Кріотерапія</div>
+          <h4>Охолодження та тонізація</h4>
+          <p>Зменшує виразність зморшок та підвищує еластичність шкіри. Звужує пори, зменшує жирність та набряки. Фіксує результат попередніх етапів.</p>
+        </div>
+      </div>
+
+      <div class="proto-step reveal">
+        <div class="ps-marker ps-marker--mask">7</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--mask">🌊 Маска</div>
+          <h4>Альгінатна маска</h4>
+          <p>Закріплює введені сироватки, заспокоює шкіру та забезпечує додатковий ліфтинг-ефект. Завершує активну фазу процедури.</p>
+        </div>
+      </div>
+
+      <div class="proto-step reveal" style="padding-bottom:0;">
+        <div class="ps-marker ps-marker--finish">8</div>
+        <div class="ps-content">
+          <div class="ps-phase-tag ps-phase--finish">✨ Фінал</div>
+          <h4>Завершальний догляд</h4>
+          <p>Нанесення фінішного крему за типом шкіри та обов'язкового SPF-захисту. Шкіра сяє, зволожена та захищена.</p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="reveal" style="margin-top:40px;">
-      <p class="sec-label" style="margin-bottom:14px;">Авторські сироватки Zemits</p>
+    <!-- SERUMS -->
+    <div class="reveal" style="margin-top:52px;">
+      <p class="sec-label" style="margin-bottom:16px;">Авторські сироватки Zemits для гідродермабразії</p>
       <div class="serums-grid">
         <div class="serum-card">
           <span class="s-label">HydroClear</span>
@@ -1239,6 +1388,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
