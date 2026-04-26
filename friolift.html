@@ -1000,6 +1000,90 @@
     .lightbox-header { padding: 14px 16px; }
     .lightbox-footer { padding: 12px 16px; }
   }
+
+  /* ── CONTRAINDICATIONS ── */
+.ci-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ci-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 22px 20px;
+  border: 1px solid var(--blush);
+  border-left: 3px solid var(--dusty);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: transform 0.2s;
+}
+
+.ci-card:hover { transform: translateY(-2px); }
+
+.ci-card--wide {
+  grid-column: span 2;
+  border-left-color: var(--mauve);
+  background: linear-gradient(135deg, #FAF0EC, #F5E8E2);
+}
+
+.ci-card .ci-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ci-text h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--deep);
+  margin-bottom: 10px;
+}
+
+.ci-text ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ci-text ul li {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+
+.ci-text ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dusty);
+  flex-shrink: 0;
+}
+
+.ci-note {
+  color: var(--mauve) !important;
+  font-style: italic;
+  font-size: 13px !important;
+}
+
+.ci-note::before {
+  background: var(--mauve) !important;
+}
+
+@media (max-width: 600px) {
+  .ci-grid { grid-template-columns: 1fr; }
+  .ci-card--wide { grid-column: span 1; }
+}
+  
 </style>
 </head>
 <body>
@@ -1295,6 +1379,88 @@
       ➡️ Курс процедур підбирається індивідуально, але в середньому від 4 до 8 сеансів з інтервалом 1 раз на 14-22 дні. <br> 
 Через півроку рекомендується повторити половину пройденого курсу. Повний курс повторюється через рік.
     </p>
+  </div>
+</section>
+
+  <!-- CONTRAINDICATIONS -->
+<section id="contraindications">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Важлива інформація</p>
+      <h2 class="section-title">Проти<em>покази</em></h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light);font-size:15px;max-width:600px;line-height:1.8;margin-bottom:32px;">
+        Перед процедурою косметолог проводить консультацію та з'ясовує наявність протипоказань. Якщо у вас є сумніви — обов'язково повідомте спеціаліста.
+      </p>
+    </div>
+
+    <div class="ci-grid reveal">
+
+      <div class="ci-card">
+        <div class="ci-icon">🌡️</div>
+        <div class="ci-text">
+          <h4>Гострі стани</h4>
+          <ul>
+            <li>Гострий запальний процес з підвищенням температури тіла</li>
+            <li>Загострення хронічних захворювань</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card">
+        <div class="ci-icon">🩺</div>
+        <div class="ci-text">
+          <h4>Системні захворювання</h4>
+          <ul>
+            <li>Онкологія</li>
+            <li>Декомпенсований цукровий діабет</li>
+            <li>Ниркова та печінкова недостатність</li>
+            <li>Гіпертонічна хвороба III ст.</li>
+            <li>Епілепсія, паркінсонізм</li>
+            <li>Важкі аритмії, стан після інфаркту або інсульту</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card">
+        <div class="ci-icon">🧬</div>
+        <div class="ci-text">
+          <h4>Стан шкіри</h4>
+          <ul>
+            <li>Відкриті ушкодження шкіри</li>
+            <li>Активна бактеріальна інфекція (сикоз, фолікуліт) або вірусна (герпес), висип в зоні обробки</li>
+            <li>Важкий ступінь акне</li>
+            <li>Виражений купероз і розацеа</li>
+            <li>Рожеві вугри</li>
+            <li>Алергічний дерматит</li>
+            <li>Множинні пігментні невуси</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card">
+        <div class="ci-icon">🔩</div>
+        <div class="ci-text">
+          <h4>Імпланти та пристрої</h4>
+          <ul>
+            <li>Кардіостимулятор</li>
+            <li>Металеві протези та імпланти в зоні проведення процедури</li>
+            <li class="ci-note">Не стосується інсулінових помп та нових зубних імплантів</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ci-card ci-card--wide">
+        <div class="ci-icon">💉</div>
+        <div class="ci-text">
+          <h4>Після естетичних ін'єкційних процедур</h4>
+          <ul>
+            <li>Свіжі філери, ботокс, нитки — процедуру можна проводити <strong>не раніше ніж через 1,5–2 місяці</strong></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
