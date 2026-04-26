@@ -937,6 +937,138 @@
 @media (max-width: 600px) {
   .ci-grid { grid-template-columns: 1fr; }
 }
+
+  .ci-card--botox {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #D5EBF4, #C8E4EF);
+  border-left-color: #7BB5D4;
+}
+
+  /* ── COURSE ── */
+.course-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
+.course-card {
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  border: 1px solid var(--aqua-light);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s;
+}
+
+.course-card:hover { transform: translateY(-3px); }
+
+.course-card--single {
+  background: var(--white);
+}
+
+.course-card--course {
+  background: linear-gradient(160deg, var(--aqua-light), #C4E5DF);
+}
+
+.course-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--aqua-deep);
+  line-height: 1;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.course-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.course-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--teal-dark);
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.course-tag {
+  display: inline-block;
+  background: rgba(74,158,146,0.12);
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.course-timeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 16px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.timeline-item {
+  flex: 1;
+  background: var(--white);
+  padding: 26px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 1px solid var(--aqua-light);
+}
+
+.tl-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  background: var(--aqua-light);
+  color: var(--aqua-deep);
+  font-size: 22px;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+.tl-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tl-body h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--teal-dark);
+  margin-bottom: 8px;
+}
+
+.tl-body p {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .course-grid { grid-template-columns: 1fr; }
+  .course-timeline { flex-direction: column; }
+  .tl-arrow { padding: 8px; font-size: 18px; transform: rotate(90deg); }
+}
   
 </style>
 </head>
@@ -1358,6 +1490,69 @@
             <li>Опуклі родимки, бородавки, папіломи</li>
             <li>Порізи, синці</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="ci-card ci-card--botox">
+  <div class="ci-icon">💉</div>
+  <div class="ci-text">
+    <h4>Ін'єкційні процедури</h4>
+    <ul>
+      <li>Ботокс або дермальні наповнювачі — дозволяються через <strong>14 днів</strong>, враховуючи будь-які ін'єкції з підтяжкою</li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- COURSE -->
+<section id="course" style="background: var(--sand);">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-label">Як проходить лікування</p>
+      <h2 class="sec-title">Курс<br><em>процедур</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="course-grid reveal">
+
+      <div class="course-card course-card--single">
+        <div class="course-num">1</div>
+        <div class="course-icon">✨</div>
+        <h3>Разова процедура</h3>
+        <p>HydroLuxx може виконуватися як самостійна процедура — ідеальна підготовка шкіри перед важливою подією або особливим виходом.</p>
+        <div class="course-tag">Підходить як процедура «на вихід»</div>
+      </div>
+
+      <div class="course-card course-card--course">
+        <div class="course-num">4–6</div>
+        <div class="course-icon">🔄</div>
+        <h3>Повноцінний курс</h3>
+        <p>Для досягнення стійкого та глибокого результату рекомендується пройти повний курс із 4–6 сеансів. Ефект накопичується з кожною процедурою.</p>
+        <div class="course-tag">Максимальний та тривалий ефект</div>
+      </div>
+
+    </div>
+
+    <div class="course-timeline reveal">
+
+      <div class="timeline-item">
+        <div class="tl-icon">📅</div>
+        <div class="tl-body">
+          <h4>Інтервал між процедурами</h4>
+          <p>Процедури проводяться з інтервалом <strong>7–14 днів</strong> — оптимальний час для відновлення та накопичення ефекту.</p>
+        </div>
+      </div>
+
+      <div class="tl-arrow">→</div>
+
+      <div class="timeline-item">
+        <div class="tl-icon">🌿</div>
+        <div class="tl-body">
+          <h4>Підтримка результату</h4>
+          <p>Після завершення курсу рекомендується підтримуючий сеанс <strong>1 раз на 1–2 місяці</strong> для збереження досягнутого ефекту.</p>
         </div>
       </div>
 
