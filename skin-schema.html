@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Домашній догляд — схема для кожного типу шкіри</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:    #F9F5F0;
+    --blush:    #E8C4B8;
+    --dusty:    #C9A28B;
+    --sage:     #8FAF98;
+    --slate:    #3D4A5C;
+    --ink:      #1C2333;
+    --white:    #FFFFFF;
+
+    /* skin type accents */
+    --dry-bg:   #FDF0EB;
+    --dry-mid:  #F4C9B8;
+    --dry-dark: #C07A5E;
+    --dry-text: #7A3E28;
+
+    --oily-bg:  #EBF4EF;
+    --oily-mid: #B8D9C5;
+    --oily-dark:#4A9068;
+    --oily-text:#1E5C3A;
+
+    --combo-bg: #EEF0F8;
+    --combo-mid:#B8BEDF;
+    --combo-dark:#5560A8;
+    --combo-text:#2C3580;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+    --radius: 16px;
+    --radius-sm: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #2C3580 0%, #5560A8 40%, #C07A5E 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 72px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    padding: 6px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 680px;
+    margin: 0 auto 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--blush); }
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: .85;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .badge span { margin-right: 6px; }
+
+  /* ─── INTRO BOX ─── */
+  .intro {
+    max-width: 780px;
+    margin: -32px auto 0;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    padding: 36px 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .intro h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--slate);
+  }
+  .intro p { color: #555; font-size: 14px; }
+  .skin-type-nav {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;
+  }
+  .nav-btn {
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: 2px solid;
+    font-family: var(--font-body);
+    font-size: 14px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: all .2s ease;
+  }
+  .nav-btn.dry   { border-color: var(--dry-dark);   color: var(--dry-dark);   }
+  .nav-btn.oily  { border-color: var(--oily-dark);  color: var(--oily-dark);  }
+  .nav-btn.combo { border-color: var(--combo-dark); color: var(--combo-dark); }
+  .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .nav-btn.dry:hover   { background: var(--dry-dark);   color: #fff; }
+  .nav-btn.oily:hover  { background: var(--oily-dark);  color: #fff; }
+  .nav-btn.combo:hover { background: var(--combo-dark); color: #fff; }
+
+  /* ─── MAIN WRAPPER ─── */
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    display: flex; align-items: center; gap: 20px;
+    margin-bottom: 36px;
+  }
+  .section-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; flex-shrink: 0;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; margin-bottom: 4px; opacity: .65;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700; line-height: 1.15;
+  }
+
+  /* ─── SKIN TYPE SECTION ─── */
+  .skin-section { margin-bottom: 80px; scroll-margin-top: 24px; }
+
+  .skin-section.dry  .section-icon  { background: var(--dry-mid);  }
+  .skin-section.dry  .section-label { color: var(--dry-text);       }
+  .skin-section.dry  .section-title { color: var(--dry-dark);       }
+
+  .skin-section.oily .section-icon  { background: var(--oily-mid); }
+  .skin-section.oily .section-label { color: var(--oily-text);      }
+  .skin-section.oily .section-title { color: var(--oily-dark);      }
+
+  .skin-section.combo .section-icon { background: var(--combo-mid);}
+  .skin-section.combo .section-label{ color: var(--combo-text);     }
+  .skin-section.combo .section-title{ color: var(--combo-dark);     }
+
+  /* ─── SIGNS STRIP ─── */
+  .signs-strip {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px;
+  }
+  .sign-pill {
+    padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500;
+  }
+  .dry  .sign-pill { background: var(--dry-bg);   color: var(--dry-text);   border: 1px solid var(--dry-mid);   }
+  .oily .sign-pill { background: var(--oily-bg);  color: var(--oily-text);  border: 1px solid var(--oily-mid);  }
+  .combo .sign-pill{ background: var(--combo-bg); color: var(--combo-text); border: 1px solid var(--combo-mid); }
+
+  /* ─── MORNING / EVENING COLUMNS ─── */
+  .routine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px) { .routine-grid { grid-template-columns: 1fr; } }
+
+  .routine-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  }
+  .routine-card-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 20px;
+    font-weight: 700; font-size: 14px; letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .routine-card-head .icon { font-size: 20px; }
+
+  .dry  .routine-card-head { background: var(--dry-dark);   }
+  .oily .routine-card-head { background: var(--oily-dark);  }
+  .combo .routine-card-head { background: var(--combo-dark); }
+
+  .routine-card-body { background: var(--white); padding: 0; }
+
+  /* ─── STEP ─── */
+  .step {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #F0EDE8;
+    transition: background .15s;
+  }
+  .step:last-child { border-bottom: none; }
+  .step:hover { background: #FAFAF8; }
+
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--white);
+  }
+  .dry  .step-num { background: var(--dry-dark);   }
+  .oily .step-num { background: var(--oily-dark);  }
+  .combo .step-num{ background: var(--combo-dark); }
+
+  .step-content { flex: 1; min-width: 0; }
+  .step-name { font-weight: 600; font-size: 14px; margin-bottom: 3px; color: var(--ink); }
+  .step-desc { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 6px; }
+  .step-product {
+    display: inline-block;
+    font-size: 12px; font-weight: 500;
+    padding: 3px 10px; border-radius: 100px;
+    margin-top: 2px;
+  }
+  .dry  .step-product { background: var(--dry-bg);   color: var(--dry-text);   }
+  .oily .step-product { background: var(--oily-bg);  color: var(--oily-text);  }
+  .combo .step-product{ background: var(--combo-bg); color: var(--combo-text); }
+
+  /* ─── PRO TIPS ─── */
+  .pro-tips {
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+  .dry  .pro-tips { background: var(--dry-bg);   border-left: 4px solid var(--dry-dark);   }
+  .oily .pro-tips { background: var(--oily-bg);  border-left: 4px solid var(--oily-dark);  }
+  .combo .pro-tips{ background: var(--combo-bg); border-left: 4px solid var(--combo-dark); }
+
+  .pro-tips h4 {
+    font-size: 13px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .dry  .pro-tips h4 { color: var(--dry-text);   }
+  .oily .pro-tips h4 { color: var(--oily-text);  }
+  .combo .pro-tips h4{ color: var(--combo-text); }
+
+  .pro-tips ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .pro-tips li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: #444; }
+  .pro-tips li::before {
+    content: '✓';
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .dry  .pro-tips li::before { color: var(--dry-dark);   }
+  .oily .pro-tips li::before { color: var(--oily-dark);  }
+  .combo .pro-tips li::before{ color: var(--combo-dark); }
+
+  /* ─── AVOID BOX ─── */
+  .avoid-box {
+    background: #FFF5F5;
+    border: 1px solid #F5C6C6;
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+  }
+  .avoid-box h4 {
+    font-size: 13px; font-weight: 700; color: #B02A2A;
+    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .avoid-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .avoid-box li { font-size: 13px; color: #666; display: flex; gap: 8px; }
+  .avoid-box li::before { content: '✕'; color: #E05050; font-weight: 700; flex-shrink: 0; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #DDD, transparent);
+    margin: 60px 0;
+  }
+
+  /* ─── INGREDIENT KEY ─── */
+  .ingredients-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    margin-bottom: 60px;
+  }
+  .ingredients-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--slate);
+  }
+  .ingredients-section .sub {
+    text-align: center; color: #888; font-size: 13px; margin-bottom: 32px;
+  }
+  .ing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .ing-card {
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    border: 1px solid transparent;
+  }
+  .ing-card.good  { background: #F0FAF4; border-color: #B6DFCA; }
+  .ing-card.avoid { background: #FDF4F4; border-color: #F5C6C6; }
+  .ing-card-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;
+  }
+  .good  .ing-card-tag { background: #B6DFCA; color: #1E5C3A; }
+  .avoid .ing-card-tag { background: #F5C6C6; color: #B02A2A; }
+  .ing-name { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .ing-desc { font-size: 12.5px; color: #666; line-height: 1.5; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--slate);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer strong { color: var(--white); }
+
+  /* ─── STICKY TOC ─── */
+  .toc {
+    position: fixed; top: 20px; right: 20px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border: 1px solid #E0DBD4;
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    z-index: 100;
+    font-size: 12px;
+  }
+  .toc-label { font-weight: 700; color: var(--slate); margin-bottom: 10px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+  .toc a { display: block; text-decoration: none; padding: 4px 0; font-weight: 500; transition: opacity .15s; }
+  .toc a:hover { opacity: 1 !important; }
+  .toc a.dry-link   { color: var(--dry-dark);   }
+  .toc a.oily-link  { color: var(--oily-dark);  }
+  .toc a.combo-link { color: var(--combo-dark); }
+  @media (max-width: 900px) { .toc { display: none; } }
+
+  /* scroll smooth */
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- STICKY TOC -->
+<nav class="toc">
+  <div class="toc-label">Тип шкіри</div>
+  <a href="#dry"   class="dry-link">🌿 Суха</a>
+  <a href="#oily"  class="oily-link">💧 Жирна</a>
+  <a href="#combo" class="combo-link">✨ Комбінована</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">🎁 Гід від косметолога-естетиста</div>
+  <h1>Схема правильного<br><em>домашнього догляду</em></h1>
+  <p class="hero-sub">Доказовий підхід · Перевірені марки · Доступно в Україні</p>
+  <div class="hero-badges">
+    <div class="badge"><span>🌿</span> Суха шкіра</div>
+    <div class="badge"><span>💧</span> Жирна шкіра</div>
+    <div class="badge"><span>✨</span> Комбінована</div>
+    <div class="badge"><span>🔬</span> EBM-основа</div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<div style="padding: 0 24px;">
+  <div class="intro">
+    <h2>Як читати цю схему</h2>
+    <p>Кожна рекомендація заснована на доказовій дерматології (RCT, систематичні огляди Cochrane, рекомендації AAD). Продукти підібрані з тих марок, що офіційно представлені або широко доступні в Україні: <strong>La Roche-Posay, Vichy, CeraVe, The Ordinary, Avene, Bioderma, Neostrata, Eucerin</strong>. Конкретні назви — приклади, а не єдиний вибір: шукайте аналоги з тим самим ключовим інгредієнтом.</p>
+    <div class="skin-type-nav">
+      <a href="#dry"   class="nav-btn dry">🌿 Суха шкіра</a>
+      <a href="#oily"  class="nav-btn oily">💧 Жирна шкіра</a>
+      <a href="#combo" class="nav-btn combo">✨ Комбінована</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrapper">
+
+  <!-- ══════════ СУХА ШКІРА ══════════ -->
+  <section class="skin-section dry" id="dry">
+    <div class="section-header">
+      <div class="section-icon">🌿</div>
+      <div>
+        <div class="section-label">Тип шкіри</div>
+        <div class="section-title">Суха шкіра</div>
+      </div>
+    </div>
+
+    <div class="signs-strip">
+      <span class="sign-pill">Відчуття стягнення</span>
+      <span class="sign-pill">Лущення</span>
+      <span class="sign-pill">Тьмяність</span>
+      <span class="sign-pill">Дрібні зморшки від зневоднення</span>
+      <span class="sign-pill">Пори майже не видно</span>
+    </div>
+
+    <div class="routine-grid">
+      <!-- РАНОК -->
+      <div class="routine-card">
+        <div class="routine-card-head"><span class="icon">☀️</span> Ранкова рутина</div>
+        <div class="routine-card-body">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-name">М'яке очищення</div>
+              <div class="step-desc">Вранці достатньо змити нічний крем теплою водою або м'яким міцелярним засобом без SLS. Не пересушуйте шкіру.</div>
+              <span class="step-product">La Roche-Posay Toleriane Hydrating Gentle Cleanser</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-name">Тонер / Гідрат</div>
+              <div class="step-desc">Зволожуючий тонер без спирту — наносять легким промоканням на вологу шкіру (техніка "dampen skin"), щоб зафіксувати воду.</div>
+              <span class="step-product">Avène Lotion Douce / Bioderma Hydrabio Lotion</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-name">Сироватка з гіалуроновою кислотою</div>
+              <div class="step-desc">ГК різної молекулярної ваги зволожує і на поверхні, і в глибших шарах. Наносити на злегка вологу шкіру.</div>
+              <span class="step-product">The Ordinary Hyaluronic Acid 2% + B5</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-name">Насичений зволожуючий крем</div>
+              <div class="step-desc">Вибирайте "бар'єрний" крем із церамідами, холестерином, жирними кислотами — вони відновлюють ліпідний шар.</div>
+              <span class="step-product">CeraVe Moisturizing Cream / Eucerin Hyaluron-Filler</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-name">SPF 30-50+</div>
+              <div class="step-desc">УФ — головна причина фотостаріння. Обов'язковий крок навіть у хмарну погоду. Для сухої шкіри — SPF з зволожуючою базою.</div>
+              <span class="step-product">La Roche-Posay Anthelios UVmune 400 SPF 50+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ВЕЧІР -->
+      <div class="routine-card">
+        <div class="routine-card-head"><span class="icon">🌙</span> Вечірня рутина</div>
+        <div class="routine-card-body">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-name">Масло або бальзам для зняття макіяжу</div>
+              <div class="step-desc">Перший крок "подвійного очищення": нейтралізує SPF та макіяж, не порушуючи бар'єр. Масло емульгується з водою і змивається без сухості.</div>
+              <span class="step-product">DHC Deep Cleansing Oil / Bioderma Sensibio H2O</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-name">М'який кремовий гель</div>
+              <div class="step-desc">Другий крок очищення — видаляє залишки олії та пил. Без пінистих SLS, без відчуття стягнення після.</div>
+              <span class="step-product">CeraVe Hydrating Facial Cleanser</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-name">Ретинол (2-3 рази/тиж, починати з 0.025%)</div>
+              <div class="step-desc">Золотий стандарт антивікового догляду з доказовою базою (RCT). Починати поступово, завжди наносити на сухе обличчя. Вечір — єдиний час застосування.</div>
+              <span class="step-product">La Roche-Posay Redermic R / The Ordinary Retinol 0.2%</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-name">Живильний нічний крем</div>
+              <div class="step-desc">Вночі шкіра регенерує — насичений крем з пептидами, ніацинамідом або скваленом підтримує відновлення і запобігає TEWL (втраті вологи).</div>
+              <span class="step-product">Vichy Liftactiv Supreme / Eucerin Aquaphor Repair</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-name">Масло для губ / Eye cream</div>
+              <div class="step-desc">Шкіра навколо очей тонша й сухіша — їй потрібен окремий крем з пептидами або ретинальдегідом. Губи — бальзам з пантенолом.</div>
+              <span class="step-product">Vichy Minéral 89 Yeux / Bepanthen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-tips">
+      <h4>💡 Ключові поради для сухої шкіри</h4>
+      <ul>
+        <li>Наносьте зволожуючі засоби на ще вологу шкіру (протягом 60 секунд після вмивання) — це підсилює ефект на 30–40%.</li>
+        <li>Ексфоліацію зведіть до мінімуму: 1 раз на тиждень м'яка PHA (поліг'юрокислота) або молочна кислота 5% — не абразивні скраби.</li>
+        <li>У зимовий період додайте зволожувач повітря в кімнату (оптимальна вологість 45–55%) — це суттєво зменшує TEWL.</li>
+        <li>Уникайте гарячого душу: вода понад 40°C руйнує ліпідний бар'єр. Ідеальна температура — 35–37°C.</li>
+        <li>Ніколи не пропускайте крем перед SPF: сонцезахисний фільтр без зволожуючої основи може додатково висушувати.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-box">
+      <h4>🚫 Уникати при сухій шкірі</h4>
+      <ul>
+        <li>Мила на основі SLS/SLES (лаурилсульфат натрію)</li>
+        <li>Спиртвмісні тоніки та протирання ватними дисками</li>
+        <li>Сильні кислоти (гліколева 10%+ щодня) без зволожуючої "підтримки"</li>
+        <li>Матуючі праймери та пудри — додатково підкреслюють лущення</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ ЖИРНА ШКІРА ══════════ -->
+  <section class="skin-section oily" id="oily">
+    <div class="section-header">
+      <div class="section-icon">💧</div>
+      <div>
+        <div class="section-label">Тип шкіри</div>
+        <div class="section-title">Жирна шкіра</div>
+      </div>
+    </div>
+
+    <div class="signs-strip">
+      <span class="sign-pill">Блиск вже через 2 год після вмивання</span>
+      <span class="sign-pill">Розширені пори</span>
+      <span class="sign-pill">Комедони</span>
+      <span class="sign-pill">Схильність до акне</span>
+      <span class="sign-pill">Щільна текстура</span>
+    </div>
+
+    <div class="routine-grid">
+      <!-- РАНОК -->
+      <div class="routine-card">
+        <div class="routine-card-head"><span class="icon">☀️</span> Ранкова рутина</div>
+        <div class="routine-card-body">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-name">Очищення гелем</div>
+              <div class="step-desc">Гелевий або піняний засіб прибирає надлишки себуму без пересушування. Обережно: гіперочищення провокує компенсаторне вироблення шкірного жиру.</div>
+              <span class="step-product">La Roche-Posay Effaclar Gel / CeraVe Foaming Facial Cleanser</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-name">Тонер з саліциловою кислотою (BHA)</div>
+              <div class="step-desc">BHA (бета-гідроксикислота) жиророзчинна — проникає в пору, розчиняє пробки, зменшує запалення. Для жирної шкіри це основна кислота для ранку.</div>
+              <span class="step-product">Paula's Choice BHA 2% Toner / The Ordinary Salicylic Acid 2%</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-name">Легка сироватка з ніацинамідом</div>
+              <div class="step-desc">Ніацинамід (вітамін B3) у концентрації 5–10%: регулює себопродукцію, звужує пори, освітлює пігментні плями — доведено клінічними дослідженнями.</div>
+              <span class="step-product">The Ordinary Niacinamide 10% + Zinc 1%</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-name">Легкий зволожуючий гель</div>
+              <div class="step-desc">Навіть жирна шкіра потребує зволоження — зневоднена жирна шкіра виробляє ще більше себуму. Вибирайте некомедогенні гелі без масел.</div>
+              <span class="step-product">La Roche-Posay Effaclar Mat / Vichy Normaderm Phytosolution</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-name">SPF 50+ (матуюча текстура)</div>
+              <div class="step-desc">Сонцезахист обов'язковий. Шукайте формули Oil-free, non-comedogenic з матуючим ефектом — нові хімічні фільтри не "закупорюють" пори.</div>
+              <span class="step-product">La Roche-Posay Anthelios Oil Control SPF 50+ / Bioderma Photoderm AKN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ВЕЧІР -->
+      <div class="routine-card">
+        <div class="routine-card-head"><span class="icon">🌙</span> Вечірня рутина</div>
+        <div class="routine-card-body">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-name">Міцелярна вода / Гідрофільна олія (легка)</div>
+              <div class="step-desc">Перший крок знімає макіяж та SPF. Для жирної шкіри — міцелярна вода або дуже легке гідрофільне масло, що емульгується до кінця.</div>
+              <span class="step-product">Bioderma Sebium H2O / Sensibio H2O</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-name">Піняче або гелеве очищення</div>
+              <div class="step-desc">Другий крок очищення — видаляє залишки та запобігає висипанням. Без агресивних ПАР, що знищують мікробіом шкіри.</div>
+              <span class="step-product">La Roche-Posay Effaclar Purifying Foaming Gel</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-name">Ретинол / Адапален (3-4 рази/тиж)</div>
+              <div class="step-desc">Адапален (ретиноїд 4-го покоління) — найкраще вивчений засіб для акне і комедонів із мінімальним подразненням. Починати з 0.1% через день.</div>
+              <span class="step-product">Differin Gel 0.1% (безрецептурний в Україні) / Effaclar A.I.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-name">Легкий нічний гель-крем</div>
+              <div class="step-desc">Некомедогенне зволоження без оклюзивних восків. Гіалуронова кислота + ніацинамід — ідеальна вечірня формула без надлишкового живлення.</div>
+              <span class="step-product">La Roche-Posay Effaclar Duo (+) / Neutrogena Hydro Boost Gel</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-name">Локальний засіб (spot treatment)</div>
+              <div class="step-desc">На активний прищ — точкове нанесення 2% саліцилової кислоти або 10% азелаїнової кислоти. Не видавлювати — це веде до поствугрових плям.</div>
+              <span class="step-product">The Ordinary Azelaic Acid Suspension 10% / Vichy Normaderm S.O.S.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-tips">
+      <h4>💡 Ключові поради для жирної шкіри</h4>
+      <ul>
+        <li>Парадокс жирної шкіри: не відмовляйтеся від зволоження. Зневоднена жирна шкіра виробляє ще більше себуму як компенсаторну реакцію.</li>
+        <li>1 раз на тиждень — маска з каоліном або бентонітом: абсорбує надлишки себуму і прочищає пори. Не тримайте маску до "скам'яніння".</li>
+        <li>Щотижнева хімічна ексфоліація (AHA/BHA): 10% гліколевої або 2% саліцилової, не більше 1–2 разів на тиждень, щоб не зруйнувати бар'єр.</li>
+        <li>Не витирайте обличчя рушником aggressively: легке промокання чистим рушником або одноразовими серветками. Спільний рушник — джерело бактерій.</li>
+        <li>Дієта: зменшення продуктів з високим глікемічним індексом дійсно знижує себопродукцію (дослідження Cordain et al., AJCN).</li>
+      </ul>
+    </div>
+
+    <div class="avoid-box">
+      <h4>🚫 Уникати при жирній шкірі</h4>
+      <ul>
+        <li>Спирт (alcohol denat.) у тонерах — зворотній ефект: шкіра виробляє більше жиру</li>
+        <li>Жирні масла типу кокосового — № 1 комедоген за шкалою FDA</li>
+        <li>Механічні скраби з абразивними частинками — травмують і запалюють</li>
+        <li>Занадто часте вмивання (більше 2 разів на день) — порушує рН і мікробіом</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ КОМБІНОВАНА ШКІРА ══════════ -->
+  <section class="skin-section combo" id="combo">
+    <div class="section-header">
+      <div class="section-icon">✨</div>
+      <div>
+        <div class="section-label">Тип шкіри</div>
+        <div class="section-title">Комбінована шкіра</div>
+      </div>
+    </div>
+
+    <div class="signs-strip">
+      <span class="sign-pill">T-зона блищить</span>
+      <span class="sign-pill">Щоки сухі або нормальні</span>
+      <span class="sign-pill">Розширені пори на носі</span>
+      <span class="sign-pill">Комедони в T-зоні</span>
+      <span class="sign-pill">Стягнення щік після вмивання</span>
+    </div>
+
+    <div class="routine-grid">
+      <!-- РАНОК -->
+      <div class="routine-card">
+        <div class="routine-card-head"><span class="icon">☀️</span> Ранкова рутина</div>
+        <div class="routine-card-body">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-name">Збалансоване очищення</div>
+              <div class="step-desc">Балансуючий гель — не пересушує щоки і водночас контролює T-зону. Шукайте pH 4.5–5.5 (близький до природнього pH шкіри).</div>
+              <span class="step-product">Vichy Normaderm Daily Cleansing Gel / Avène Cleanance Gel</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-name">Балансуючий тонер</div>
+              <div class="step-desc">Зволожуючий тонер без спирту і без кислоти для всього обличчя — відновлює pH після вмивання. BHA-тонер тільки на T-зону (ватним диском).</div>
+              <span class="step-product">Bioderma Sébium Lotion / Avène Eau Thermale</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-name">Ніацинамід + ГК (сироватка)</div>
+              <div class="step-desc">Одна сироватка для всього обличчя: ніацинамід регулює T-зону, гіалуронова кислота живить щоки. Мультизадачна формула — ідеал для комбінованого типу.</div>
+              <span class="step-product">The Ordinary Niacinamide 10% + Zinc 1% / Neostrata Illuminate</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-name">Зональне зволоження</div>
+              <div class="step-desc">T-зона — легкий гель (або взагалі без крему, якщо немає стягнення). Щоки і скроні — насиченіший бар'єрний крем. Принцип "multimasking" для зволоження.</div>
+              <span class="step-product">T-зона: Vichy Normaderm Mat / Щоки: CeraVe Moisturizing Cream</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-name">SPF 50+ (легка текстура)</div>
+              <div class="step-desc">Обирайте флюїд або гель-SPF — не буде важкості на жирній зоні і надасть достатній захист більш сухим ділянкам.</div>
+              <span class="step-product">Bioderma Photoderm Nude Touch SPF 50+ / Avène Cleanance Solaire</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ВЕЧІР -->
+      <div class="routine-card">
+        <div class="routine-card-head"><span class="icon">🌙</span> Вечірня рутина</div>
+        <div class="routine-card-body">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-name">Подвійне очищення</div>
+              <div class="step-desc">Міцелярна вода або балансуюча олія (перший крок) + м'який гель (другий крок). Не пропускайте перший крок — неповне зняття SPF = комедони.</div>
+              <span class="step-product">Bioderma Sébium H2O + Avène Cleanance Gel</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-name">AHA (1-2 рази/тиж, тільки T-зона)</div>
+              <div class="step-desc">Гліколева або молочна кислота 5–8% на T-зону: відлущує і звужує пори. Щоки — тільки м'яка PHA, якщо є потреба. Не змішувати з ретинолом у ту саму ніч.</div>
+              <span class="step-product">The Ordinary Glycolic Acid 7% Toning Solution</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-name">Ретинол (2-3 рази/тиж, на все обличчя)</div>
+              <div class="step-desc">Ретинол нормалізує кератинізацію (корисно для T-зони) і стимулює колаген (корисно для щік). Починати з 0.025–0.05% і повільно підвищувати.</div>
+              <span class="step-product">La Roche-Posay Redermic R / Vichy LiftActiv Retinol</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-name">Зональний нічний крем</div>
+              <div class="step-desc">T-зона: легкий гель або зволожуючий флюїд. Щоки: насичений крем або додаткова крапля живильного масла-сухоцвіту / шипшини (oleic acid-rich).</div>
+              <span class="step-product">La Roche-Posay Effaclar (T-зона) + Eucerin Repair (щоки)</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-name">Spot treatment на активні ділянки</div>
+              <div class="step-desc">Точково — 10% азелаїнова кислота або 2% саліцилова на комедони T-зони. Щоки — залишити тільки крем, без локальних засобів.</div>
+              <span class="step-product">The Ordinary Azelaic Acid 10% / Vichy Normaderm S.O.S.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-tips">
+      <h4>💡 Ключові поради для комбінованої шкіри</h4>
+      <ul>
+        <li>Мультизональний підхід (multimasking): каолінова маска на T-зону і зволожуюча тканинна маска на щоки — одночасно, 10 хвилин, 1 раз на тиждень.</li>
+        <li>Не ставте знак рівності між "жирністю" і "зволоженістю": T-зона може бути і жирною, і зневодненою водночас. Легке зволоження потрібне всюди.</li>
+        <li>Ніколи не матуйте щоки — матуючі продукти призначені тільки для T-зони. Накладання пудри на сухі щоки підкреслить текстуру і пришвидшить зморшки.</li>
+        <li>Ексфоліація — диференційована: BHA на T-зону, м'яка AHA або PHA на щоки, ніколи не скрабом по всьому обличчю.</li>
+        <li>Восени/взимку комбінована шкіра нерідко "зсувається" до сухої — коригуйте рутину сезонно, збільшуючи насиченість кремів.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-box">
+      <h4>🚫 Уникати при комбінованій шкірі</h4>
+      <ul>
+        <li>Один продукт "для всього обличчя" з крайніми характеристиками (дуже жирний або дуже матуючий)</li>
+        <li>Кислотні тоніки по всьому обличчю — тільки зональне нанесення</li>
+        <li>Ігнорування щік у догляді: відсутність зволоження там призводить до передчасних зморшок</li>
+        <li>Спирт у будь-якій формі — однаково шкідливий і для жирних, і для сухих зон</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════ КЛЮЧОВІ ІНГРЕДІЄНТИ ══════════ -->
+  <div class="ingredients-section">
+    <h2>Ключові інгредієнти: що шукати на етикетці</h2>
+    <p class="sub">Доказова база — клінічні дослідження, систематичні огляди, рекомендації AAD та EDF</p>
+
+    <div class="ing-grid">
+      <div class="ing-card good">
+        <span class="ing-card-tag">✓ Доведено</span>
+        <div class="ing-name">Гіалуронова кислота</div>
+        <div class="ing-desc">Утримує воду в епідермісі. Ефективна при всіх типах шкіри. Шукати: Sodium Hyaluronate.</div>
+      </div>
+      <div class="ing-card good">
+        <span class="ing-card-tag">✓ Доведено</span>
+        <div class="ing-name">Ніацинамід (Vit B3)</div>
+        <div class="ing-desc">5–10%: регулює себум, звужує пори, освітлює. Добре переноситься навіть чутливою шкірою.</div>
+      </div>
+      <div class="ing-card good">
+        <span class="ing-card-tag">✓ Доведено</span>
+        <div class="ing-name">Ретинол / Адапален</div>
+        <div class="ing-desc">Золотий стандарт антивікового та протиугрового догляду. Десятки RCT. Тільки ввечері, SPF вранці.</div>
+      </div>
+      <div class="ing-card good">
+        <span class="ing-card-tag">✓ Доведено</span>
+        <div class="ing-name">Кераміди</div>
+        <div class="ing-desc">Відновлюють ліпідний бар'єр. Ключові при сухій та чутливій шкірі. CeraVe та Bioderma побудовані на них.</div>
+      </div>
+      <div class="ing-card good">
+        <span class="ing-card-tag">✓ Доведено</span>
+        <div class="ing-name">Саліцилова кислота (BHA 2%)</div>
+        <div class="ing-desc">Розчиняє комедони зсередини пори. Протизапальна дія. Незамінна при жирній та схильній до акне шкірі.</div>
+      </div>
+      <div class="ing-card good">
+        <span class="ing-card-tag">✓ Доведено</span>
+        <div class="ing-name">Азелаїнова кислота</div>
+        <div class="ing-desc">10–15%: антиакне, антипігментна, протизапальна. Без фоточутливості — можна і вранці, і ввечері.</div>
+      </div>
+      <div class="ing-card avoid">
+        <span class="ing-card-tag">✕ Обережно</span>
+        <div class="ing-name">Кокосова олія</div>
+        <div class="ing-desc">Рейтинг комедогенності 4/5. Закупорює пори. Уникати при жирній та комбінованій шкірі.</div>
+      </div>
+      <div class="ing-card avoid">
+        <span class="ing-card-tag">✕ Обережно</span>
+        <div class="ing-name">Alcohol denat.</div>
+        <div class="ing-desc">Спирт-денатурат у складі руйнує бар'єр, провокує зневоднення і компенсаторний жир.</div>
+      </div>
+      <div class="ing-card avoid">
+        <span class="ing-card-tag">✕ Обережно</span>
+        <div class="ing-name">SLS / SLES у засобах для вмивання</div>
+        <div class="ing-desc">Агресивне поверхнево-активне з'єднання. Порушує pH, руйнує ліпідний шар, провокує сухість та запалення.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>⚠️ Важливо знати</strong><br>
+  Ця схема є загальноосвітньою і не замінює консультацію дерматолога чи ліцензованого косметолога-естетиста.<br>
+  При вугрі II–IV ступеня, розацеа, атопічному дерматиті — зверніться до лікаря-дерматолога.<br><br>
+  <span style="opacity: .55;">Джерела: AAD Clinical Guidelines, Cochrane Reviews, J Am Acad Dermatol, Br J Dermatol, Marukyu-сумісні методики не застосовувались 😄</span>
+</footer>
+
+</body>
+</html>
