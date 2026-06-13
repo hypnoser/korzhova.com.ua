@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- EasyWeek Booking Software: https://easyweek.com.ua -->
-<script src="https://booking.easyweek.com.ua/widget.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Забороняємо прокрутку самої сторінки */
+    }
+    .iframe-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto; /* Дозволяємо прокрутку всередині контейнера */
+        -webkit-overflow-scrolling: touch; /* Вмикає плавну сенсорну прокрутку на мобільних */
+    }
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+</style>
 </head>
-<body style="margin:0;padding:0;">
-<iframe src="https://booking.easyweek.com.ua/kosmetoloh-estetyst-karyna-korzova" style="border: 0; display: block; width: 100%; height: 100vh; height: -webkit-fill-available; height: 100dvh;" frameborder="0" referrerpolicy="origin"></iframe>
+<body>
+<div class="iframe-wrapper">
+    <iframe src="https://booking.easyweek.com.ua/kosmetoloh-estetyst-karyna-korzova" scrolling="yes"></iframe>
+</div>
 </body>
 </html>
