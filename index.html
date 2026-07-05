@@ -911,9 +911,16 @@
   }
 
   .proc-grid--single {
-    max-width: 480px;
-    margin-left: auto; margin-right: auto;
-  }
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 680px) {
+    .proc-grid--single {
+        width: 100%;
+    }
+}
 
   .proc-card--mezo {
     background: linear-gradient(160deg, #F8F2FC 0%, #EDE0F5 100%);
