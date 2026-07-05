@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Інтрадермальна мезотерапія — ін'єкційне омолодження шкіри обличчя, шиї та декольте. Голка до 4 мм. Карина Коржова — косметолог-естетист, Київ.">
+  <title>Інтрадермальна мезотерапія — Ін'єкційне омолодження | Карина Коржова</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* === TOKENS === */
+    :root {
+      --cream: #FAF7F3;
+      --white: #FFFFFF;
+      --blush: #EDD9CF;
+      --rose:  #A0604A;
+      --rose-m:#C4856D;
+      --rose-l:#E8C9BC;
+      --sage:  #BDC9B5;
+      --sage-l:#DDE6D8;
+      --text:  #281A11;
+      --mid:   #6B4E40;
+      --soft:  #A08070;
+      --line:  rgba(160,96,74,.15);
+      --gold:  #C9A96A;
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* === LAYOUT === */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(1.1rem, 5vw, 2.5rem);
+    }
+
+    /* === HEADER === */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(250,247,243,.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(1.1rem, 5vw, 2.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 62px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      gap: 3px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: .01em;
+    }
+    .logo-sub {
+      font-size: .58rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    nav {
+      display: flex;
+      gap: clamp(.5rem, 2vw, 1.5rem);
+      align-items: center;
+    }
+    nav a {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color .2s;
+      white-space: nowrap;
+    }
+    nav a:hover { color: var(--rose); }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .burger span {
+      display: block;
+      width: 21px;
+      height: 1.5px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .mob-nav {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+      background: var(--cream);
+    }
+    .mob-nav.open { display: flex; }
+    .mob-nav a {
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      padding: .55rem clamp(1.1rem, 5vw, 2.5rem);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border-bottom: 1px solid var(--line);
+      transition: color .2s;
+    }
+    .mob-nav a:hover { color: var(--rose); }
+
+    /* === HERO === */
+    .hero {
+      padding: clamp(2.5rem, 8vw, 4.5rem) 0 clamp(2rem, 6vw, 3.5rem);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--rose-m);
+      opacity: .6;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 7vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+    .hero-desc {
+      font-size: clamp(.9rem, 2.5vw, 1rem);
+      color: var(--mid);
+      max-width: 56ch;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .badge {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      padding: .35rem .85rem;
+      font-size: .74rem;
+      font-weight: 500;
+      color: var(--mid);
+      white-space: nowrap;
+    }
+
+    /* === SECTION === */
+    section {
+      padding: clamp(2.5rem, 7vw, 4rem) 0;
+      border-top: 1px solid var(--line);
+    }
+    .sec-label {
+      display: block;
+      font-size: .63rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 600;
+      margin-bottom: .65rem;
+    }
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.65rem, 5vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.18;
+      color: var(--text);
+      margin-bottom: 1.3rem;
+    }
+    .sec-title em { font-style: italic; color: var(--rose); }
+    .lead {
+      font-size: clamp(.88rem, 2.2vw, .98rem);
+      color: var(--mid);
+      line-height: 1.78;
+      margin-bottom: 1rem;
+      max-width: 72ch;
+    }
+    .lead:last-child { margin-bottom: 0; }
+    .lead strong { color: var(--text); font-weight: 600; }
+
+    /* === CARDS GRID === */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.4rem 1.25rem;
+    }
+    .card-ico { font-size: 1.5rem; margin-bottom: .7rem; }
+    .card h3 {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .3rem;
+      line-height: 1.35;
+    }
+    .card p {
+      font-size: .82rem;
+      color: var(--mid);
+      line-height: 1.62;
+    }
+
+    /* === PROTOCOL STEPS === */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+      margin-top: 1.5rem;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .step-num {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      gap: 1px;
+    }
+    .step-num span:first-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--rose);
+      line-height: 1;
+    }
+    .step-num span.step-ico { font-size: .8rem; line-height: 1; }
+    .step-body { padding-top: .3rem; }
+    .step-tag {
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 500;
+      margin-bottom: .2rem;
+    }
+    .step-body h4 {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .25rem;
+    }
+    .step-body p {
+      font-size: .83rem;
+      color: var(--mid);
+      line-height: 1.63;
+    }
+    .step-time {
+      display: inline-block;
+      font-size: .67rem;
+      letter-spacing: .07em;
+      background: var(--blush);
+      color: var(--rose);
+      border-radius: 50px;
+      padding: .18rem .65rem;
+      margin-top: .35rem;
+      font-weight: 500;
+    }
+
+    /* === TAGS LIST === */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1.3rem;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: .55rem .85rem;
+      font-size: .82rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .tag::before {
+      content: '◇';
+      color: var(--gold);
+      font-size: .6rem;
+      flex-shrink: 0;
+    }
+
+    /* === ZONES BLOCK === */
+    .zones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: .85rem;
+      margin-top: 1.4rem;
+    }
+    .zone-card {
+      background: var(--sage-l);
+      border-radius: 12px;
+      padding: 1.1rem 1rem;
+    }
+    .zone-card h4 {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .35rem;
+    }
+    .zone-card p {
+      font-size: .79rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* === COCKTAILS === */
+    .cocktails {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      margin-top: 1.4rem;
+    }
+    .cocktail {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
+    }
+    .cocktail-ico { font-size: 1.3rem; padding-top: .1rem; }
+    .cocktail h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .2rem;
+    }
+    .cocktail p {
+      font-size: .81rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* === STATS === */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      gap: 1px;
+      margin-top: 1.5rem;
+    }
+    .stat {
+      background: var(--white);
+      padding: 1.3rem 1rem;
+      text-align: center;
+    }
+    .stat-val {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--rose);
+      line-height: 1;
+    }
+    .stat-lbl {
+      display: block;
+      font-size: .68rem;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-top: .3rem;
+    }
+
+    /* === HIGHLIGHT BOX === */
+    .highlight {
+      background: linear-gradient(135deg, var(--blush) 0%, var(--rose-l) 100%);
+      border-radius: 14px;
+      padding: clamp(1.3rem, 4vw, 1.9rem);
+      margin-top: 1.5rem;
+    }
+    .highlight p {
+      font-size: .9rem;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: .65rem;
+    }
+    .highlight p:last-child { margin-bottom: 0; }
+    .highlight strong { color: var(--text); font-weight: 600; }
+
+    /* === BEFORE/AFTER === */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .ba-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .ba-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .ba-half { position: relative; }
+    .ba-half img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .ba-half .ph {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .68rem;
+      color: var(--soft);
+      letter-spacing: .05em;
+    }
+    .ba-half:last-child .ph { background: var(--sage-l); }
+    .ba-marker {
+      position: absolute;
+      top: .5rem;
+      left: .5rem;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.88);
+      color: var(--mid);
+      border-radius: 50px;
+      padding: .18rem .55rem;
+    }
+    .ba-info { padding: .85rem 1rem; }
+    .ba-info h4 {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .15rem;
+    }
+    .ba-info p { font-size: .75rem; color: var(--soft); }
+    .gallery-note {
+      font-size: .75rem;
+      color: var(--soft);
+      font-style: italic;
+      margin-top: 1rem;
+      line-height: 1.55;
+    }
+
+    /* === CONTRAINDICATIONS === */
+    .contra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .contra-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.3rem 1.2rem;
+    }
+    .contra-card .c-ico { font-size: 1.4rem; margin-bottom: .6rem; }
+    .contra-card h4 {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .6rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .contra-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+    .contra-card ul li {
+      font-size: .8rem;
+      color: var(--mid);
+      line-height: 1.5;
+      padding-left: .9rem;
+      position: relative;
+    }
+    .contra-card ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rose-m);
+      font-size: .75rem;
+    }
+
+    /* === COURSE BLOCK === */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+    .course-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+    }
+    .course-card .c-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--rose);
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .course-card .c-ico { font-size: 1.2rem; margin-bottom: .5rem; }
+    .course-card h4 {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .4rem;
+    }
+    .course-card p {
+      font-size: .8rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .course-card .c-note {
+      display: inline-block;
+      margin-top: .5rem;
+      font-size: .68rem;
+      letter-spacing: .06em;
+      color: var(--soft);
+      background: var(--cream);
+      border-radius: 50px;
+      padding: .2rem .6rem;
+    }
+    .course-interval {
+      margin-top: 1rem;
+      background: var(--sage-l);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .8rem;
+      align-items: center;
+    }
+    .course-interval .ci-ico { font-size: 1.2rem; }
+    .course-interval p {
+      font-size: .83rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .course-interval strong { color: var(--text); font-weight: 600; }
+
+    /* === CONTACT / BOOKING === */
+    .contact-section { background: var(--white); }
+    .messenger-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: .75rem;
+      margin-top: 1.5rem;
+    }
+    .msg-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      padding: .85rem 1rem;
+      border-radius: 10px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--white);
+      transition: opacity .2s, transform .2s;
+      text-decoration: none;
+    }
+    .msg-btn:hover { opacity: .88; transform: translateY(-2px); }
+    .msg-btn.tg   { background: #29A9EB; }
+    .msg-btn.vb   { background: #7D3DAF; }
+    .msg-btn.wa   { background: #25D366; }
+    .msg-btn.ig   { background: linear-gradient(135deg,#405DE6,#C13584,#FD1D1D,#F56040); }
+    .msg-btn.fb   { background: #1877F2; }
+    .contact-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+    .contact-item .c-ico {
+      font-size: 1.1rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item h4 {
+      font-size: .78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--soft);
+      margin-bottom: .25rem;
+    }
+    .contact-item p, .contact-item a {
+      font-size: .86rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+    .contact-note {
+      margin-top: 1rem;
+      font-size: .83rem;
+      color: var(--mid);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* === FOOTER === */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.75rem 0;
+      margin-top: .5rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--mid);
+    }
+    .footer-label { font-size: .74rem; color: var(--soft); }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .7rem;
+      color: var(--soft);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      padding: .25rem .75rem;
+      width: fit-content;
+      margin-top: .25rem;
+    }
+    .footer-disclaimer {
+      margin-top: .85rem;
+      font-size: .72rem;
+      color: var(--soft);
+      line-height: 1.6;
+      padding-top: .85rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 640px) {
+      nav { display: none; }
+      .burger { display: flex; }
+      .stats { grid-template-columns: repeat(3, 1fr); }
+      .gallery { grid-template-columns: 1fr; }
+      .contra-grid { grid-template-columns: 1fr 1fr; }
+      .course-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .contra-grid { grid-template-columns: 1fr; }
+      .course-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="https://korzhova.pp.ua" class="logo">
+      <span class="logo-main">Карина Коржова</span>
+      <span class="logo-sub">Косметолог · Естетист</span>
+    </a>
+    <nav>
+      <a href="#what">Про процедуру</a>
+      <a href="#physiology">Як діє</a>
+      <a href="#cocktails">Склади</a>
+      <a href="#protocol">Протокол</a>
+      <a href="#results">Результати</a>
+      <a href="#who">Кому підходить</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-nav" id="mob-nav">
+    <a href="#what">Про процедуру</a>
+    <a href="#physiology">Як діє</a>
+    <a href="#cocktails">Склади</a>
+    <a href="#protocol">Протокол</a>
+    <a href="#results">Результати</a>
+    <a href="#who">Кому підходить</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-eyebrow">Ін'єкційне омолодження · Глибина до 4 мм</div>
+    <h1>Інтрадермальна<br><em>мезотерапія</em></h1>
+    <p class="hero-desc">
+      Науково обґрунтований метод ін'єкційного введення активних речовин
+      безпосередньо в дерму. Відновлення, зволоження та омолодження шкіри
+      обличчя, шиї та зони декольте з точним потраплянням у цільовий шар.
+    </p>
+    <div class="badges">
+      <span class="badge">💉 Голка до 4 мм</span>
+      <span class="badge">⏱️ 30–45 хвилин</span>
+      <span class="badge">✨ Обличчя · Шия · Декольте</span>
+      <span class="badge">🔬 Доказова методика</span>
+      <span class="badge">💧 Без загального наркозу</span>
+    </div>
+  </div>
+</div>
+
+<!-- ЩО ЦЕ ТАКЕ -->
+<section id="what">
+  <div class="wrap">
+    <span class="sec-label">Що це таке</span>
+    <h2 class="sec-title">Метод, що має<br><em>наукове підґрунтя</em></h2>
+    <p class="lead">
+      Мезотерапія — методика ін'єкційного введення фармакологічних та
+      гомеопатичних препаратів у середній шар шкіри (мезодерму). Розроблена
+      французьким лікарем <strong>Dr. Michel Pistor</strong> у 1952 році та визнана
+      Всесвітньою організацією охорони здоров'я як терапевтична дисципліна.
+    </p>
+    <p class="lead">
+      <strong>Інтрадермальна</strong> — означає «всередину дерми». При роботі
+      голкою до 4 мм препарат вводиться виключно в дермальний шар шкіри,
+      не досягаючи підшкірно-жирової клітковини. Це принципово відрізняє
+      процедуру від глибоких ін'єкцій філерів або ботулотоксину.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico">🎯</div>
+        <h3>Точна доставка</h3>
+        <p>Активні речовини потрапляють безпосередньо в дерму — туди, де вони найефективніші. Крем чи сироватка, нанесені на поверхню, не проникають так глибоко через епідермальний бар'єр.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico">🔬</div>
+        <h3>Подвійний механізм дії</h3>
+        <p>Ефект досягається двома шляхами: <strong>механічним</strong> — сам укол стимулює фібробласти, та <strong>фармакологічним</strong> — активні речовини у складі коктейлю діють локально.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico">🩺</div>
+        <h3>Не плутати з філерами</h3>
+        <p>Мезотерапія не змінює об'єм і не коригує контури. Вона відновлює якість шкіри — насичує, зволожує, стимулює власні процеси синтезу структурних білків.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФІЗІОЛОГІЯ -->
+<section id="physiology">
+  <div class="wrap">
+    <span class="sec-label">Фізіологія</span>
+    <h2 class="sec-title">Що відбувається<br>зі шкірою <em>зсередини</em></h2>
+    <p class="lead">
+      Кожна ін'єкція запускає два паралельних процеси — механічний
+      та біохімічний. Разом вони дають той ефект відновлення, який
+      неможливо отримати жодним поверхневим засобом.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">
+          <span>1</span><span class="step-ico">🩸</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Механічна стимуляція</div>
+          <h4>Мікропошкодження активує фібробласти</h4>
+          <p>Голка, проникаючи в дерму, утворює мінімальну травму тканини. Організм реагує класичним запальним каскадом: вивільняються фактори росту (TGF-β, FGF, PDGF), які сигналізують фібробластам активізуватись та синтезувати новий колаген і еластин. Цей ефект відбувається незалежно від складу коктейлю — виключно від механічного подразнення.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>2</span><span class="step-ico">💧</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Пряме зволоження</div>
+          <h4>Гіалуронова кислота діє в місці введення</h4>
+          <p>Нон-кросслінкована (незшита) гіалуронова кислота, введена в дерму, утримує воду безпосередньо в тканині. Молекули HA зв'язують воду у співвідношенні 1:1000 за масою — тургор і пружність відновлюються на рівні міжклітинного матриксу, а не тільки на поверхні.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>3</span><span class="step-ico">🧬</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Пептидна сигналізація</div>
+          <h4>Пептиди запускають синтез структурних білків</h4>
+          <p>Біоактивні пептиди у складі мезококтейлів є сигнальними молекулами: вони «говорять» фібробластам та кератиноцитам, що потрібно виробляти більше колагену I і III типів, еластину та фібронектину. На відміну від нанесення на шкіру, інтрадермальне введення забезпечує доставку пептидів у незміненому вигляді.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>4</span><span class="step-ico">⚡</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Мікроциркуляція</div>
+          <h4>Покращення кровопостачання зони</h4>
+          <p>Ін'єкція викликає локальне збільшення кровообігу. Більше кисню та поживних речовин надходить до клітин дерми, прискорюється виведення продуктів метаболізму. Шкіра насичується зсередини — звідси ефект «сяяння» після процедури.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>5</span><span class="step-ico">🌿</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Накопичувальний ефект</div>
+          <h4>Кожна процедура додається до попередньої</h4>
+          <p>На відміну від поверхневих процедур, інтрадермальна мезотерапія має виражений кумулятивний ефект. Фібробласти, «розбуджені» курсом ін'єкцій, продовжують активно синтезувати колаген ще кілька тижнів після завершення курсу. Шкіра покращується не лише під час курсу, але й після нього.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СКЛАДИ ТА КОКТЕЙЛІ -->
+<section id="cocktails">
+  <div class="wrap">
+    <span class="sec-label">Склади</span>
+    <h2 class="sec-title">Що входить до<br><em>мезококтейлів</em></h2>
+    <p class="lead">
+      Склад коктейлю підбирається індивідуально під запит і стан шкіри.
+      Нижче — основні групи активних компонентів, що застосовуються
+      в інтрадермальній мезотерапії та мають доказову ефективність.
+    </p>
+
+    <div class="cocktails">
+      <div class="cocktail">
+        <div class="cocktail-ico">💧</div>
+        <div>
+          <h4>Гіалуронова кислота (нон-кросслінкована)</h4>
+          <p>Незшита HA з низькою або середньою молекулярною масою. Відновлює водний баланс дерми, покращує тургор і пружність. Це не філер — вона не створює об'єм, а насичує тканину зволоженням на клітинному рівні. Метаболізується природним шляхом протягом кількох тижнів.</p>
+        </div>
+      </div>
+      <div class="cocktail">
+        <div class="cocktail-ico">🍊</div>
+        <div>
+          <h4>Вітамінні комплекси</h4>
+          <p><strong>Вітамін С</strong> — антиоксидант, необхідний для синтезу колагену та освітлення пігментації. <strong>Вітаміни групи В</strong> (B3/ніацинамід, B5, B6, B12) — регулюють клітинний метаболізм, зменшують запалення, підтримують бар'єрну функцію. <strong>Вітамін А</strong> — прискорює оновлення клітин епідермісу.</p>
+        </div>
+      </div>
+      <div class="cocktail">
+        <div class="cocktail-ico">🧬</div>
+        <div>
+          <h4>Біоактивні пептиди</h4>
+          <p>Короткі ланцюжки амінокислот, що виконують сигнальну функцію. <strong>Матрикіни</strong> — стимулюють синтез компонентів позаклітинного матриксу. <strong>Міорелаксантні пептиди</strong> (як Argireline) — знижують гіперактивність мімічних м'язів. <strong>Пептиди-антиоксиданти</strong> — нейтралізують вільні радикали.</p>
+        </div>
+      </div>
+      <div class="cocktail">
+        <div class="cocktail-ico">🫀</div>
+        <div>
+          <h4>Амінокислоти</h4>
+          <p>Будівельний матеріал для синтезу власних білків шкіри. Гліцин, проліг, лізин — ключові амінокислоти в структурі колагену. Таурин — антиоксидант та регулятор осмотичного тиску клітин. Надходження амінокислот безпосередньо в дерму пришвидшує відновлення позаклітинного матриксу.</p>
+        </div>
+      </div>
+      <div class="cocktail">
+        <div class="cocktail-ico">⚗️</div>
+        <div>
+          <h4>Коензими та мінерали</h4>
+          <p><strong>Коензим Q10</strong> — антиоксидант, що захищає мітохондрії клітин. <strong>Глутатіон</strong> — потужний антиоксидант, що освітлює шкіру та уповільнює глікацію. <strong>Мінерали</strong> (цинк, селен, мідь, магній) — кофактори ферментів, необхідних для синтезу колагену та антиоксидантного захисту.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight" style="margin-top:1.5rem;">
+      <p>
+        <strong>Важливо:</strong> конкретні препарати та їх концентрацію косметолог
+        підбирає індивідуально після консультації та оцінки стану шкіри.
+        Не існує «універсального» коктейлю — ефективна мезотерапія завжди
+        є персоналізованою.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ЩО ВИРІШУЄ -->
+<section id="solves">
+  <div class="wrap">
+    <span class="sec-label">Показання</span>
+    <h2 class="sec-title">Що <em>вирішує</em><br>інтрадермальна мезотерапія</h2>
+    <p class="lead">
+      Метод ефективний при станах шкіри, в основі яких лежить дефіцит
+      зволоження, зниження активності фібробластів та погіршення мікроциркуляції.
+    </p>
+
+    <div class="tags">
+      <div class="tag">Зневоднена та тьмяна шкіра</div>
+      <div class="tag">Дрібні мімічні зморшки</div>
+      <div class="tag">«Втомлений» вигляд обличчя</div>
+      <div class="tag">Зниження тонусу та пружності</div>
+      <div class="tag">Нерівний тон, поверхнева пігментація</div>
+      <div class="tag">Розширені пори</div>
+      <div class="tag">Сіруватий або жовтуватий відтінок шкіри</div>
+      <div class="tag">Носогубні складки (початковий ступінь)</div>
+      <div class="tag">Шкіра після стресу або хвороби</div>
+      <div class="tag">Шкіра після різкого схуднення</div>
+      <div class="tag">Профілактика вікових змін після 25 років</div>
+      <div class="tag">Підготовка шкіри перед важливою подією</div>
+      <div class="tag">Відновлення після агресивних процедур</div>
+    </div>
+
+    <div class="zones" style="margin-top:1.75rem;">
+      <div class="zone-card">
+        <h4>🫦 Обличчя</h4>
+        <p>Лоб, скроні, вилиці, щоки, підборіддя, периорбітальна зона, носогубна зона. Повний протокол або локальна робота з проблемними зонами.</p>
+      </div>
+      <div class="zone-card">
+        <h4>🔓 Шия</h4>
+        <p>Передня та бічні поверхні шиї, підщелепна зона. Шкіра шиї тонша та старіє швидше — і рідше отримує належний догляд.</p>
+      </div>
+      <div class="zone-card">
+        <h4>💎 Декольте</h4>
+        <p>Зона грудини та верхньої частини грудей. Горизонтальні зморшки декольте, пігментація, сухість та в'ялість шкіри.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОТОКОЛ -->
+<section id="protocol">
+  <div class="wrap">
+    <span class="sec-label">Протокол процедури</span>
+    <h2 class="sec-title">Як проходить<br><em>процедура</em></h2>
+    <p class="lead">
+      Стандартний сеанс інтрадермальної мезотерапії складається з п'яти
+      послідовних етапів. Загальна тривалість — 30–45 хвилин.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">
+          <span>1</span><span class="step-ico">📋</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Початок сеансу</div>
+          <h4>Консультація та збір анамнезу</h4>
+          <p>Перед першою процедурою — обговорення запиту, оцінка стану шкіри, перевірка наявності протипоказань. Підбір складу коктейлю та техніки введення під конкретний запит клієнта.</p>
+          <span class="step-time">⏱ 5–7 хв (перша процедура)</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>2</span><span class="step-ico">🧴</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Підготовка</div>
+          <h4>Демакіяж та антисептична обробка</h4>
+          <p>Ретельне очищення шкіри та знежирення зони ін'єкцій антисептичним розчином. Це обов'язковий крок для запобігання занесенню інфекції та забезпечення безпеки процедури.</p>
+          <span class="step-time">⏱ 5 хв</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>3</span><span class="step-ico">🌙</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Опціонально</div>
+          <h4>Аплікаційна анестезія</h4>
+          <p>За необхідності або за бажанням клієнта наноситься топічний анестетик (крем на основі лідокаїну). Витримується 20–30 хвилин. Дозволяє суттєво знизити дискомфорт під час ін'єкцій у чутливих зонах — навколо очей, губ.</p>
+          <span class="step-time">⏱ 20–30 хв очікування</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>4</span><span class="step-ico">💉</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Основна процедура</div>
+          <h4>Ін'єкційне введення препарату</h4>
+          <p>Косметолог вводить препарат у дерму голкою до 4 мм глибини за обраною технікою: <strong>наппаж</strong> (множинні поверхневі уколи на малій глибині), <strong>точковий метод</strong> (глибші ін'єкції у визначені точки), або <strong>лінійно-ретроградний</strong> метод (вздовж зморшок). Техніка обирається залежно від запиту.</p>
+          <span class="step-time">⏱ 15–25 хв</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">
+          <span>5</span><span class="step-ico">🌸</span>
+        </div>
+        <div class="step-body">
+          <div class="step-tag">Завершення</div>
+          <h4>Заспокійливий догляд після процедури</h4>
+          <p>Нанесення заспокійливої маски або сироватки для зменшення реактивності шкіри. Холодовий компрес за потреби. Рекомендації щодо поведінки в перші 24 години та схеми подальших сеансів.</p>
+          <span class="step-time">⏱ 5–10 хв</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <p>
+        <strong>Після процедури.</strong> У перші кілька годин можливі невеликі
+        папули (горбики від ін'єкцій), незначне почервоніння та набряк — це
+        нормальна реакція, яка минає впродовж 2–12 годин. Уникайте активного
+        сонця, сауни, басейну та фізичних навантажень протягом 24 годин.
+        Не наносьте декоративну косметику одразу після сеансу.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ДО ТА ПІСЛЯ -->
+<section id="results">
+  <div class="wrap">
+    <span class="sec-label">Результати процедур</span>
+    <h2 class="sec-title">До та <em>після</em></h2>
+    <p class="lead">Реальні результати клієнтів після курсу інтрадермальної мезотерапії.</p>
+
+    <div class="gallery">
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-half">
+            <div class="ph">До</div>
+            <span class="ba-marker">До</span>
+          </div>
+          <div class="ba-half">
+            <div class="ph">Після</div>
+            <span class="ba-marker">Після</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h4>Зволоження та сяяння</h4>
+          <p>Курс 4 процедури · обличчя</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-half">
+            <div class="ph">До</div>
+            <span class="ba-marker">До</span>
+          </div>
+          <div class="ba-half">
+            <div class="ph">Після</div>
+            <span class="ba-marker">Після</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h4>Дрібні зморшки, тонус</h4>
+          <p>Курс 6 процедур · обличчя та шия</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-images">
+          <div class="ba-half">
+            <div class="ph">До</div>
+            <span class="ba-marker">До</span>
+          </div>
+          <div class="ba-half">
+            <div class="ph">Після</div>
+            <span class="ba-marker">Після</span>
+          </div>
+        </div>
+        <div class="ba-info">
+          <h4>Пігментація, рівний тон</h4>
+          <p>Курс 5 процедур · обличчя</p>
+        </div>
+      </div>
+    </div>
+    <p class="gallery-note">* Фото клієнтів будуть додані зі згоди. Результати індивідуальні та залежать від стану шкіри, віку та кількості процедур.</p>
+  </div>
+</section>
+
+<!-- КОМУ ПІДХОДИТЬ + КУРС -->
+<section id="who">
+  <div class="wrap">
+    <span class="sec-label">Кому підходить · Курс</span>
+    <h2 class="sec-title">Схема курсу та<br><em>рекомендації</em></h2>
+    <p class="lead">
+      Інтрадермальна мезотерапія підходить більшості дорослих, хто хоче
+      покращити якість шкіри без хірургічного втручання. Найкращі результати —
+      при початкових та помірних вікових змінах або як профілактика.
+    </p>
+
+    <div class="course-grid">
+      <div class="course-card">
+        <div class="c-ico">✨</div>
+        <div class="c-num">1</div>
+        <h4>Разова процедура</h4>
+        <p>Ідеальна підготовка перед важливою подією. Надасть шкірі сяяння та свіжість.</p>
+        <span class="c-note">Ефект 1–2 тижні</span>
+      </div>
+      <div class="course-card">
+        <div class="c-ico">🔄</div>
+        <div class="c-num">4–6</div>
+        <h4>Базовий курс</h4>
+        <p>Для вираженого та стійкого результату: зволоження, тонус, покращення текстури.</p>
+        <span class="c-note">Ефект 3–6 місяців</span>
+      </div>
+      <div class="course-card">
+        <div class="c-ico">🏆</div>
+        <div class="c-num">6–8</div>
+        <h4>Інтенсивний курс</h4>
+        <p>При вираженій зневодненості, пігментації або в якості anti-age протоколу.</p>
+        <span class="c-note">Ефект до 12 місяців</span>
+      </div>
+    </div>
+
+    <div class="course-interval">
+      <div class="ci-ico">📅</div>
+      <p>
+        <strong>Інтервал між процедурами — 7–14 днів.</strong> Це оптимальний час для
+        відновлення тканин та накопичення ефекту. Після завершення курсу —
+        підтримувальний сеанс <strong>1 раз на 1–2 місяці</strong>.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-val">25+</span>
+        <span class="stat-lbl">вік від</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">7–14</span>
+        <span class="stat-lbl">днів між сеансами</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">6–12</span>
+        <span class="stat-lbl">місяців ефект</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОТИПОКАЗАННЯ -->
+<section id="contra">
+  <div class="wrap">
+    <span class="sec-label">Важлива інформація</span>
+    <h2 class="sec-title">Проти<em>покази</em></h2>
+    <p class="lead">
+      Перед процедурою косметолог проводить консультацію та з'ясовує
+      наявність протипоказань. Якщо у вас є сумніви — обов'язково
+      повідомте спеціаліста.
+    </p>
+
+    <div class="contra-grid">
+      <div class="contra-card">
+        <div class="c-ico">🌡️</div>
+        <h4>Гострі стани</h4>
+        <ul>
+          <li>Гострий запальний процес з підвищенням температури</li>
+          <li>Загострення будь-яких хронічних захворювань</li>
+          <li>ГРВІ, грип та інші інфекційні захворювання</li>
+        </ul>
+      </div>
+      <div class="contra-card">
+        <div class="c-ico">🩺</div>
+        <h4>Системні захворювання</h4>
+        <ul>
+          <li>Онкологічні захворювання</li>
+          <li>Порушення згортання крові</li>
+          <li>Прийом антикоагулянтів (варфарин, аспірин)</li>
+          <li>Декомпенсований цукровий діабет</li>
+          <li>Автоімунні захворювання у стадії загострення</li>
+          <li>Епілепсія</li>
+        </ul>
+      </div>
+      <div class="contra-card">
+        <div class="c-ico">🧬</div>
+        <h4>Стан шкіри та алергії</h4>
+        <ul>
+          <li>Алергія на компоненти препарату</li>
+          <li>Активний герпес у зоні обробки</li>
+          <li>Відкриті ушкодження, запалення шкіри</li>
+          <li>Схильність до келоїдних рубців</li>
+          <li>Важкий ступінь акне в зоні введення</li>
+        </ul>
+      </div>
+      <div class="contra-card">
+        <div class="c-ico">🤰</div>
+        <h4>Особливі стани</h4>
+        <ul>
+          <li>Вагітність (будь-який триместр)</li>
+          <li>Лактація</li>
+          <li>Свіжі філери або ботулотоксин — не раніше ніж через 14 днів</li>
+          <li>Нитковий ліфтинг — не раніше ніж через 1 місяць</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАПИС -->
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <span class="sec-label">Запис та зв'язок</span>
+    <h2 class="sec-title">Записатися<br>на <em>процедуру</em></h2>
+    <p class="lead">
+      Оберіть зручний месенджер — напишіть, і я відповім найближчим часом.
+      Консультація безкоштовна.
+    </p>
+
+    <div class="messenger-grid">
+      <a href="https://t.me/karinakorzhova" class="msg-btn tg" target="_blank" rel="noopener">
+        <span>✈️</span> Telegram
+      </a>
+      <a href="viber://chat?number=%2B380688677992" class="msg-btn vb">
+        <span>💜</span> Viber
+      </a>
+      <a href="https://wa.me/380688677992" class="msg-btn wa" target="_blank" rel="noopener">
+        <span>💚</span> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/cosmetolog.korzhova/" class="msg-btn ig" target="_blank" rel="noopener">
+        <span>📷</span> Instagram
+      </a>
+      <a href="https://m.me/398155166714674" class="msg-btn fb" target="_blank" rel="noopener">
+        <span>💬</span> Messenger
+      </a>
+    </div>
+
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="c-ico">📍</div>
+        <div>
+          <h4>Адреса</h4>
+          <p>м. Київ, вул. Саксаганського, 29<br>Метро «Площа Українських Героїв»</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-ico">🕐</div>
+        <div>
+          <h4>Графік роботи</h4>
+          <p>Пн–Пт: 12:00 – 20:00<br>Сб, Нд: за домовленістю</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-ico">📞</div>
+        <div>
+          <h4>Телефон</h4>
+          <a href="tel:+380688677992">+38 068 867 7992</a>
+        </div>
+      </div>
+    </div>
+    <p class="contact-note">💬 Напишіть у будь-який зручний месенджер — я відповім та підберу зручний час для вашої процедури.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="wrap">
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Косметолог-естетист Карина Коржова</p>
+      <p class="footer-label">Інформаційна сторінка про процедуру інтрадермальної мезотерапії</p>
+      <span class="footer-brand">🏷️ Ін'єкційне омолодження · Голка до 4 мм</span>
+    </div>
+    <p class="footer-disclaimer">
+      Інформація на цій сторінці носить виключно ознайомлювальний характер.<br>
+      Результати індивідуальні та можуть відрізнятись залежно від стану шкіри та кількості процедур.<br>
+      Джерела: Pistor M. (1958) Qu'est-ce que la mésothérapie; ESMA — European Society of Mesotherapy; Mammucari M. et al. (2011) Mesotherapy.
+    </p>
+  </footer>
+</div>
+
+<script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobNav = document.getElementById('mob-nav');
+  burger.addEventListener('click', () => {
+    const open = mobNav.classList.toggle('open');
+    const [s1, s2, s3] = burger.querySelectorAll('span');
+    s1.style.transform = open ? 'rotate(45deg) translate(4.5px, 4.5px)' : '';
+    s2.style.opacity   = open ? '0' : '1';
+    s3.style.transform = open ? 'rotate(-45deg) translate(4.5px, -4.5px)' : '';
+  });
+  mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobNav.classList.remove('open');
+    const [s1, s2, s3] = burger.querySelectorAll('span');
+    s1.style.transform = s3.style.transform = '';
+    s2.style.opacity = '1';
+  }));
+</script>
+</body>
+</html>
